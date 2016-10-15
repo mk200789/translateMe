@@ -15,6 +15,8 @@
 		C65BE47B1DA607CC00574E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65BE4791DA607CC00574E8B /* LaunchScreen.storyboard */; };
 		C65BE4861DA607CC00574E8B /* translateMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE4851DA607CC00574E8B /* translateMeTests.swift */; };
 		C65BE4911DA607CC00574E8B /* translateMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE4901DA607CC00574E8B /* translateMeUITests.swift */; };
+		C6D2B8D21DB1CDA500B2DEBB /* property.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D2B8D11DB1CDA500B2DEBB /* property.plist */; };
+		C6D2B8D41DB1CEF600B2DEBB /* getProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C65BE48C1DA607CC00574E8B /* translateMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = translateMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65BE4901DA607CC00574E8B /* translateMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateMeUITests.swift; sourceTree = "<group>"; };
 		C65BE4921DA607CC00574E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D2B8D11DB1CDA500B2DEBB /* property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = property.plist; sourceTree = "<group>"; };
+		C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getProperty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				C65BE4791DA607CC00574E8B /* LaunchScreen.storyboard */,
 				C65BE47C1DA607CC00574E8B /* Info.plist */,
 				C65BE4741DA607CC00574E8B /* translateMe.xcdatamodeld */,
+				C6D2B8D11DB1CDA500B2DEBB /* property.plist */,
+				C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */,
 			);
 			path = translateMe;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65BE47B1DA607CC00574E8B /* LaunchScreen.storyboard in Resources */,
+				C6D2B8D21DB1CDA500B2DEBB /* property.plist in Resources */,
 				C65BE4781DA607CC00574E8B /* Assets.xcassets in Resources */,
 				C65BE4731DA607CC00574E8B /* Main.storyboard in Resources */,
 			);
@@ -263,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65BE4761DA607CC00574E8B /* translateMe.xcdatamodeld in Sources */,
+				C6D2B8D41DB1CEF600B2DEBB /* getProperty.swift in Sources */,
 				C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */,
 				C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */,
 			);
@@ -509,6 +517,7 @@
 				C65BE4971DA607CC00574E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C65BE4981DA607CC00574E8B /* Build configuration list for PBXNativeTarget "translateMeTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +526,7 @@
 				C65BE49A1DA607CC00574E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C65BE49B1DA607CC00574E8B /* Build configuration list for PBXNativeTarget "translateMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +535,7 @@
 				C65BE49D1DA607CC00574E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

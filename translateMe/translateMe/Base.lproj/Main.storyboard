@@ -26,16 +26,48 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUS-AB-HvZ">
+                                <frame key="frameInset" minX="132" minY="537" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.40935300009999998" blue="0.74398330970000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Translate">
+                                    <color key="titleColor" red="0.83921575550000005" green="0.83921575550000005" blue="0.83921575550000005" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="translateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hmP-a5-bmy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F56-EX-ZOt">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="ZFk-yz-g0E"/>
+                                </constraints>
+                                <state key="normal" title="No Language Selected">
+                                    <color key="titleColor" red="0.093377508223056793" green="0.12671059370040894" blue="0.033944897353649139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to translate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lhz-Qd-OOW">
+                                <frame key="frameInset" minX="65" minY="341" width="244" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="F56-EX-ZOt" firstAttribute="top" secondItem="ZBE-V8-bIX" secondAttribute="bottom" constant="68" id="W1P-xu-LVx"/>
                             <constraint firstItem="ZBE-V8-bIX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="134" id="bes-H1-HSG"/>
+                            <constraint firstItem="F56-EX-ZOt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fee-O1-jiq"/>
                             <constraint firstItem="ZBE-V8-bIX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jtW-jg-q2N"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputText" destination="Lhz-Qd-OOW" id="d8q-sb-Mz5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="103.89805097451276"/>
         </scene>
     </scenes>
 </document>
