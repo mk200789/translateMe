@@ -12,11 +12,30 @@ class ViewController: UIViewController {
     
     var accessToken: String = ""
 
+    var parser = XMLParser()
+    
+    @IBOutlet var outputTextLabel: UILabel!
+    
+    @IBOutlet var inputTextLabel: UITextField!
+    
+    @IBOutlet var inputText: UITextField!
+    
     @IBAction func translateButton(_ sender: AnyObject) {
         print("translate button pressed")
-        translate(text: "hello girls", langTo: "de")
+        
+        //Check if input text is empty
+        if (!(inputTextLabel.text?.isEmpty)! && !((inputTextLabel.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!){
+            
+            translate(text: inputTextLabel.text! , langTo: "de")
+            
+        }else{
+            
+            outputTextLabel.text = "Please enter a text to translate."
+        }
+        
+    
     }
-    @IBOutlet var inputText: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +45,17 @@ class ViewController: UIViewController {
 //        frameRect.size.height = 100;
 //        inputText.frame = frameRect
         
+        //get access token
+        getAccessToken();
+
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     
     /*
      * Translates
@@ -41,43 +64,47 @@ class ViewController: UIViewController {
      *      - text   : The string that will be translated
      *      - langTo : The language `text` will be translated to
      *
-     * - Returns: The translated text
+     * - Outcome: Sets `outputTextLabel` to the `translated` text in the language `langTo`
      *
      */
-    func translate(text: String, langTo: String) -> String{
-        //get access token
-        getAccessToken();
+    func translate(text: String, langTo: String) {
+        
+        print("Translating")
         
         let langFrom = "en";
         let uri = "https://api.microsofttranslator.com/v2/Http.svc/Translate?text="+text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&from=" + langFrom + "&to=" + langTo
         
         let authToken = "Bearer " + self.accessToken
         
-        
-        
         let url = URL(string: uri)
         var request = URLRequest(url: url!)
         
+        var translated : NSString = ""
+        
         request.httpMethod = "GET"
         request.setValue(authToken, forHTTPHeaderField: "Authorization ")
+        
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
             if ((response as! HTTPURLResponse).statusCode == 200){
                 
                 print(String(data: data!, encoding: String.Encoding.utf8)!)
                 
-                let parser = XMLParser(data: data!)
-                parser.parse()
-               //TODO: WORK ON PARSING XML
+                //Reminder todo:  find the correct way to parse xml
+                translated  = String(data: data!, encoding: String.Encoding.utf8)! as NSString
+                translated = translated.replacingOccurrences(of: "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">", with: "") as NSString
+                translated = translated.replacingOccurrences(of: "</string>", with: "") as NSString
+                
+                print("translated:" , translated)
+                
+                DispatchQueue.main.async {
+                    self.outputTextLabel.text = translated as String
+                }
+                
             }
 
-        }
-        
-        task.resume()
-        
-        
-        return "A translated text"
-        
+        }.resume()
     }
     
 
@@ -127,7 +154,12 @@ class ViewController: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     //set access token
                     //self.accessToken = (json["access_token"] as! String).removingPercentEncoding!
-                    self.accessToken = (json["access_token"] as! String)
+                    
+                    DispatchQueue.main.async {
+
+                        self.accessToken = setVal(key: "bing_access_token", value: (json["access_token"] as! String))
+                    }
+                    
                 
                 }catch{
                     print("Error converting to json.")
@@ -139,7 +171,6 @@ class ViewController: UIViewController {
         
         
     }
-
 
 }
 
