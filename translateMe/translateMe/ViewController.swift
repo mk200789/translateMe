@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var selectedLanguageLabel: UIButton!
+    
     var accessToken: String = ""
     
     var selectedLanguage : String = ""
@@ -105,6 +107,10 @@ class ViewController: UIViewController {
         //get access token
         getAccessToken();
         
+        //check if there's a language is selected, if there is change button name to that language
+        if (!self.selectedLanguage.isEmpty){
+            selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
+        }
         print("selected language is: ", self.selectedLanguage)
 
         
@@ -124,7 +130,6 @@ class ViewController: UIViewController {
      *      - langTo : The language `text` will be translated to
      *
      * - Outcome: Sets `outputTextLabel` to the `translated` text in the language `langTo`
-     *
      */
     func translate(text: String, langTo: String) {
         
@@ -174,7 +179,6 @@ class ViewController: UIViewController {
      *      - text: The string that will be encoded
      *
      * - Returns: The url-encoded string
-     *
      */
     func encodeURIComponent(text: String) -> String {
         let characterSet = NSMutableCharacterSet.alphanumeric()

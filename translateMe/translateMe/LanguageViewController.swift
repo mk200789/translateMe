@@ -46,7 +46,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var segueDestination = segue.destination as! ViewController
+        let segueDestination = segue.destination as! ViewController
         segueDestination.selectedLanguage = self.selectedLanguage
     }
     

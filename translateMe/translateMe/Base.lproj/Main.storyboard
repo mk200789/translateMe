@@ -75,6 +75,7 @@
                         <outlet property="inputText" destination="Lhz-Qd-OOW" id="d8q-sb-Mz5"/>
                         <outlet property="inputTextLabel" destination="Lhz-Qd-OOW" id="zHb-pl-SEo"/>
                         <outlet property="outputTextLabel" destination="JgC-PZ-YBr" id="Vib-zj-W0G"/>
+                        <outlet property="selectedLanguageLabel" destination="F56-EX-ZOt" id="OC0-H4-Wtt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
