@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var accessToken: String = ""
+    
+    var selectedLanguage : String = ""
 
     var parser = XMLParser()
     
@@ -20,13 +22,68 @@ class ViewController: UIViewController {
     
     @IBOutlet var inputText: UITextField!
     
+    let language : [String: String]  = ["Afrikaans": "af",
+                                        "Arabic" : "ar",
+                                        "Bosnian (Latin)": "bs-Latn",
+                                        "Bulgarian" : "bg",
+                                        "Catalan" : "ca",
+                                        "Chinese Simplified" : "zh-CHS",
+                                        "Chinese Traditional" : "zh-CHT",
+                                        "Croatian" : "hr",
+                                        "Czech" : "cs",
+                                        "Danish" : "da",
+                                        "Dutch" : "nl",
+                                        "English" : "en",
+                                        "Estonian" : "et",
+                                        "Finnish" : "fi",
+                                        "French" : "fr",
+                                        "German" : "de",
+                                        "Greek" : "el",
+                                        "Hatian Creole" : "ht",
+                                        "Hebrew" : "he",
+                                        "Hindi" : "hi",
+                                        "Hmong Daw" : "mww",
+                                        "Hungarian" : "hu",
+                                        "Indonesian" : "id",
+                                        "Italian" : "it",
+                                        "Japanese" : "ja",
+                                        "Kiswahili" : "sw",
+                                        "Klingon" : "tlh",
+                                        "Klingon (pIqaD)" : "tlh-Qaak",
+                                        "Korean" : "ko",
+                                        "Latvian" : "lv",
+                                        "Lithuanian" : "lt",
+                                        "Malay" : "ms",
+                                        "Maltese": "mt",
+                                        "Norwegian": "no",
+                                        "Persian" : "fa",
+                                        "Polish" : "pl",
+                                        "Portuguese" : "pt",
+                                        "Querétaro Otomi" : "otq",
+                                        "Romanian" : "ro",
+                                        "Russian" : "ru",
+                                        "Serbian (Cyrillic)" : "sr-Cyrl",
+                                        "Serbian (Latin)" : "sr-Latn",
+                                        "Slovak" : "sk",
+                                        "Slovenian" : "sl",
+                                        "Spanish" : "es",
+                                        "Swedish" : "sv",
+                                        "Thai": "th",
+                                        "Turkish" : "tr",
+                                        "Ukranian" : "uk",
+                                        "Urdu" : "ur",
+                                        "Vietnamese" : "vi",
+                                        "Welsh" : "cy",
+                                        "Yucatec Maya" : "yua"
+    ]
+    
     @IBAction func translateButton(_ sender: AnyObject) {
         print("translate button pressed")
         
         //Check if input text is empty
         if (!(inputTextLabel.text?.isEmpty)! && !((inputTextLabel.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!){
             
-            translate(text: inputTextLabel.text! , langTo: "de")
+            translate(text: inputTextLabel.text! , langTo: "zh-CHT")
             
         }else{
             
@@ -47,6 +104,8 @@ class ViewController: UIViewController {
         
         //get access token
         getAccessToken();
+        
+        print("selected language is: ", self.selectedLanguage)
 
         
     }
@@ -58,7 +117,7 @@ class ViewController: UIViewController {
 
     
     /*
-     * Translates
+     * Translates text using Bing Translator API
      *
      * - Parameters:
      *      - text   : The string that will be translated
@@ -169,6 +228,28 @@ class ViewController: UIViewController {
         
         task.resume()
         
+        
+    }
+    
+    /*
+     * Gets the language code name
+     *
+     * - Parameters:
+     *      - name : The name of the language
+     *
+     * Returns the code name of language `name`
+     */
+    func getLanguageCode(name: String) -> String{
+        return language[name]!
+        
+    }
+    
+    
+    /*
+     * Get list of languages
+     */
+    func getLanguages() -> [String]{
+        return Array(language.keys)
         
     }
 
