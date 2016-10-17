@@ -36,7 +36,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func submitLanguageButton(_ sender: AnyObject) {
         print("selected language: ", self.selectedLanguage)
-        performSegue(withIdentifier: "submit_language", sender: nil)
+        performSegue(withIdentifier: "submit_language", sender: self)
     }
     
 

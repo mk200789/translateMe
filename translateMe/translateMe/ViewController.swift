@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var accessToken: String = ""
     
+    
     var selectedLanguage : String = ""
 
     var parser = XMLParser()
@@ -22,7 +23,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var inputTextLabel: UITextField!
     
-    @IBOutlet var inputText: UITextField!
+//    @IBOutlet var inputText: UITextField!
     
     let language : [String: String]  = ["Afrikaans": "af",
                                         "Arabic" : "ar",
