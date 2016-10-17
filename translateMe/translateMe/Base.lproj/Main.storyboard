@@ -18,64 +18,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBE-V8-bIX">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MC-pc-77r">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-Du-We9">
+                                        <color key="backgroundColor" red="1" green="0.40935300009999998" blue="0.74398330970000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2Fk-dt-2NZ"/>
+                                            <constraint firstAttribute="width" constant="110" id="f05-l9-yWf"/>
+                                        </constraints>
+                                        <state key="normal" title="Translate">
+                                            <color key="titleColor" red="0.83921575550000005" green="0.83921575550000005" blue="0.83921575550000005" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="translateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y8Z-1o-hr4"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to translate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slR-ru-65r">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="244" id="K4z-EG-vam"/>
+                                            <constraint firstAttribute="height" constant="30" id="e27-zg-qc8"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-MT-B4R">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="244" id="6fE-xE-Q0r"/>
+                                            <constraint firstAttribute="height" constant="34" id="HDX-Cw-jq0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIT-rr-BtZ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="JOT-DX-LEo"/>
+                                            <constraint firstAttribute="width" constant="153" id="ehs-Nb-pHx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-PU-EDM">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="156" id="MFX-aS-vGQ"/>
+                                            <constraint firstAttribute="height" constant="30" id="iG9-tf-MGT"/>
+                                        </constraints>
+                                        <state key="normal" title="No Language Selected">
+                                            <color key="titleColor" red="0.093377508220000002" green="0.12671059370000001" blue="0.033944897350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Y72-7E-2Qp" kind="showDetail" id="dE2-5c-yno"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.65490196078431373" green="0.8666666666666667" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="wQH-Qi-rkO"/>
+                                    <constraint firstItem="JLf-Du-We9" firstAttribute="top" secondItem="lcC-MT-B4R" secondAttribute="bottom" constant="66" id="23b-jg-YHd"/>
+                                    <constraint firstItem="lcC-MT-B4R" firstAttribute="top" secondItem="slR-ru-65r" secondAttribute="bottom" constant="54" id="MG5-eY-7TI"/>
+                                    <constraint firstItem="lcC-MT-B4R" firstAttribute="centerX" secondItem="6MC-pc-77r" secondAttribute="centerX" id="UiM-U6-yny"/>
+                                    <constraint firstItem="slR-ru-65r" firstAttribute="centerX" secondItem="6MC-pc-77r" secondAttribute="centerX" id="YFn-Fb-uzU"/>
+                                    <constraint firstItem="slR-ru-65r" firstAttribute="top" secondItem="1A2-PU-EDM" secondAttribute="bottom" constant="60" id="YKE-dg-wBz"/>
+                                    <constraint firstItem="DIT-rr-BtZ" firstAttribute="centerX" secondItem="6MC-pc-77r" secondAttribute="centerX" id="ae5-mp-sEt"/>
+                                    <constraint firstItem="DIT-rr-BtZ" firstAttribute="top" secondItem="6MC-pc-77r" secondAttribute="top" constant="147" id="i8d-Sw-PFo"/>
+                                    <constraint firstItem="JLf-Du-We9" firstAttribute="centerX" secondItem="6MC-pc-77r" secondAttribute="centerX" id="kky-6R-VvI"/>
+                                    <constraint firstItem="1A2-PU-EDM" firstAttribute="top" secondItem="DIT-rr-BtZ" secondAttribute="bottom" constant="83" id="lOb-Ns-7wA"/>
+                                    <constraint firstItem="1A2-PU-EDM" firstAttribute="centerX" secondItem="6MC-pc-77r" secondAttribute="centerX" id="ulP-F8-Alm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUS-AB-HvZ">
-                                <frame key="frameInset" minX="132" minY="537" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.40935300009999998" blue="0.74398330970000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Translate">
-                                    <color key="titleColor" red="0.83921575550000005" green="0.83921575550000005" blue="0.83921575550000005" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="translateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hmP-a5-bmy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F56-EX-ZOt">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="ZFk-yz-g0E"/>
-                                </constraints>
-                                <state key="normal" title="No Language Selected">
-                                    <color key="titleColor" red="0.093377508223056793" green="0.12671059370040894" blue="0.033944897353649139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Y72-7E-2Qp" kind="show" animates="NO" id="Cyp-ch-HJ2"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to translate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lhz-Qd-OOW">
-                                <frame key="frameInset" minX="65" minY="341" width="244" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgC-PZ-YBr">
-                                <frame key="frameInset" minX="65" minY="425" width="244" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="F56-EX-ZOt" firstAttribute="top" secondItem="ZBE-V8-bIX" secondAttribute="bottom" constant="68" id="W1P-xu-LVx"/>
-                            <constraint firstItem="ZBE-V8-bIX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="134" id="bes-H1-HSG"/>
-                            <constraint firstItem="F56-EX-ZOt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fee-O1-jiq"/>
-                            <constraint firstItem="ZBE-V8-bIX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jtW-jg-q2N"/>
+                            <constraint firstItem="6MC-pc-77r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ACS-6k-Xwq"/>
+                            <constraint firstAttribute="trailing" secondItem="6MC-pc-77r" secondAttribute="trailing" id="HEf-ur-zyu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6MC-pc-77r" secondAttribute="bottom" id="OaN-E1-P4f"/>
+                            <constraint firstItem="6MC-pc-77r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RCh-ua-Kop"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="inputText" destination="Lhz-Qd-OOW" id="d8q-sb-Mz5"/>
-                        <outlet property="inputTextLabel" destination="Lhz-Qd-OOW" id="zHb-pl-SEo"/>
-                        <outlet property="outputTextLabel" destination="JgC-PZ-YBr" id="Vib-zj-W0G"/>
-                        <outlet property="selectedLanguageLabel" destination="F56-EX-ZOt" id="OC0-H4-Wtt"/>
+                        <outlet property="inputTextLabel" destination="slR-ru-65r" id="Ubl-Ou-eqX"/>
+                        <outlet property="outputTextLabel" destination="lcC-MT-B4R" id="ZqK-Lw-DIJ"/>
+                        <outlet property="selectedLanguageLabel" destination="1A2-PU-EDM" id="uoX-eb-0Zx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
