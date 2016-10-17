@@ -18,20 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TranslateMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIC-Js-9om">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nature.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="83W-bR-IB4"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TranslateMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-j3-a5y">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="8HV-F3-nV3"/>
+                                    <constraint firstAttribute="height" constant="46" id="Uzg-xl-gWP"/>
+                                    <constraint firstAttribute="width" constant="235" id="sdP-M3-LiH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="35"/>
+                                <color key="textColor" red="0.76449071553400405" green="0.63049183900969796" blue="0.81041393979057585" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.37464839977652631" green="0.54443091890594775" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZIC-Js-9om" secondAttribute="bottom" constant="324" id="Ff4-Oe-m5J"/>
-                            <constraint firstItem="ZIC-Js-9om" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bqy-Yw-aPU"/>
-                            <constraint firstItem="ZIC-Js-9om" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="302" id="tHb-6r-sjv"/>
+                            <constraint firstItem="RjU-j3-a5y" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="211" id="9uD-sR-w5J"/>
+                            <constraint firstItem="83W-bR-IB4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="VE0-of-XhR"/>
+                            <constraint firstItem="83W-bR-IB4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Xam-kW-ilN"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="83W-bR-IB4" secondAttribute="bottom" id="b9h-cf-Szm"/>
+                            <constraint firstItem="RjU-j3-a5y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lpy-oa-plh"/>
+                            <constraint firstAttribute="trailing" secondItem="83W-bR-IB4" secondAttribute="trailing" id="mF3-jz-dwj"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,4 +45,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nature.JPG" width="3024" height="4032"/>
+    </resources>
 </document>
