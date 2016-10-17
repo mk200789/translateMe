@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         //Check if input text is empty
         if (!(inputTextLabel.text?.isEmpty)! && !((inputTextLabel.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!){
             
-            translate(text: inputTextLabel.text! , langTo: "zh-CHT")
+            translate(text: inputTextLabel.text! , translateTo: self.selectedLanguage)
             
         }else{
             
@@ -131,11 +131,20 @@ class ViewController: UIViewController {
      *
      * - Outcome: Sets `outputTextLabel` to the `translated` text in the language `langTo`
      */
-    func translate(text: String, langTo: String) {
+    func translate(text: String, translateTo: String) {
         
         print("Translating")
         
         let langFrom = "en";
+        
+        if (translateTo.isEmpty){
+            self.outputTextLabel.text = "Please select a language to translate to."
+            return
+        }
+        
+        let langTo = getLanguageCode(name: translateTo)
+
+        print("translation language code: ", langFrom)
         let uri = "https://api.microsofttranslator.com/v2/Http.svc/Translate?text="+text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&from=" + langFrom + "&to=" + langTo
         
         let authToken = "Bearer " + self.accessToken
