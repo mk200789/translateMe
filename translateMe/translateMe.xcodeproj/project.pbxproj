@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63420B31DBB17890049BF4C /* SettingsViewController.swift */; };
 		C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE46D1DA607CC00574E8B /* AppDelegate.swift */; };
 		C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE46F1DA607CC00574E8B /* ViewController.swift */; };
 		C65BE4731DA607CC00574E8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65BE4711DA607CC00574E8B /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C63420B31DBB17890049BF4C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C65BE46A1DA607CC00574E8B /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65BE46D1DA607CC00574E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C65BE46F1DA607CC00574E8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				C65BE4741DA607CC00574E8B /* translateMe.xcdatamodeld */,
 				C6D2B8D11DB1CDA500B2DEBB /* property.plist */,
 				C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */,
+				C63420B31DBB17890049BF4C /* SettingsViewController.swift */,
 			);
 			path = translateMe;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				C6C0131D1DB5D3D80012ACC7 /* WordTableViewController.swift in Sources */,
 				C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */,
 				C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */,
+				C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

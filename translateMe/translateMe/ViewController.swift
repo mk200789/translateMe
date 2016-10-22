@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var inputTextLabel: UITextField!
     
+    @IBOutlet var translateButtonLabel: UIButton!
+    
     let language : [String: String]  = [
                                         "Chinese Simplified" : "zh-CHS",
                                         "Chinese Traditional" : "zh-CHT",
@@ -102,6 +104,11 @@ class ViewController: UIViewController {
         if (!self.selectedLanguage.isEmpty){
             selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
         }
+        self.tabBarController?.title = "Translate by Text"
+        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
+        translateButtonLabel.layer.cornerRadius = 2
+        translateButtonLabel.layer.borderWidth = 0.1
+        
         
     }
     
@@ -117,6 +124,11 @@ class ViewController: UIViewController {
         //get access token
         //getAccessToken();
         self.accessToken = getKey(key: "bing_access_token")
+        
+        outputTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        outputTextLabel.numberOfLines = 0
+//        self.tabBarController?.title = "Translate by Text"
+//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
         
     }
 

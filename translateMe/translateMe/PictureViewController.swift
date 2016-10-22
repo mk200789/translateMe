@@ -20,12 +20,28 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var accessToken : String = ""
     
+    @IBOutlet var showTableButton: UIButton!
+    
+    @IBOutlet var selectPhotoLabel: UIButton!
+    
+    @IBAction func showTable(_ sender: AnyObject) {
+        performSegue(withIdentifier: "image_tags_seg", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
         //getAccessToken()
         self.accessToken = getKey(key: "clarifai_access_token")
+        
+        resultLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        resultLabel.numberOfLines = 0
+        
+//        self.tabBarController?.title = "Translate by Photo"
+//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xF7F4C8)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +49,13 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.title = "Translate by Photo"
+        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xF7F4C8)
+        resultLabel.backgroundColor = UIColor.clear
+        selectPhotoLabel.layer.borderWidth = 0.1
+        selectPhotoLabel.layer.cornerRadius = 2
+    }
     
 
     @IBAction func loadImageButtonTapped(_ sender: UIButton) {
@@ -103,6 +126,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     func updateLabel(){
         resultLabel.text = ""
+        showTableButton.isEnabled = true
         
         for i in self.tags{
             resultLabel.text?.append(String(describing: i) + ", ")
@@ -196,14 +220,16 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         task.resume()
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let segDest = segue.destination as! WordTableViewController
+        segDest.words = self.tags as! [String]
     }
-    */
+ 
 
 }
