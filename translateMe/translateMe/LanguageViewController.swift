@@ -36,8 +36,13 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func submitLanguageButton(_ sender: AnyObject) {
         print("selected language: ", self.selectedLanguage)
-        performSegue(withIdentifier: "submit_language", sender: self)
+        setVal(key: "translate_to", value: self.selectedLanguage)
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    
+
+
     
 
     override func didReceiveMemoryWarning() {

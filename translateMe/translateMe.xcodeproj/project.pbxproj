@@ -15,6 +15,9 @@
 		C65BE47B1DA607CC00574E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65BE4791DA607CC00574E8B /* LaunchScreen.storyboard */; };
 		C65BE4861DA607CC00574E8B /* translateMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE4851DA607CC00574E8B /* translateMeTests.swift */; };
 		C65BE4911DA607CC00574E8B /* translateMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE4901DA607CC00574E8B /* translateMeUITests.swift */; };
+		C6C0131D1DB5D3D80012ACC7 /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C0131C1DB5D3D80012ACC7 /* WordTableViewController.swift */; };
+		C6C013211DB5E4870012ACC7 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C013201DB5E4870012ACC7 /* settings.png */; };
+		C6C013231DB5FC880012ACC7 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C013221DB5FC880012ACC7 /* PictureViewController.swift */; };
 		C6CC34501DB4643200748B20 /* nature.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C6CC344F1DB4643200748B20 /* nature.JPG */; };
 		C6CC34571DB46CA500748B20 /* words.png in Resources */ = {isa = PBXBuildFile; fileRef = C6CC34551DB46CA500748B20 /* words.png */; };
 		C6CC34581DB46CA500748B20 /* pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = C6CC34561DB46CA500748B20 /* pictures.png */; };
@@ -55,6 +58,9 @@
 		C65BE48C1DA607CC00574E8B /* translateMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = translateMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65BE4901DA607CC00574E8B /* translateMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateMeUITests.swift; sourceTree = "<group>"; };
 		C65BE4921DA607CC00574E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6C0131C1DB5D3D80012ACC7 /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
+		C6C013201DB5E4870012ACC7 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		C6C013221DB5FC880012ACC7 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		C6CC344F1DB4643200748B20 /* nature.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature.JPG; sourceTree = "<group>"; };
 		C6CC34551DB46CA500748B20 /* words.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = words.png; sourceTree = "<group>"; };
 		C6CC34561DB46CA500748B20 /* pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pictures.png; sourceTree = "<group>"; };
@@ -113,8 +119,11 @@
 			children = (
 				C65BE46D1DA607CC00574E8B /* AppDelegate.swift */,
 				C65BE46F1DA607CC00574E8B /* ViewController.swift */,
+				C6C013221DB5FC880012ACC7 /* PictureViewController.swift */,
+				C6C0131C1DB5D3D80012ACC7 /* WordTableViewController.swift */,
 				C6D2B9141DB34AF300B2DEBB /* LanguageViewController.swift */,
 				C65BE4711DA607CC00574E8B /* Main.storyboard */,
+				C6C013201DB5E4870012ACC7 /* settings.png */,
 				C65BE4771DA607CC00574E8B /* Assets.xcassets */,
 				C6CC344F1DB4643200748B20 /* nature.JPG */,
 				C6CC34551DB46CA500748B20 /* words.png */,
@@ -260,6 +269,7 @@
 				C65BE4731DA607CC00574E8B /* Main.storyboard in Resources */,
 				C6CC34571DB46CA500748B20 /* words.png in Resources */,
 				C6CC34581DB46CA500748B20 /* pictures.png in Resources */,
+				C6C013211DB5E4870012ACC7 /* settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +296,9 @@
 			files = (
 				C6D2B9151DB34AF300B2DEBB /* LanguageViewController.swift in Sources */,
 				C65BE4761DA607CC00574E8B /* translateMe.xcdatamodeld in Sources */,
+				C6C013231DB5FC880012ACC7 /* PictureViewController.swift in Sources */,
 				C6D2B8D41DB1CEF600B2DEBB /* getProperty.swift in Sources */,
+				C6C0131D1DB5D3D80012ACC7 /* WordTableViewController.swift in Sources */,
 				C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */,
 				C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */,
 			);

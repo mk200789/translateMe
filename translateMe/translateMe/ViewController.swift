@@ -23,15 +23,14 @@ class ViewController: UIViewController {
     
     @IBOutlet var inputTextLabel: UITextField!
     
-//    @IBOutlet var inputText: UITextField!
-    
-    let language : [String: String]  = ["Afrikaans": "af",
+    let language : [String: String]  = [
+                                        "Chinese Simplified" : "zh-CHS",
+                                        "Chinese Traditional" : "zh-CHT",
+                                        "Afrikaans": "af",
                                         "Arabic" : "ar",
                                         "Bosnian (Latin)": "bs-Latn",
                                         "Bulgarian" : "bg",
                                         "Catalan" : "ca",
-                                        "Chinese Simplified" : "zh-CHS",
-                                        "Chinese Traditional" : "zh-CHT",
                                         "Croatian" : "hr",
                                         "Czech" : "cs",
                                         "Danish" : "da",
@@ -85,7 +84,6 @@ class ViewController: UIViewController {
         
         //Check if input text is empty
         if (!(inputTextLabel.text?.isEmpty)! && !((inputTextLabel.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!){
-            
             translate(text: inputTextLabel.text! , translateTo: self.selectedLanguage)
             
         }else{
@@ -96,6 +94,16 @@ class ViewController: UIViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.selectedLanguage = getKey(key: "translate_to")
+        
+        
+        //check if there's a language is selected, if there is change button name to that language
+        if (!self.selectedLanguage.isEmpty){
+            selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,15 +113,10 @@ class ViewController: UIViewController {
 //        frameRect.size.height = 100;
 //        inputText.frame = frameRect
         
-        //get access token
-        getAccessToken();
         
-        //check if there's a language is selected, if there is change button name to that language
-        if (!self.selectedLanguage.isEmpty){
-            selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
-        }
-        print("selected language is: ", self.selectedLanguage)
-
+        //get access token
+        //getAccessToken();
+        self.accessToken = getKey(key: "bing_access_token")
         
     }
 
@@ -134,7 +137,7 @@ class ViewController: UIViewController {
      */
     func translate(text: String, translateTo: String) {
         
-        print("Translating")
+        print("Translating " )
         
         let langFrom = "en";
         
@@ -214,6 +217,8 @@ class ViewController: UIViewController {
         
         let url = URL(string: authUrl)
         var request = URLRequest(url: url!)
+        
+        
         
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
