@@ -92,9 +92,36 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
         imageView.contentMode = .scaleAspectFit
         
+        getTags()
+        
         //dismiss the view
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    var tags : NSArray = []
+
+    func updateLabel(){
+        resultLabel.text = ""
+        
+        for i in self.tags{
+            resultLabel.text?.append(String(describing: i) + ", ")
+        }
+        
+        let str = NSString(string: resultLabel.text!)
+        resultLabel.text = str.substring(to: str.length-2)
+        
+    }
+    
+    
+    
+    func setup(){
+        let results = (self.result["results"] as! NSArray)[0]
+        let result = (results as! NSDictionary)["result"]
+        let tag = ((result as! NSDictionary)["tag"] as! NSDictionary)["classes"] as! NSArray
+        
+        //takes the top 8 tags
+        self.tags = tag.subarray(with: NSRange.init(location: 0, length: 8)) as NSArray
     }
 
     func getTags(){
@@ -116,6 +143,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         request.httpBody = ("encoded_data=\(ViewController().encodeURIComponent(text: base64String!))").data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            print(response)
             if ((response as! HTTPURLResponse).statusCode == 200){
                 print("success!")
                 do{
@@ -123,6 +151,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                     DispatchQueue.main.async {
                         self.result = json
                         print(json)
+                        self.setup()
+                        self.updateLabel()
                         
                     }
                 }catch{
