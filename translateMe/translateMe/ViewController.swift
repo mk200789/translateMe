@@ -8,12 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var selectedLanguageLabel: UIButton!
     
     var accessToken: String = ""
-    
     
     var selectedLanguage : String = ""
 
@@ -96,13 +95,24 @@ class ViewController: UIViewController {
     
     }
     
+    //end editing when return key pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    //end editing when touch outside input text
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.selectedLanguage = getKey(key: "translate_to")
+        self.selectedLanguage = getPropVal(key: "translate_to")
         
-        
+        print("viewWillAppear: ", self.selectedLanguage)
         //check if there's a language is selected, if there is change button name to that language
         if (!self.selectedLanguage.isEmpty){
-            selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
+            selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
         }
         self.tabBarController?.title = "Translate by Text"
         self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
@@ -122,13 +132,19 @@ class ViewController: UIViewController {
         
         
         //get access token
-        //getAccessToken();
-        self.accessToken = getKey(key: "bing_access_token")
-        
+//        getAccessToken();
+        self.accessToken = getPropVal(key: "bing_access_token")
+        print("viewDidLoad: ", self.selectedLanguage)
+        if (!self.selectedLanguage.isEmpty){
+            selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
+        }
         outputTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         outputTextLabel.numberOfLines = 0
 //        self.tabBarController?.title = "Translate by Text"
 //        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
+        
+        inputTextLabel.delegate = self
+        inputTextLabel.returnKeyType = .done
         
     }
 
@@ -218,8 +234,8 @@ class ViewController: UIViewController {
      */
     func getAccessToken(){
         
-        let clientId = getKey(key: "bing_client_id")
-        let clientSecret = getKey(key: "bing_client_secret")
+        let clientId = getPropVal(key: "bing_client_id")
+        let clientSecret = getPropVal(key: "bing_client_secret")
         let scope = "http://api.microsofttranslator.com"
         let grantType = "client_credentials"
         let authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/"
@@ -247,7 +263,7 @@ class ViewController: UIViewController {
                     
                     DispatchQueue.main.async {
 
-                        self.accessToken = setVal(key: "bing_access_token", value: (json["access_token"] as! String))
+                        self.accessToken = setPropVal(key: "bing_access_token", value: (json["access_token"] as! String))
                     }
                     
                 
@@ -283,6 +299,7 @@ class ViewController: UIViewController {
         return Array(language.keys)
         
     }
+    
 
 }
 
