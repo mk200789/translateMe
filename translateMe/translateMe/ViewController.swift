@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var accessToken: String = ""
     
     var selectedLanguage : String = ""
+    
+    var default_language : String = ""
 
     var parser = XMLParser()
     
@@ -118,6 +120,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         translateButtonLabel.layer.cornerRadius = 2
         translateButtonLabel.layer.borderWidth = 0.1
         
+        self.default_language = getLanguageCode(name: getPropValue(key: "default_language"))
+        
         
     }
     
@@ -159,7 +163,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         print("Translating " )
         
-        let langFrom = "en";
+        let langFrom = self.default_language;
         
         if (translateTo.isEmpty){
             self.outputTextLabel.text = "Please select a language to translate to."

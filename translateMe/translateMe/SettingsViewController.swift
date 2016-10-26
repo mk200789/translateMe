@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet var saveSettingsLabel: UIButton!
     
+    @IBOutlet var selectLanguageButtonLabel: UIButton!
+    
     @IBAction func selectLanguageButton(_ sender: AnyObject) {
         performSegue(withIdentifier: "default_trans_from", sender: nil)
     }
@@ -24,9 +26,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getLanguage()
-
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +33,14 @@ class SettingsViewController: UIViewController {
         self.tabBarController?.tabBar.barTintColor = UIColor(netHex:0xF8DED4)
         saveSettingsLabel.layer.cornerRadius = 2
         saveSettingsLabel.layer.borderWidth = 0.1
+        
+        print("settings: current default language: ", getPropValue(key: "default_language"))
+        
+        //if there's a default language change button title to it
+        if !(getPropValue(key: "default_language").isEmpty){
+            selectLanguageButtonLabel.setTitle(getPropValue(key: "default_language"), for: UIControlState.normal)
+        }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,54 +58,6 @@ class SettingsViewController: UIViewController {
     }
     */
     
-    func getContext () -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    func storeLanguage (language: String) {
-        let context = getContext()
-        
-        //retrieve the entity that we just created
-        let entity =  NSEntityDescription.entity(forEntityName: "Users", in: context)
-        
-        let user = NSManagedObject(entity: entity!, insertInto: context)
-        
-        //set the entity values
-        user.setValue(language, forKey: "default_language")
-        
-        //save the object
-        do {
-            try context.save()
-            print("saved!")
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        } catch {
-            
-        }
-    }
-    
-    func getLanguage () {
-        //create a fetch request, telling it about the entity
-        
-        let request : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Users")
-        
-        request.returnsObjectsAsFaults = false
-        
-        do{
-            let results = try getContext().fetch(request)
-            print(results.count)
-            if (results.count > 0){
-                
-            }
-            
-        }
-        catch{
-            print("error")
-        }
-        
-    }
-
 }
 
 

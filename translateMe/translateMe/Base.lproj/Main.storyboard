@@ -270,7 +270,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="70R-UQ-rSK" id="j1A-hu-DHb">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.90196078431372551" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -336,7 +336,9 @@
                                                 <frame key="frameInset" minX="45" minY="158" width="286" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="SELECT DEFAULT LANGUAGE"/>
+                                                <state key="normal" title="SELECT DEFAULT LANGUAGE">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectLanguageButton:" destination="6oG-14-Uj7" eventType="touchUpInside" id="EgK-B3-UzV"/>
                                                 </connections>
@@ -360,6 +362,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UuE-c7-gbx"/>
                     <connections>
                         <outlet property="saveSettingsLabel" destination="glx-fb-QCV" id="2Dy-Pf-ljx"/>
+                        <outlet property="selectLanguageButtonLabel" destination="P7G-73-qmp" id="Cua-oH-bR2"/>
                         <segue destination="22g-nH-MD1" kind="show" identifier="default_trans_from" id="aRr-iH-o1e"/>
                     </connections>
                 </viewController>
@@ -380,7 +383,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0bb-sh-aiD" id="B0L-Lf-FaQ">
-                                    <frame key="frameInset" width="375" height="78"/>
+                                    <frame key="frameInset" width="375" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
