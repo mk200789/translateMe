@@ -107,12 +107,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.selectedLanguage = getPropVal(key: "translate_to")
         self.selectedLanguage = getPropValue(key: "translate_to")
-        
-        print("apples", getPropValue(key: "translate_to"))
-        
-        print("viewWillAppear: ", self.selectedLanguage)
+
         //check if there's a language is selected, if there is change button name to that language
         if (!self.selectedLanguage.isEmpty){
             selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
@@ -143,8 +139,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         outputTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         outputTextLabel.numberOfLines = 0
-//        self.tabBarController?.title = "Translate by Text"
-//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
         
         inputTextLabel.delegate = self
         inputTextLabel.returnKeyType = .done

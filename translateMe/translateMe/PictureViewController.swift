@@ -37,11 +37,6 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         resultLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         resultLabel.numberOfLines = 0
-        
-//        self.tabBarController?.title = "Translate by Photo"
-//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xF7F4C8)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

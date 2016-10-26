@@ -24,9 +24,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        self.tabBarController?.title = "Settings"
-//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex:0xF8DED4)
-//        storeLanguage(language: "french")
         getLanguage()
 
 
