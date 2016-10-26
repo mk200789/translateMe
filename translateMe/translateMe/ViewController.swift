@@ -107,7 +107,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.selectedLanguage = getPropVal(key: "translate_to")
+        //self.selectedLanguage = getPropVal(key: "translate_to")
+        self.selectedLanguage = getPropValue(key: "translate_to")
+        
+        print("apples", getPropValue(key: "translate_to"))
         
         print("viewWillAppear: ", self.selectedLanguage)
         //check if there's a language is selected, if there is change button name to that language

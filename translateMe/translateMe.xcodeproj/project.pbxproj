@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63420B31DBB17890049BF4C /* SettingsViewController.swift */; };
+		C63420B81DBB2D660049BF4C /* DefaultLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */; };
 		C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE46D1DA607CC00574E8B /* AppDelegate.swift */; };
 		C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE46F1DA607CC00574E8B /* ViewController.swift */; };
 		C65BE4731DA607CC00574E8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65BE4711DA607CC00574E8B /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		C63420B31DBB17890049BF4C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLanguageTableViewController.swift; sourceTree = "<group>"; };
 		C65BE46A1DA607CC00574E8B /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65BE46D1DA607CC00574E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C65BE46F1DA607CC00574E8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 				C6C013221DB5FC880012ACC7 /* PictureViewController.swift */,
 				C6C0131C1DB5D3D80012ACC7 /* WordTableViewController.swift */,
 				C6D2B9141DB34AF300B2DEBB /* LanguageViewController.swift */,
+				C63420B31DBB17890049BF4C /* SettingsViewController.swift */,
+				C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */,
 				C65BE4711DA607CC00574E8B /* Main.storyboard */,
 				C6C013201DB5E4870012ACC7 /* settings.png */,
 				C65BE4771DA607CC00574E8B /* Assets.xcassets */,
@@ -135,7 +139,6 @@
 				C65BE4741DA607CC00574E8B /* translateMe.xcdatamodeld */,
 				C6D2B8D11DB1CDA500B2DEBB /* property.plist */,
 				C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */,
-				C63420B31DBB17890049BF4C /* SettingsViewController.swift */,
 			);
 			path = translateMe;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				TargetAttributes = {
 					C65BE4691DA607CC00574E8B = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 3GDGGYA77N;
 						ProvisioningStyle = Automatic;
 					};
 					C65BE4801DA607CC00574E8B = {
@@ -302,6 +306,7 @@
 				C6C013231DB5FC880012ACC7 /* PictureViewController.swift in Sources */,
 				C6D2B8D41DB1CEF600B2DEBB /* getProperty.swift in Sources */,
 				C6C0131D1DB5D3D80012ACC7 /* WordTableViewController.swift in Sources */,
+				C63420B81DBB2D660049BF4C /* DefaultLanguageTableViewController.swift in Sources */,
 				C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */,
 				C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */,
 				C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */,
@@ -456,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3GDGGYA77N;
 				INFOPLIST_FILE = translateMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMe;
@@ -468,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3GDGGYA77N;
 				INFOPLIST_FILE = translateMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMe;

@@ -32,8 +32,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
-        //getAccessToken()
-        self.accessToken = getKey(key: "clarifai_access_token")
+//        getAccessToken()
+        self.accessToken = getPropVal(key: "clarifai_access_token")
         
         resultLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         resultLabel.numberOfLines = 0
@@ -189,8 +189,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
     func getAccessToken(){
-        let clientID = getKey(key: "clarifai_client_id")
-        let clientSecret = getKey(key: "clarifai_client_secret")
+        let clientID = getPropVal(key: "clarifai_client_id")
+        let clientSecret = getPropVal(key: "clarifai_client_secret")
         let authURL = "https://api.clarifai.com/v1/token"
         
         
@@ -208,8 +208,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     DispatchQueue.main.async {
-                        self.accessToken = setVal(key: "clarifai_access_token", value: json["access_token"] as! String)
-                        setVal(key: "clarifai_expires_in", value: String(describing: json["expires_in"]))
+                        self.accessToken = setPropVal(key: "clarifai_access_token", value: json["access_token"] as! String)
+                        setPropVal(key: "clarifai_expires_in", value: String(describing: json["expires_in"]))
                         
                     }
                 }catch{

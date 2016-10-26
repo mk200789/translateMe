@@ -10,6 +10,17 @@ import UIKit
 
 class DefaultLanguageTableViewController: UITableViewController {
 
+    let language_list : [String: String]  = [
+        "Chinese Simplified" : "zh-CHS",
+        "Chinese Traditional" : "zh-CHT",
+        "Dutch" : "nl",
+        "English" : "en",
+        "French" : "fr",
+        "Hebrew" : "he",
+        "Spanish" : "es"]
+    
+    var language : [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +29,12 @@ class DefaultLanguageTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.language = NSArray(array: Array(language_list.keys)) as! [String]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +46,24 @@ class DefaultLanguageTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return language.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "language", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = language[indexPath.row]
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
