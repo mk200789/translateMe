@@ -125,14 +125,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        var frameRect = inputText.frame
-//        frameRect.size.height = 100;
-//        inputText.frame = frameRect
-        
-        
         //get access token
 //        getAccessToken();
-        self.accessToken = getPropVal(key: "bing_access_token")
+        self.accessToken = getPropValue(key: "bing_access_token")
         print("viewDidLoad: ", self.selectedLanguage)
         if (!self.selectedLanguage.isEmpty){
             selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
@@ -204,6 +199,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.outputTextLabel.text = translated as String
                 }
                 
+            }else{
+                //expired
+                print("access token expired")
+                self.getAccessToken()
+                
+                self.translate(text: text, translateTo: translateTo)
             }
 
         }.resume()
@@ -231,8 +232,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     func getAccessToken(){
         
-        let clientId = getPropVal(key: "bing_client_id")
-        let clientSecret = getPropVal(key: "bing_client_secret")
+        let clientId = getPropValue(key: "bing_client_id")
+        let clientSecret = getPropValue(key: "bing_client_secret")
         let scope = "http://api.microsofttranslator.com"
         let grantType = "client_credentials"
         let authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/"
@@ -260,7 +261,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     
                     DispatchQueue.main.async {
 
-                        self.accessToken = setPropVal(key: "bing_access_token", value: (json["access_token"] as! String))
+                        self.accessToken = setPropValue(key: "bing_access_token", value: (json["access_token"] as! String))
                     }
                     
                 
