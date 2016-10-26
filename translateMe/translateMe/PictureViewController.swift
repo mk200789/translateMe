@@ -177,6 +177,10 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }catch{
                     
                 }
+            }else{
+                print("Access token expired")
+                self.getAccessToken()
+                self.getTags()
             }
         }
         task.resume()
