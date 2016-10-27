@@ -36,9 +36,12 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func submitLanguageButton(_ sender: AnyObject) {
         print("selected language: ", self.selectedLanguage)
+        //let put = setPropVal(key: "translate_to", value: self.selectedLanguage)
         
-        setPropValue(key: "translate_to", value: self.selectedLanguage)
-        
+        let put = setPropValue(key: "translate_to", value: self.selectedLanguage)
+        print("saved: ", put)
+        var h = getPropVal(key: "translate_to")
+        print("retrieve: ", h)
         self.dismiss(animated: true, completion: nil)
     }
     
