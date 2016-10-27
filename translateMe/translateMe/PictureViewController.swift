@@ -9,7 +9,7 @@
 import UIKit
 
 class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet var imageView: UIImageView!
     
     @IBOutlet var resultLabel: UILabel!
@@ -25,25 +25,21 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var selectPhotoLabel: UIButton!
     
     @IBAction func showTable(_ sender: AnyObject) {
+        setArrayValue(key: "clarifai_tags", value: self.tags)
         performSegue(withIdentifier: "image_tags_seg", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view
-//        getAccessToken()
-        self.accessToken = getPropVal(key: "clarifai_access_token")
+        //        getAccessToken()
+        self.accessToken = getPropValue(key: "clarifai_access_token")
         
         resultLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         resultLabel.numberOfLines = 0
-        
-//        self.tabBarController?.title = "Translate by Photo"
-//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xF7F4C8)
-        
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,7 +53,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         selectPhotoLabel.layer.cornerRadius = 2
     }
     
-
+    
     @IBAction func loadImageButtonTapped(_ sender: UIButton) {
         
         //set an alertcontroller
@@ -123,7 +119,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     var tags : NSArray = []
-
+    
     func updateLabel(){
         resultLabel.text = ""
         showTableButton.isEnabled = true
@@ -147,7 +143,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         //takes the top 8 tags
         self.tags = tag.subarray(with: NSRange.init(location: 0, length: 8)) as NSArray
     }
-
+    
     func getTags(){
         resultLabel.text = ""
         
@@ -182,15 +178,19 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }catch{
                     
                 }
+            }else if((response as! HTTPURLResponse).statusCode == 401){
+                print("access token expired")
+                self.getAccessToken()
+                self.getTags()
             }
         }
         task.resume()
         
     }
-
+    
     func getAccessToken(){
-        let clientID = getPropVal(key: "clarifai_client_id")
-        let clientSecret = getPropVal(key: "clarifai_client_secret")
+        let clientID = getPropValue(key: "clarifai_client_id")
+        let clientSecret = getPropValue(key: "clarifai_client_secret")
         let authURL = "https://api.clarifai.com/v1/token"
         
         
@@ -208,8 +208,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     DispatchQueue.main.async {
-                        self.accessToken = setPropVal(key: "clarifai_access_token", value: json["access_token"] as! String)
-                        setPropVal(key: "clarifai_expires_in", value: String(describing: json["expires_in"]))
+                        self.accessToken = setPropValue(key: "clarifai_access_token", value: json["access_token"] as! String)
+                        setPropValue(key: "clarifai_expires_in", value: String(describing: json["expires_in"]))
                         
                     }
                 }catch{
@@ -219,17 +219,17 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         task.resume()
     }
-
-
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let segDest = segue.destination as! WordTableViewController
-        segDest.words = self.tags as! [String]
+//        let segDest = segue.destination as! WordTableViewController
+//        segDest.words = self.tags as! [String]
     }
- 
-
+    
+    
 }

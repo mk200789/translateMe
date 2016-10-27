@@ -63,6 +63,12 @@ class DefaultLanguageTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(language[indexPath.row])
+        setPropValue(key: "default_language", value: language[indexPath.row])
+        self.dismiss(animated: true, completion: nil)
+    }
  
 
     /*

@@ -155,7 +155,7 @@
                         <outlet property="resultLabel" destination="Xlx-tG-vTS" id="UTW-cl-bEd"/>
                         <outlet property="selectPhotoLabel" destination="Cgc-7l-9KS" id="HQC-4R-Y3H"/>
                         <outlet property="showTableButton" destination="G2O-07-Jz8" id="x05-cW-MN0"/>
-                        <segue destination="JFv-IX-SJ2" kind="show" identifier="image_tags_seg" id="5j0-9X-IaY"/>
+                        <segue destination="WvT-Dc-4O2" kind="show" identifier="image_tags_seg" id="gu6-HL-bhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T4-KW-1K1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,6 +274,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.90196078431372551" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="sNa-dH-BNB" kind="showDetail" identifier="details_identifier" id="hkn-qX-Tur"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -281,10 +284,73 @@
                             <outlet property="delegate" destination="JFv-IX-SJ2" id="9mH-gN-eJ2"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="UZj-95-Wfv">
+                        <barButtonItem key="backBarButtonItem" title="Words" id="ngp-Wh-ike"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEy-hS-VK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="454"/>
+            <point key="canvasLocation" x="1898" y="454"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="INY-mB-2yK">
+            <objects>
+                <navigationController id="sNa-dH-BNB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZWa-Ah-xek">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IYr-pJ-hbt" kind="relationship" relationship="rootViewController" id="fzy-K5-4m3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1D-LB-KQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="454"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="dX7-WC-Bxk">
+            <objects>
+                <viewController id="IYr-pJ-hbt" customClass="DetailsViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UKo-BF-Fjp"/>
+                        <viewControllerLayoutGuide type="bottom" id="QJm-2r-sIf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cpu-uV-6cE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi! I'm detail page!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxT-0z-N0f">
+                                <frame key="frameInset" minX="125" minY="323" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fYL-Sl-rYa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVB-sF-mh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3574" y="454"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nur-wf-SyC">
+            <objects>
+                <navigationController id="WvT-Dc-4O2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X4h-K8-raU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JFv-IX-SJ2" kind="relationship" relationship="rootViewController" id="rIw-DE-J5f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jla-9j-23K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mmv-XQ-UMK">
@@ -336,7 +402,9 @@
                                                 <frame key="frameInset" minX="45" minY="158" width="286" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="SELECT DEFAULT LANGUAGE"/>
+                                                <state key="normal" title="SELECT DEFAULT LANGUAGE">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectLanguageButton:" destination="6oG-14-Uj7" eventType="touchUpInside" id="EgK-B3-UzV"/>
                                                 </connections>
@@ -360,6 +428,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UuE-c7-gbx"/>
                     <connections>
                         <outlet property="saveSettingsLabel" destination="glx-fb-QCV" id="2Dy-Pf-ljx"/>
+                        <outlet property="selectLanguageButtonLabel" destination="P7G-73-qmp" id="Cua-oH-bR2"/>
                         <segue destination="22g-nH-MD1" kind="show" identifier="default_trans_from" id="aRr-iH-o1e"/>
                     </connections>
                 </viewController>

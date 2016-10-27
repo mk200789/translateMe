@@ -8,7 +8,56 @@
 
 import Foundation
 
+func getArrayValue(key: String) -> NSArray{
+    let destPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("property.plist")
+    let fileManager = FileManager.default
+    
+    if fileManager.fileExists(atPath: destPath){
+        let dict = NSDictionary(contentsOfFile: destPath)
+        let value = dict?.object(forKey: key)
+        print("File exists")
+        return value as! NSArray
+    }
+    else{
+        print("File DNE")
+    }
+    return  []
 
+}
+
+func setArrayValue(key: String, value: NSArray){
+    let sourcePath = Bundle.main.path(forResource: "property", ofType: "plist")
+    
+    let destPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("property.plist")
+    
+    let fileManager = FileManager.default
+    
+    //1. check if destination path does not exist, copy the source path to destination path
+    if !fileManager.fileExists(atPath: destPath) {
+        print("Destination file path DNE.")
+        do{
+            try fileManager.copyItem(atPath: sourcePath!, toPath: destPath)
+            print("copied")
+        }catch{
+            print("cannot copy")
+        }
+    }
+    
+    //2. set the contents of destPath in an mutable dictionary and assign value
+    let dict = NSMutableDictionary(contentsOfFile: destPath)
+    dict?[key] = value
+    print("Destination file path Exist.")
+    
+    let dictionary = dict! as NSDictionary
+    
+    //3. write changed dictionary to destination path
+    if (dictionary.write(toFile: destPath, atomically: false)) {
+        print("File written")
+    }else{
+        print("File not written successfully")
+    }
+    
+}
 
 func setPropValue(key: String, value: String) -> String{
     let sourcePath = Bundle.main.path(forResource: "property", ofType: "plist")

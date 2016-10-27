@@ -19,7 +19,10 @@ class WordTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.words = getArrayValue(key: "clarifai_tags") as! [String]
+        print("word table:", self.words)
+        
                 
         
     }
@@ -96,6 +99,11 @@ class WordTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("word selected: ", words[indexPath.row])
     }
  
 

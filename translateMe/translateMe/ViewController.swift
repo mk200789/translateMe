@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var accessToken: String = ""
     
     var selectedLanguage : String = ""
-
+    
     var parser = XMLParser()
     
     @IBOutlet var outputTextLabel: UILabel!
@@ -25,59 +25,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var translateButtonLabel: UIButton!
     
     let language : [String: String]  = [
-                                        "Chinese Simplified" : "zh-CHS",
-                                        "Chinese Traditional" : "zh-CHT",
-                                        "Afrikaans": "af",
-                                        "Arabic" : "ar",
-                                        "Bosnian (Latin)": "bs-Latn",
-                                        "Bulgarian" : "bg",
-                                        "Catalan" : "ca",
-                                        "Croatian" : "hr",
-                                        "Czech" : "cs",
-                                        "Danish" : "da",
-                                        "Dutch" : "nl",
-                                        "English" : "en",
-                                        "Estonian" : "et",
-                                        "Finnish" : "fi",
-                                        "French" : "fr",
-                                        "German" : "de",
-                                        "Greek" : "el",
-                                        "Hatian Creole" : "ht",
-                                        "Hebrew" : "he",
-                                        "Hindi" : "hi",
-                                        "Hmong Daw" : "mww",
-                                        "Hungarian" : "hu",
-                                        "Indonesian" : "id",
-                                        "Italian" : "it",
-                                        "Japanese" : "ja",
-                                        "Kiswahili" : "sw",
-                                        "Klingon" : "tlh",
-                                        "Klingon (pIqaD)" : "tlh-Qaak",
-                                        "Korean" : "ko",
-                                        "Latvian" : "lv",
-                                        "Lithuanian" : "lt",
-                                        "Malay" : "ms",
-                                        "Maltese": "mt",
-                                        "Norwegian": "no",
-                                        "Persian" : "fa",
-                                        "Polish" : "pl",
-                                        "Portuguese" : "pt",
-                                        "Querétaro Otomi" : "otq",
-                                        "Romanian" : "ro",
-                                        "Russian" : "ru",
-                                        "Serbian (Cyrillic)" : "sr-Cyrl",
-                                        "Serbian (Latin)" : "sr-Latn",
-                                        "Slovak" : "sk",
-                                        "Slovenian" : "sl",
-                                        "Spanish" : "es",
-                                        "Swedish" : "sv",
-                                        "Thai": "th",
-                                        "Turkish" : "tr",
-                                        "Ukranian" : "uk",
-                                        "Urdu" : "ur",
-                                        "Vietnamese" : "vi",
-                                        "Welsh" : "cy",
-                                        "Yucatec Maya" : "yua"
+        "Chinese Simplified" : "zh-CHS",
+        "Chinese Traditional" : "zh-CHT",
+        "Afrikaans": "af",
+        "Arabic" : "ar",
+        "Bosnian (Latin)": "bs-Latn",
+        "Bulgarian" : "bg",
+        "Catalan" : "ca",
+        "Croatian" : "hr",
+        "Czech" : "cs",
+        "Danish" : "da",
+        "Dutch" : "nl",
+        "English" : "en",
+        "Estonian" : "et",
+        "Finnish" : "fi",
+        "French" : "fr",
+        "German" : "de",
+        "Greek" : "el",
+        "Hatian Creole" : "ht",
+        "Hebrew" : "he",
+        "Hindi" : "hi",
+        "Hmong Daw" : "mww",
+        "Hungarian" : "hu",
+        "Indonesian" : "id",
+        "Italian" : "it",
+        "Japanese" : "ja",
+        "Kiswahili" : "sw",
+        "Klingon" : "tlh",
+        "Klingon (pIqaD)" : "tlh-Qaak",
+        "Korean" : "ko",
+        "Latvian" : "lv",
+        "Lithuanian" : "lt",
+        "Malay" : "ms",
+        "Maltese": "mt",
+        "Norwegian": "no",
+        "Persian" : "fa",
+        "Polish" : "pl",
+        "Portuguese" : "pt",
+        "Querétaro Otomi" : "otq",
+        "Romanian" : "ro",
+        "Russian" : "ru",
+        "Serbian (Cyrillic)" : "sr-Cyrl",
+        "Serbian (Latin)" : "sr-Latn",
+        "Slovak" : "sk",
+        "Slovenian" : "sl",
+        "Spanish" : "es",
+        "Swedish" : "sv",
+        "Thai": "th",
+        "Turkish" : "tr",
+        "Ukranian" : "uk",
+        "Urdu" : "ur",
+        "Vietnamese" : "vi",
+        "Welsh" : "cy",
+        "Yucatec Maya" : "yua"
     ]
     
     @IBAction func translateButton(_ sender: AnyObject) {
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             outputTextLabel.text = "Please enter a text to translate."
         }
         
-    
+        
     }
     
     //end editing when return key pressed
@@ -107,12 +107,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.selectedLanguage = getPropVal(key: "translate_to")
         self.selectedLanguage = getPropValue(key: "translate_to")
         
-        print("apples", getPropValue(key: "translate_to"))
-        
-        print("viewWillAppear: ", self.selectedLanguage)
         //check if there's a language is selected, if there is change button name to that language
         if (!self.selectedLanguage.isEmpty){
             selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
@@ -129,33 +125,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        var frameRect = inputText.frame
-//        frameRect.size.height = 100;
-//        inputText.frame = frameRect
-        
-        
         //get access token
-//        getAccessToken();
-        self.accessToken = getPropVal(key: "bing_access_token")
+        //        getAccessToken();
+        self.accessToken = getPropValue(key: "bing_access_token")
         print("viewDidLoad: ", self.selectedLanguage)
         if (!self.selectedLanguage.isEmpty){
             selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
         }
         outputTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         outputTextLabel.numberOfLines = 0
-//        self.tabBarController?.title = "Translate by Text"
-//        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
         
         inputTextLabel.delegate = self
         inputTextLabel.returnKeyType = .done
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     /*
      * Translates text using Bing Translator API
@@ -178,7 +167,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         let langTo = getLanguageCode(name: translateTo)
-
+        
         print("translation language code: ", langFrom)
         let uri = "https://api.microsofttranslator.com/v2/Http.svc/Translate?text="+text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&from=" + langFrom + "&to=" + langTo
         
@@ -192,7 +181,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "GET"
         request.setValue(authToken, forHTTPHeaderField: "Authorization ")
         
-
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if ((response as! HTTPURLResponse).statusCode == 200){
@@ -210,12 +199,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.outputTextLabel.text = translated as String
                 }
                 
+            }else{
+                //expired
+                print("access token expired")
+                self.getAccessToken()
+                
+                self.translate(text: text, translateTo: translateTo)
             }
-
-        }.resume()
+            
+            }.resume()
     }
     
-
+    
     /*
      * Url-encode strings
      *
@@ -230,15 +225,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return text.addingPercentEncoding(withAllowedCharacters: characterSet as CharacterSet)!
     }
-
+    
     
     /*
      * Retrieves the access token
      */
     func getAccessToken(){
         
-        let clientId = getPropVal(key: "bing_client_id")
-        let clientSecret = getPropVal(key: "bing_client_secret")
+        let clientId = getPropValue(key: "bing_client_id")
+        let clientSecret = getPropValue(key: "bing_client_secret")
         let scope = "http://api.microsofttranslator.com"
         let grantType = "client_credentials"
         let authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/"
@@ -254,7 +249,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = params.data(using: .utf8)
-    
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if ((response as! HTTPURLResponse).statusCode == 200){
@@ -265,11 +260,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     //self.accessToken = (json["access_token"] as! String).removingPercentEncoding!
                     
                     DispatchQueue.main.async {
-
-                        self.accessToken = setPropVal(key: "bing_access_token", value: (json["access_token"] as! String))
+                        
+                        self.accessToken = setPropValue(key: "bing_access_token", value: (json["access_token"] as! String))
                     }
                     
-                
+                    
                 }catch{
                     print("Error converting to json.")
                 }
@@ -303,6 +298,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-
+    
 }
-
