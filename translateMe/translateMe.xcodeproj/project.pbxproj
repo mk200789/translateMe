@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C605F6211DC172B5005C5825 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605F6201DC172B5005C5825 /* DetailsViewController.swift */; };
 		C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63420B31DBB17890049BF4C /* SettingsViewController.swift */; };
 		C63420B81DBB2D660049BF4C /* DefaultLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */; };
 		C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BE46D1DA607CC00574E8B /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C605F6201DC172B5005C5825 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C63420B31DBB17890049BF4C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLanguageTableViewController.swift; sourceTree = "<group>"; };
 		C65BE46A1DA607CC00574E8B /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				C65BE4741DA607CC00574E8B /* translateMe.xcdatamodeld */,
 				C6D2B8D11DB1CDA500B2DEBB /* property.plist */,
 				C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */,
+				C605F6201DC172B5005C5825 /* DetailsViewController.swift */,
 			);
 			path = translateMe;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				C65BE4701DA607CC00574E8B /* ViewController.swift in Sources */,
 				C65BE46E1DA607CC00574E8B /* AppDelegate.swift in Sources */,
 				C63420B41DBB17890049BF4C /* SettingsViewController.swift in Sources */,
+				C605F6211DC172B5005C5825 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

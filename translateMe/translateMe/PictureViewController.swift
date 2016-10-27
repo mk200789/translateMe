@@ -25,6 +25,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var selectPhotoLabel: UIButton!
     
     @IBAction func showTable(_ sender: AnyObject) {
+        print("showing table")
+        setArrayValue(key: "clarifai_tags", value: self.tags)
         performSegue(withIdentifier: "image_tags_seg", sender: nil)
     }
     
@@ -226,8 +228,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let segDest = segue.destination as! WordTableViewController
-        segDest.words = self.tags as! [String]
+        //let segDest = segue.destination as! WordTableViewController
+        //segDest.words = self.tags as! [String]
     }
  
 
