@@ -51,6 +51,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         resultLabel.backgroundColor = UIColor.clear
         selectPhotoLabel.layer.borderWidth = 0.1
         selectPhotoLabel.layer.cornerRadius = 2
+        
+        self.resultLabel.textAlignment = NSTextAlignment.center
     }
     
     
@@ -111,6 +113,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
         imageView.contentMode = .scaleAspectFit
         
+        
         getTags()
         
         //dismiss the view
@@ -145,7 +148,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func getTags(){
-        resultLabel.text = ""
+        resultLabel.text = "Tagging ..."
         
         let tagURL = "https://api.clarifai.com/v1/tag/"
         let header = "Bearer " + self.accessToken
@@ -156,7 +159,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         request.httpMethod = "POST"
         request.setValue(header, forHTTPHeaderField: "Authorization")
         
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.3)
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         let base64String = imageData?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
         
         

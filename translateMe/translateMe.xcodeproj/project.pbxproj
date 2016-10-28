@@ -130,6 +130,7 @@
 				C6D2B9141DB34AF300B2DEBB /* LanguageViewController.swift */,
 				C63420B31DBB17890049BF4C /* SettingsViewController.swift */,
 				C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */,
+				C605F6201DC172B5005C5825 /* DetailsViewController.swift */,
 				C65BE4711DA607CC00574E8B /* Main.storyboard */,
 				C6C013201DB5E4870012ACC7 /* settings.png */,
 				C65BE4771DA607CC00574E8B /* Assets.xcassets */,
@@ -141,7 +142,6 @@
 				C65BE4741DA607CC00574E8B /* translateMe.xcdatamodeld */,
 				C6D2B8D11DB1CDA500B2DEBB /* property.plist */,
 				C6D2B8D31DB1CEF600B2DEBB /* getProperty.swift */,
-				C605F6201DC172B5005C5825 /* DetailsViewController.swift */,
 			);
 			path = translateMe;
 			sourceTree = "<group>";

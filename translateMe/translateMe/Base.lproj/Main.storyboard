@@ -155,7 +155,7 @@
                         <outlet property="resultLabel" destination="Xlx-tG-vTS" id="UTW-cl-bEd"/>
                         <outlet property="selectPhotoLabel" destination="Cgc-7l-9KS" id="HQC-4R-Y3H"/>
                         <outlet property="showTableButton" destination="G2O-07-Jz8" id="x05-cW-MN0"/>
-                        <segue destination="WvT-Dc-4O2" kind="show" identifier="image_tags_seg" id="gu6-HL-bhd"/>
+                        <segue destination="WvT-Dc-4O2" kind="show" identifier="image_tags_seg" action="showDetailViewController:sender:" id="gu6-HL-bhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T4-KW-1K1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,7 +257,7 @@
             </objects>
             <point key="canvasLocation" x="-2" y="-375"/>
         </scene>
-        <!--Word Table View Controller-->
+        <!--Word List-->
         <scene sceneID="p5E-5d-jXr">
             <objects>
                 <tableViewController id="JFv-IX-SJ2" customClass="WordTableViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,7 +275,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.90196078431372551" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="sNa-dH-BNB" kind="showDetail" identifier="details_identifier" id="hkn-qX-Tur"/>
+                                    <segue destination="sNa-dH-BNB" kind="show" identifier="details_identifier" animates="NO" id="hkn-qX-Tur"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -284,7 +284,7 @@
                             <outlet property="delegate" destination="JFv-IX-SJ2" id="9mH-gN-eJ2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UZj-95-Wfv">
+                    <navigationItem key="navigationItem" title="Word List" id="UZj-95-Wfv">
                         <barButtonItem key="backBarButtonItem" title="Words" id="ngp-Wh-ike"/>
                     </navigationItem>
                 </tableViewController>
@@ -321,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi! I'm detail page!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxT-0z-N0f">
-                                <frame key="frameInset" minX="125" minY="323" width="142" height="21"/>
+                                <frame key="frameInset" minX="116" minY="159" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

@@ -24,8 +24,15 @@ class WordTableViewController: UITableViewController {
         print("word table:", self.words)
         
                 
-        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(WordTableViewController.nearbyTapped))
     }
+    
+    func nearbyTapped(){
+        //        self.performSegue(withIdentifier: "back_main", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 
@@ -99,11 +106,14 @@ class WordTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        let segDest = segue.destination as! DetailsViewController
+//        segDest.words = self.tags as! [String]
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("word selected: ", words[indexPath.row])
+        setPropValue(key: "selected_word", value: words[indexPath.row])
     }
  
 
