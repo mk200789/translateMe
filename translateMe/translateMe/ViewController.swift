@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var selectedLanguageLabel: UIButton!
+    
     @IBOutlet var selectedLanguageFromButtonLabel: UIButton!
+    
+    @IBOutlet var selectedLanguageToButtonLabel: UIButton!
     
     var accessToken: String = ""
     
-    var selectedLanguage : String = ""
+    var selectedLanguageTo : String = ""
     
     var selectedLanguageFrom : String = ""
     
@@ -91,7 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Check if input text is empty
         if (!(inputTextLabel.text?.isEmpty)! && !((inputTextLabel.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!){
-            translate(text: inputTextLabel.text! , translateTo: self.selectedLanguage)
+            translate(text: inputTextLabel.text! , translateTo: self.selectedLanguageTo)
             
         }else{
             
@@ -113,13 +115,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.selectedLanguage = getPropValue(key: "translate_to")
+        self.selectedLanguageTo = getPropValue(key: "translate_to")
         self.selectedLanguageFrom = getPropValue(key: "translate_from")
         
         //check if there's a language is selected, if there is change button name to that language
-        if (!self.selectedLanguage.isEmpty){
+        if (!self.selectedLanguageTo.isEmpty){
             print("selected language to")
-            selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
+            selectedLanguageToButtonLabel.setTitle(self.selectedLanguageTo, for: UIControlState.normal)
         }
         
         if (!self.selectedLanguageFrom.isEmpty){
@@ -141,9 +143,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //get access token
         //        getAccessToken();
         self.accessToken = getPropValue(key: "bing_access_token")
-        print("viewDidLoad: ", self.selectedLanguage)
-        if (!self.selectedLanguage.isEmpty){
-            selectedLanguageLabel.setTitle(selectedLanguage, for: UIControlState.normal)
+        print("viewDidLoad: ", self.selectedLanguageTo)
+        if (!self.selectedLanguageTo.isEmpty){
+            selectedLanguageToButtonLabel.setTitle(selectedLanguageTo, for: UIControlState.normal)
         }
         outputTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         outputTextLabel.numberOfLines = 0

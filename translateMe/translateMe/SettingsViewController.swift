@@ -33,8 +33,8 @@ class SettingsViewController: UIViewController {
         print("settings: current default language: ", getPropValue(key: "default_language"))
         
         //if there's a default language change button title to it
-        if !(getPropValue(key: "default_language").isEmpty){
-            selectLanguageButtonLabel.setTitle(getPropValue(key: "default_language"), for: UIControlState.normal)
+        if !(getPropValue(key: "translate_from").isEmpty){
+            selectLanguageButtonLabel.setTitle(getPropValue(key: "translate_from"), for: UIControlState.normal)
         }
         
     }

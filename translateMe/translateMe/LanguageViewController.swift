@@ -10,7 +10,7 @@ import UIKit
 
 class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var selectedLanguage : String = ""
+    var selectedLanguageTo : String = ""
     
     var selectedLanguageFrom : String = ""
     
@@ -52,7 +52,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     @IBAction func submitLanguageButton(_ sender: AnyObject) {
-        print("selected language: ", self.selectedLanguage)
+        print("selected language: ", self.selectedLanguageTo)
         //let put = setPropVal(key: "translate_to", value: self.selectedLanguage)
         
 //        let put = setPropValue(key: "translate_to", value: self.selectedLanguage)
@@ -60,7 +60,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if direction == "translate_from"{
             put = setPropValue(key: direction, value: self.selectedLanguageFrom)
         }else{
-            put = setPropValue(key: direction, value: self.selectedLanguage)
+            put = setPropValue(key: direction, value: self.selectedLanguageTo)
         }
         print(direction)
         print("saved: ", put)
@@ -80,7 +80,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let segueDestination = segue.destination as! ViewController
         
         if (direction == "translate_to"){
-            segueDestination.selectedLanguage = self.selectedLanguage
+            segueDestination.selectedLanguageTo = self.selectedLanguageTo
         }else{
             segueDestination.selectedLanguageFrom = self.selectedLanguageFrom
         }
@@ -114,7 +114,7 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        print("Focused on: ", pickerData[row])
         print("picker\(direction)")
         if (direction == "translate_to"){
-            self.selectedLanguage = pickerData[row]
+            self.selectedLanguageTo = pickerData[row]
         }else{
             self.selectedLanguageFrom = pickerData[row]
         }
