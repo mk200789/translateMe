@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Language View Controller-->
+        <!--Select a Language-->
         <scene sceneID="3Zf-8H-3RL">
             <objects>
                 <viewController id="Y72-7E-2Qp" customClass="LanguageViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,74 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-uc-zKl">
-                                <frame key="frameInset" minX="88" minY="110" width="240" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oui-0u-Dr9">
+                                <frame key="frameInset" minY="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-YK-M8r">
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oui-0u-Dr9">
-                                        <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fep-f0-Cnr">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="228" id="Vek-dW-6KV"/>
-                                                </constraints>
-                                            </pickerView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-LL-UFr">
-                                                <color key="backgroundColor" red="0.93289839659685869" green="0.24182627227886022" blue="0.37622408630030357" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="134" id="IWm-A8-KWE"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Juu-mc-5xl"/>
-                                                </constraints>
-                                                <state key="normal" title="Submit">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="submitLanguageButton:" destination="Y72-7E-2Qp" eventType="touchUpInside" id="Wwv-4S-yhy"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.65098039215686276" green="0.8666666666666667" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Fep-f0-Cnr" firstAttribute="leading" secondItem="Oui-0u-Dr9" secondAttribute="leading" id="1CC-Oe-1IL"/>
-                                            <constraint firstItem="EJz-LL-UFr" firstAttribute="top" secondItem="Fep-f0-Cnr" secondAttribute="bottom" constant="44" id="4az-z8-C9i"/>
-                                            <constraint firstItem="Fep-f0-Cnr" firstAttribute="centerX" secondItem="Oui-0u-Dr9" secondAttribute="centerX" id="88v-ev-M2t"/>
-                                            <constraint firstItem="EJz-LL-UFr" firstAttribute="centerX" secondItem="Oui-0u-Dr9" secondAttribute="centerX" id="HQn-gH-OCM"/>
-                                            <constraint firstAttribute="trailing" secondItem="Fep-f0-Cnr" secondAttribute="trailing" id="IN9-fO-IN5"/>
-                                            <constraint firstItem="Fep-f0-Cnr" firstAttribute="top" secondItem="Oui-0u-Dr9" secondAttribute="top" constant="179" id="bFy-HB-6Ib"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKv-Gd-5fc">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Obf-c4-pFN"/>
-                                            <constraint firstAttribute="width" constant="142" id="Vuu-gO-se9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fep-f0-Cnr">
+                                        <frame key="frameInset" minY="179" width="375" height="228"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-LL-UFr">
+                                        <frame key="frameInset" minX="120" minY="450" width="134" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.93289839659685869" green="0.24182627227886022" blue="0.37622408630030357" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitLanguageButton:" destination="Y72-7E-2Qp" eventType="touchUpInside" id="Wwv-4S-yhy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.5749129701386696" green="0.7649030577378011" blue="0.88661649214659688" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Oui-0u-Dr9" secondAttribute="trailing" id="4ju-ZL-cH5"/>
-                                    <constraint firstItem="Oui-0u-Dr9" firstAttribute="top" secondItem="yKv-Gd-5fc" secondAttribute="bottom" constant="13" id="82g-Oy-lf4"/>
-                                    <constraint firstItem="yKv-Gd-5fc" firstAttribute="top" secondItem="VsX-YK-M8r" secondAttribute="top" constant="30" id="CQt-99-aq3"/>
-                                    <constraint firstItem="yKv-Gd-5fc" firstAttribute="centerX" secondItem="VsX-YK-M8r" secondAttribute="centerX" id="INh-3m-6fN"/>
-                                    <constraint firstItem="Oui-0u-Dr9" firstAttribute="leading" secondItem="VsX-YK-M8r" secondAttribute="leading" id="xYs-2F-bDw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Oui-0u-Dr9" secondAttribute="bottom" id="yEg-Nr-iQ6"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.65098039215686276" green="0.8666666666666667" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="VsX-YK-M8r" firstAttribute="top" secondItem="H9C-PB-yg0" secondAttribute="top" id="6GT-br-C1I"/>
-                            <constraint firstItem="Iv1-lF-pCO" firstAttribute="top" secondItem="VsX-YK-M8r" secondAttribute="bottom" id="7VE-wI-CHZ"/>
-                            <constraint firstItem="VsX-YK-M8r" firstAttribute="leading" secondItem="H9C-PB-yg0" secondAttribute="leading" id="TA7-ho-PB9"/>
-                            <constraint firstAttribute="trailing" secondItem="VsX-YK-M8r" secondAttribute="trailing" id="u1G-th-FLq"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3JH-c2-3UA">
+                    <navigationItem key="navigationItem" title="Select a Language" id="3JH-c2-3UA">
                         <barButtonItem key="backBarButtonItem" title="Hello" id="5ez-LG-8pH"/>
                     </navigationItem>
                     <connections>
@@ -96,7 +54,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYz-2Z-hDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1394" y="454"/>
+            <point key="canvasLocation" x="-2063.1999999999998" y="453.82308845577217"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h4m-eX-LzM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxM-IJ-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="s0U-W5-DK0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c88-yX-Nbu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y72-7E-2Qp" kind="relationship" relationship="rootViewController" id="DwJ-9c-ILg"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1308" y="454"/>
         </scene>
         <!--Translate by Image-->
         <scene sceneID="5F5-X7-F0Q">
@@ -209,7 +183,7 @@
                                             <color key="titleColor" red="0.093377508220000002" green="0.12671059370000001" blue="0.033944897350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Y72-7E-2Qp" kind="presentation" identifier="select_language_seg" animates="NO" id="FyR-0p-kqJ"/>
+                                            <segue destination="s0U-W5-DK0" kind="presentation" identifier="select_language_seg" id="3Gk-zM-fPn"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to translate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjg-et-P3d">
@@ -388,16 +362,6 @@
                                         <frame key="frameInset" minY="64" width="375" height="603"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glx-fb-QCV">
-                                                <frame key="frameInset" minX="44" minY="428" width="286" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="saveSettingsButton:" destination="6oG-14-Uj7" eventType="touchUpInside" id="y3F-RT-PW4"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7G-73-qmp">
                                                 <frame key="frameInset" minX="45" minY="158" width="286" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -416,6 +380,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glx-fb-QCV">
+                                                <frame key="frameInset" minX="45" minY="222" width="286" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.98039215686274506" green="0.17991258147399022" blue="0.20874559999108147" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="ERASE HISTORY">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="eraseHistory:" destination="6oG-14-Uj7" eventType="touchUpInside" id="z1E-xP-ARY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -427,14 +402,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UuE-c7-gbx"/>
                     <connections>
-                        <outlet property="saveSettingsLabel" destination="glx-fb-QCV" id="2Dy-Pf-ljx"/>
                         <outlet property="selectLanguageButtonLabel" destination="P7G-73-qmp" id="Cua-oH-bR2"/>
                         <segue destination="22g-nH-MD1" kind="show" identifier="default_trans_from" id="aRr-iH-o1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62z-kG-vFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="-376"/>
+            <point key="canvasLocation" x="933.60000000000002" y="-376.46176911544228"/>
         </scene>
         <!--Default Language-->
         <scene sceneID="3HP-qH-X6d">

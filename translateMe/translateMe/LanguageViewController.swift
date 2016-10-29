@@ -20,6 +20,9 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var pickerData: [String] = [String]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +35,15 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let viewController = ViewController()
         pickerData = viewController.getLanguages()
 
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(LanguageViewController.nearbyTapped))
     }
+    
+    func nearbyTapped(){
+        //        self.performSegue(withIdentifier: "back_main", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func submitLanguageButton(_ sender: AnyObject) {
         print("selected language: ", self.selectedLanguage)

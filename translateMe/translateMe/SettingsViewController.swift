@@ -10,17 +10,15 @@ import UIKit
 import CoreData
 
 class SettingsViewController: UIViewController {
-
-    @IBOutlet var saveSettingsLabel: UIButton!
     
     @IBOutlet var selectLanguageButtonLabel: UIButton!
     
     @IBAction func selectLanguageButton(_ sender: AnyObject) {
         performSegue(withIdentifier: "default_trans_from", sender: nil)
     }
-    @IBAction func saveSettingsButton(_ sender: AnyObject) {
-        
-        
+
+    @IBAction func eraseHistory(_ sender: AnyObject) {
+        //erase search history
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +29,6 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title = "Settings"
         self.tabBarController?.tabBar.barTintColor = UIColor(netHex:0xF8DED4)
-        saveSettingsLabel.layer.cornerRadius = 2
-        saveSettingsLabel.layer.borderWidth = 0.1
         
         print("settings: current default language: ", getPropValue(key: "default_language"))
         
