@@ -12,6 +12,10 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     var selectedLanguage : String = ""
     
+    var selectedLanguageFrom : String = ""
+    
+    var direction : String = ""
+    
     @IBOutlet var picker: UIPickerView!
     
     @IBOutlet var submitLanguage: UIButton!
@@ -22,6 +26,8 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
+        
+        print("kim: \(direction)")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +55,16 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         print("selected language: ", self.selectedLanguage)
         //let put = setPropVal(key: "translate_to", value: self.selectedLanguage)
         
-        let put = setPropValue(key: "translate_to", value: self.selectedLanguage)
+//        let put = setPropValue(key: "translate_to", value: self.selectedLanguage)
+        var put : String = ""
+        if direction == "translate_from"{
+            put = setPropValue(key: direction, value: self.selectedLanguageFrom)
+        }else{
+            put = setPropValue(key: direction, value: self.selectedLanguage)
+        }
+        print(direction)
         print("saved: ", put)
-        var h = getPropVal(key: "translate_to")
+        var h = getPropVal(key: direction)
         print("retrieve: ", h)
         self.dismiss(animated: true, completion: nil)
     }
@@ -65,7 +78,12 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueDestination = segue.destination as! ViewController
-        segueDestination.selectedLanguage = self.selectedLanguage
+        
+        if (direction == "translate_to"){
+            segueDestination.selectedLanguage = self.selectedLanguage
+        }else{
+            segueDestination.selectedLanguageFrom = self.selectedLanguageFrom
+        }
     }
     
 
@@ -94,7 +112,13 @@ class LanguageViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 //        print("Focused on: ", pickerData[row])
-        self.selectedLanguage = pickerData[row]
+        print("picker\(direction)")
+        if (direction == "translate_to"){
+            self.selectedLanguage = pickerData[row]
+        }else{
+            self.selectedLanguageFrom = pickerData[row]
+        }
+        
         return pickerData[row]
     }
     

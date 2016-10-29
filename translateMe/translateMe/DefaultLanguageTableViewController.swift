@@ -31,6 +31,14 @@ class DefaultLanguageTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.language = NSArray(array: Array(language_list.keys)) as! [String]
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(DefaultLanguageTableViewController.nearbyTapped))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+    }
+    
+    func nearbyTapped(){
+        //        self.performSegue(withIdentifier: "back_main", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +75,7 @@ class DefaultLanguageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(language[indexPath.row])
         setPropValue(key: "default_language", value: language[indexPath.row])
+        setPropValue(key: "translate_from", value: language[indexPath.row])
         self.dismiss(animated: true, completion: nil)
     }
  

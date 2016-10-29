@@ -11,12 +11,18 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var selectedLanguageLabel: UIButton!
+    @IBOutlet var selectedLanguageFromButtonLabel: UIButton!
     
     var accessToken: String = ""
     
     var selectedLanguage : String = ""
     
+    var selectedLanguageFrom : String = ""
+    
     var parser = XMLParser()
+    
+    var direction : String = ""
+    
     
     @IBOutlet var outputTextLabel: UILabel!
     
@@ -108,10 +114,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.selectedLanguage = getPropValue(key: "translate_to")
+        self.selectedLanguageFrom = getPropValue(key: "translate_from")
         
         //check if there's a language is selected, if there is change button name to that language
         if (!self.selectedLanguage.isEmpty){
+            print("selected language to")
             selectedLanguageLabel.setTitle(self.selectedLanguage, for: UIControlState.normal)
+        }
+        
+        if (!self.selectedLanguageFrom.isEmpty){
+            print("selected language from")
+            selectedLanguageFromButtonLabel.setTitle(self.selectedLanguageFrom, for: UIControlState.normal)
         }
         self.tabBarController?.title = "Translate by Text"
         self.tabBarController?.tabBar.barTintColor = UIColor(netHex: 0xE1F1F9)
@@ -159,7 +172,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         print("Translating " )
         
-        let langFrom = "en";
+//        let langFrom = "en";
+        let langFrom = getLanguageCode(name: getPropValue(key: "translate_from"))
         
         if (translateTo.isEmpty){
             self.outputTextLabel.text = "Please select a language to translate to."
@@ -296,6 +310,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func getLanguages() -> [String]{
         return Array(language.keys)
         
+    }
+    
+    @IBAction func to(_ sender: AnyObject) {
+        direction = "translate_to"
+        self.performSegue(withIdentifier: "select_language_id", sender: nil)
+        
+    }
+    
+    
+    @IBAction func from(_ sender: AnyObject) {
+        direction = "translate_from"
+        self.performSegue(withIdentifier: "select_language_id", sender: nil)
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segDest = segue.destination as! UINavigationController
+        let vc = segDest.topViewController as! LanguageViewController
+        print("prepare: \(direction)")
+        vc.direction = direction
     }
     
     

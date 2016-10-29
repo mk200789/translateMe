@@ -163,36 +163,60 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp9-GJ-Y4e">
-                                        <frame key="frameInset" minX="44" minY="367" width="281" height="61"/>
+                                        <frame key="frameInset" minX="44" minY="305" width="286" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D64-3J-HHi">
-                                        <frame key="frameInset" minX="111" minY="89" width="153" height="21"/>
+                                        <frame key="frameInset" minX="111" minY="50" width="153" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bco-OS-xcK">
-                                        <frame key="frameInset" minX="109.5" minY="193" width="156" height="30"/>
+                                        <frame key="frameInset" minX="108" minY="172" width="222" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="No Language Selected">
                                             <color key="titleColor" red="0.093377508220000002" green="0.12671059370000001" blue="0.033944897350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="s0U-W5-DK0" kind="presentation" identifier="select_language_seg" id="3Gk-zM-fPn"/>
+                                            <action selector="to:" destination="NJo-6b-Xes" eventType="touchUpInside" id="ono-nT-Xyx"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to translate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjg-et-P3d">
-                                        <frame key="frameInset" minX="44" minY="280" width="286" height="30"/>
+                                        <frame key="frameInset" minX="44" minY="228" width="286" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-dd-CXb">
+                                        <frame key="frameInset" minX="44" minY="177" width="56" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0g-OL-fbA">
+                                        <frame key="frameInset" minX="108" minY="134" width="222" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="No Language Selected">
+                                            <color key="titleColor" red="0.093377508220000002" green="0.12671059370000001" blue="0.033944897350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="from:" destination="NJo-6b-Xes" eventType="touchUpInside" id="cCU-ft-Jsx"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtR-71-oKq">
+                                        <frame key="frameInset" minX="44" minY="139" width="56" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -203,8 +227,10 @@
                     <connections>
                         <outlet property="inputTextLabel" destination="jjg-et-P3d" id="gAc-9q-lUs"/>
                         <outlet property="outputTextLabel" destination="Tp9-GJ-Y4e" id="45D-DJ-UAS"/>
+                        <outlet property="selectedLanguageFromButtonLabel" destination="g0g-OL-fbA" id="4w0-Xw-gDV"/>
                         <outlet property="selectedLanguageLabel" destination="Bco-OS-xcK" id="SB1-uu-QuW"/>
                         <outlet property="translateButtonLabel" destination="SYT-xd-ebL" id="iRD-XE-UCj"/>
+                        <segue destination="s0U-W5-DK0" kind="presentation" identifier="select_language_id" id="fwI-D3-gyV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qpu-oG-Wg6" userLabel="First Responder" sceneMemberID="firstResponder"/>

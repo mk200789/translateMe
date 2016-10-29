@@ -125,9 +125,9 @@
 			children = (
 				C65BE46D1DA607CC00574E8B /* AppDelegate.swift */,
 				C65BE46F1DA607CC00574E8B /* ViewController.swift */,
+				C6D2B9141DB34AF300B2DEBB /* LanguageViewController.swift */,
 				C6C013221DB5FC880012ACC7 /* PictureViewController.swift */,
 				C6C0131C1DB5D3D80012ACC7 /* WordTableViewController.swift */,
-				C6D2B9141DB34AF300B2DEBB /* LanguageViewController.swift */,
 				C63420B31DBB17890049BF4C /* SettingsViewController.swift */,
 				C63420B71DBB2D660049BF4C /* DefaultLanguageTableViewController.swift */,
 				C605F6201DC172B5005C5825 /* DetailsViewController.swift */,
