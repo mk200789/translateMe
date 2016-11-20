@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Clarifai
 
 class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -14,18 +15,19 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet var resultLabel: UILabel!
     
-    var result : NSDictionary = NSDictionary()
-    
     let imagePicker = UIImagePickerController()
-    
-    var accessToken : String = ""
     
     @IBOutlet var showTableButton: UIButton!
     
     @IBOutlet var selectPhotoLabel: UIButton!
     
+    var tag : Array<String> = []
+    
+    var app: ClarifaiApp = ClarifaiApp(appID: getPropValue(key: "clarifai_client_id"), appSecret: getPropValue(key: "clarifai_client_secret")) as ClarifaiApp
+    
+
     @IBAction func showTable(_ sender: AnyObject) {
-        setArrayValue(key: "clarifai_tags", value: self.tags)
+        setArrayValue(key: "clarifai_tags", value: self.tag as NSArray)
         performSegue(withIdentifier: "image_tags_seg", sender: nil)
     }
     
@@ -33,11 +35,9 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         
         // Do any additional setup after loading the view
-        //        getAccessToken()
-        self.accessToken = getPropValue(key: "clarifai_access_token")
         
         resultLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        resultLabel.numberOfLines = 0
+        //resultLabel.numberOfLines = 0
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,107 +121,42 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    var tags : NSArray = []
     
-    func updateLabel(){
-        resultLabel.text = ""
+    
+    func updateLabel(tags: NSArray){
+        print(tags)
         showTableButton.isEnabled = true
-        
-        for i in self.tags{
-            resultLabel.text?.append(String(describing: i) + ", ")
-        }
-        
-        let str = NSString(string: resultLabel.text!)
-        resultLabel.text = str.substring(to: str.length-2)
-        
+        resultLabel.text = tags.componentsJoined(by: ", ")
     }
     
     
-    
-    func setup(){
-        let results = (self.result["results"] as! NSArray)[0]
-        let result = (results as! NSDictionary)["result"]
-        let tag = ((result as! NSDictionary)["tag"] as! NSDictionary)["classes"] as! NSArray
-        
-        //takes the top 8 tags
-        self.tags = tag.subarray(with: NSRange.init(location: 0, length: 8)) as NSArray
-    }
     
     func getTags(){
-        resultLabel.text = "Tagging ..."
         
-        let tagURL = "https://api.clarifai.com/v1/tag/"
-        let header = "Bearer " + self.accessToken
+        let image : ClarifaiImage = ClarifaiImage(image: imageView.image)
+        tag = []
+        resultLabel.text = ""
         
-        let url = URL(string: tagURL)
-        var request = URLRequest(url: url!)
-        
-        request.httpMethod = "POST"
-        request.setValue(header, forHTTPHeaderField: "Authorization")
-        
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
-        let base64String = imageData?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-        
-        
-        request.httpBody = ("encoded_data=\(ViewController().encodeURIComponent(text: base64String!))").data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(response)
-            if ((response as! HTTPURLResponse).statusCode == 200){
-                print("success!")
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-                    DispatchQueue.main.async {
-                        self.result = json
-                        print(json)
-                        self.setup()
-                        self.updateLabel()
-                        
+        self.app.getModelByName("general-v1.3", completion: { (model, error) in
+            model?.predict(on: [image], completion: { (output, error) in
+                DispatchQueue.main.async {
+                    let result = output?[0]
+                
+                    for i in (result?.concepts)!{
+                        self.tag.append(i.conceptName)
                     }
-                }catch{
-                    
+                    self.updateLabel(tags: self.tag as NSArray)
                 }
-            }else if((response as! HTTPURLResponse).statusCode == 401){
-                print("access token expired")
-                self.getAccessToken()
-                self.getTags()
-            }
-        }
-        task.resume()
+            
+            })
+        })
         
+
     }
+
+
     
-    func getAccessToken(){
-        let clientID = getPropValue(key: "clarifai_client_id")
-        let clientSecret = getPropValue(key: "clarifai_client_secret")
-        let authURL = "https://api.clarifai.com/v1/token"
-        
-        
-        let params = "client_id=\(clientID)&client_secret=\(clientSecret)&grant_type=client_credentials"
-        let url = URL(string: authURL)
-        
-        var request = URLRequest(url: url!)
-        
-        request.httpMethod = "POST"
-        
-        request.httpBody = params.data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if ((response as! HTTPURLResponse).statusCode == 200){
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-                    DispatchQueue.main.async {
-                        self.accessToken = setPropValue(key: "clarifai_access_token", value: json["access_token"] as! String)
-                        setPropValue(key: "clarifai_expires_in", value: String(describing: json["expires_in"]))
-                        
-                    }
-                }catch{
-                    
-                }
-            }
-        }
-        task.resume()
-    }
+    
     
     
     // MARK: - Navigation
