@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Clarifai_Apple_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Clarifai.sharedInstance().start(apiKey: "ce35f782e29646698a096f9b059eb8fb")
         return true
     }
 
