@@ -58,11 +58,57 @@
                         <outlet property="imageView" destination="IaY-JZ-stO" id="Lle-Tu-UWa"/>
                         <outlet property="tagButtonOutlet" destination="7Yn-nG-Ylp" id="Uiv-f4-Tco"/>
                         <outlet property="tagsLabel" destination="hSl-Dt-iyh" id="M1y-Rr-DbO"/>
+                        <segue destination="VHi-q6-D6d" kind="show" identifier="tag_table" id="Pzd-EV-QNI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="740" y="-351"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="XHl-S5-VGp">
+            <objects>
+                <tableViewController id="PcM-SM-6tM" customClass="TableViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DSV-TP-Emr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="word" id="NCo-Vy-EuU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NCo-Vy-EuU" id="yqy-UK-5zK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PcM-SM-6tM" id="fOx-Jm-Zdb"/>
+                            <outlet property="delegate" destination="PcM-SM-6tM" id="7tj-NC-q2D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="8HR-qG-Gsh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4q7-yR-WFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-351"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gXb-Gg-xnx">
+            <objects>
+                <navigationController id="VHi-q6-D6d" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="czi-Nx-4iQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PcM-SM-6tM" kind="relationship" relationship="rootViewController" id="QcV-0D-0sY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4b3-FD-5fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="-351"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="29S-Pl-69S">

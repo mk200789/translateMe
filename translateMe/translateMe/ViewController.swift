@@ -42,6 +42,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     @IBAction func moveToTagTable(_ sender: Any) {
         print("move to table")
+        self.performSegue(withIdentifier: "tag_table", sender: nil)
     }
     
     @IBAction func selectPicture(_ sender: Any) {
@@ -136,6 +137,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nav = segue.destination as! UINavigationController
+        let dest = nav.viewControllers.first as! TableViewController
+        dest.tags = self.tags
+        
     }
 
 
