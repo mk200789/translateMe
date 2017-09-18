@@ -7,20 +7,41 @@
 //
 
 import UIKit
+import Clarifai_Apple_SDK
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var tagButtonOutlet: UIButton!
+    
     @IBOutlet weak var tagsLabel: UILabel!
+    
     var imagePicker = UIImagePickerController()
+    
+    var tags: [String] = []
+    
+    var model: Model!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //set model to general
+        model = Clarifai.sharedInstance().generalModel
+        
         imagePicker.delegate = self
+        
+        tagButtonOutlet.isEnabled = false
+        
+        tagsLabel.adjustsFontSizeToFitWidth = true
+        tagsLabel.lineBreakMode = .byWordWrapping
+        tagsLabel.numberOfLines = 0
+        tagsLabel.textAlignment = .justified
     }
 
     @IBAction func moveToTagTable(_ sender: Any) {
+        print("move to table")
     }
     
     @IBAction func selectPicture(_ sender: Any) {
@@ -72,10 +93,42 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    func getTags(){
+        //clear out the previous tags
+        print("getting tags")
+        
+        tags.removeAll()
+        self.tagButtonOutlet.isEnabled = false
+        
+        let image = Image(image: imageView.image)
+        let dataAsset = DataAsset.init(image: image)
+        
+        let input = Input(dataAsset: dataAsset)
+        let inputs = [input]
+        
+        self.model.predict(inputs) { (outputs, error) in
+            for output in outputs!{
+                for concept in (output.dataAsset.concepts!){
+                    if (!concept.name.isEmpty){
+                        self.tags.append(concept.name)
+                    }
+                }
+            }
+            
+            self.tagsLabel.text = self.tags.joined(separator: " , ")
+            self.tagButtonOutlet.isEnabled = true
+        }
+        
+        
+        
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = selectedImage
+            
+            self.getTags()
         }
         dismiss(animated: true, completion: nil)
     }
