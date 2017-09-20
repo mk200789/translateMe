@@ -9,7 +9,7 @@
 import UIKit
 import Clarifai_Apple_SDK
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class MainViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -38,11 +38,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         tagsLabel.lineBreakMode = .byWordWrapping
         tagsLabel.numberOfLines = 0
         tagsLabel.textAlignment = .justified
+        
+
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
 
     @IBAction func moveToTagTable(_ sender: Any) {
         print("move to table")
-        self.performSegue(withIdentifier: "tag_table", sender: nil)
+        self.performSegue(withIdentifier: "tag_table_seg", sender: nil)
     }
     
     @IBAction func selectPicture(_ sender: Any) {
@@ -112,6 +119,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 for concept in (output.dataAsset.concepts!){
                     if (!concept.name.isEmpty){
                         self.tags.append(concept.name)
+                        print("tag: \(concept.name)  ------> \(concept.score) )")
                     }
                 }
             }
@@ -140,8 +148,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nav = segue.destination as! UINavigationController
-        let dest = nav.viewControllers.first as! TableViewController
+//        let nav = segue.destination as! UINavigationController
+//        let dest = nav.viewControllers.first as! TableViewController
+        let dest = segue.destination as! TableViewController
         dest.tags = self.tags
         
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UUV-mh-aoq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Fi-EW-bNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Navigation Controller-->
+        <scene sceneID="pAI-5j-byJ">
+            <objects>
+                <navigationController id="9Fi-EW-bNn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BI1-xS-rtw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="h71-4G-2k7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kA2-13-kZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="-351"/>
+        </scene>
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" userLabel="Main" customClass="MainViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -54,18 +70,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="SJ5-oX-jT1"/>
+                    <navigationItem key="navigationItem" id="n6F-6K-ZWK"/>
                     <connections>
                         <outlet property="imageView" destination="IaY-JZ-stO" id="Lle-Tu-UWa"/>
                         <outlet property="tagButtonOutlet" destination="7Yn-nG-Ylp" id="Uiv-f4-Tco"/>
                         <outlet property="tagsLabel" destination="hSl-Dt-iyh" id="M1y-Rr-DbO"/>
-                        <segue destination="VHi-q6-D6d" kind="show" identifier="tag_table" id="Pzd-EV-QNI"/>
+                        <segue destination="PcM-SM-6tM" kind="show" identifier="tag_table_seg" id="I77-1v-gZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="-351"/>
+            <point key="canvasLocation" x="1538" y="-351"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Words-->
         <scene sceneID="XHl-S5-VGp">
             <objects>
                 <tableViewController id="PcM-SM-6tM" customClass="TableViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,67 +105,74 @@
                             <outlet property="delegate" destination="PcM-SM-6tM" id="7tj-NC-q2D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="8HR-qG-Gsh"/>
+                    <navigationItem key="navigationItem" title="Words" id="8HR-qG-Gsh"/>
+                    <connections>
+                        <segue destination="hj3-Qt-009" kind="show" identifier="word_detail_seg" id="lt6-c8-o5m"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q7-yR-WFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="-351"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gXb-Gg-xnx">
+        <!--Word Detail View Controller-->
+        <scene sceneID="tTv-8w-iwe">
             <objects>
-                <navigationController id="VHi-q6-D6d" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="czi-Nx-4iQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PcM-SM-6tM" kind="relationship" relationship="rootViewController" id="QcV-0D-0sY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4b3-FD-5fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1518" y="-351"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="29S-Pl-69S">
-            <objects>
-                <viewController id="Gg6-DB-Isn" sceneMemberID="viewController">
+                <viewController id="hj3-Qt-009" customClass="WordDetailViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qfg-o1-9VK"/>
-                        <viewControllerLayoutGuide type="bottom" id="B8B-ti-aKV"/>
+                        <viewControllerLayoutGuide type="top" id="7yV-hY-8Fz"/>
+                        <viewControllerLayoutGuide type="bottom" id="CT9-5Z-xuI"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="K6Y-sE-PXR">
+                    <view key="view" contentMode="scaleToFill" id="6Xs-tK-034">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-K9-wYU">
+                                <rect key="frame" x="37" y="136" width="241" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-Vk-3av">
+                                <rect key="frame" x="286" y="128" width="58" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="audio.png"/>
+                                <connections>
+                                    <action selector="listenToAudio:" destination="hj3-Qt-009" eventType="touchUpInside" id="FjF-7S-SxS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbz-xQ-HOP">
+                                <rect key="frame" x="37" y="228" width="241" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWZ-gw-Ekz">
+                                <rect key="frame" x="286" y="212" width="58" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="audio.png"/>
+                                <connections>
+                                    <action selector="listenToTranslatedAudio:" destination="hj3-Qt-009" eventType="touchUpInside" id="rDh-rb-BDL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="9zd-dy-DAy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UNQ-KX-Xrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="740" y="319"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="vsA-ag-3oE">
-            <objects>
-                <tabBarController id="UUV-mh-aoq" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="I3v-IH-vsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                    <navigationItem key="navigationItem" id="CA5-gY-SjJ"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nqQ-5H-MPh"/>
-                        <segue destination="Gg6-DB-Isn" kind="relationship" relationship="viewControllers" id="Ogl-2T-DS2"/>
+                        <outlet property="englishWordLabel" destination="ugd-K9-wYU" id="ys8-6h-oiy"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gae-S4-zJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QxQ-Yt-bwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="-9"/>
+            <point key="canvasLocation" x="3320.8000000000002" y="-351.27436281859076"/>
         </scene>
     </scenes>
     <resources>
+        <image name="audio.png" width="25" height="25"/>
         <image name="blank_default.png" width="640" height="640"/>
     </resources>
 </document>

@@ -11,6 +11,8 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var tags: [String] = []
+    
+    var selectedWord : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,12 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(TableViewController.goBack))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(TableViewController.goBack))
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func goBack(){
@@ -53,6 +60,12 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = self.tags[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("SELECTED WORD: \(self.tags[indexPath.row])")
+        self.selectedWord = self.tags[indexPath.row]
+        self.performSegue(withIdentifier: "word_detail_seg", sender: nil)
     }
  
 
@@ -91,14 +104,18 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        let nav = segue.destination as! UINavigationController
+//        let dest = nav.viewControllers.first as? WordDetailViewController
+        let dest = segue.destination as! WordDetailViewController
+        dest.word = self.selectedWord
     }
-    */
+ 
 
 }
