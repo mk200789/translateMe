@@ -39,13 +39,27 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         tagsLabel.numberOfLines = 0
         tagsLabel.textAlignment = .justified
         
+        let settingButtonImage = UIImage(named: "settings25")?.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingButtonImage, style: .plain, target: self, action: #selector(goToSettings))
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+    func goToSettings(){
+        print("goToSettings")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.title = "translateMe"
+        var colors = [UIColor]()
+        colors.append(UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1))
+        colors.append(UIColor(red: 208/255, green: 201/255, blue: 224/255, alpha: 1))
+        navigationController?.navigationBar.setGradientBackground(colors: colors)
+//        rgb(182, 159, 230)
+//        rgb(208, 201, 224)
+    }
+    
+
 
     @IBAction func moveToTagTable(_ sender: Any) {
         print("move to table")
@@ -55,7 +69,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBAction func selectPicture(_ sender: Any) {
         
         //create a new alert
-        let alert = UIAlertController(title: "Select Photo", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        alert.view.tintColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1)
+
         
         //include photo library action in alert
         let photoLib = UIAlertAction(title: "Photo Library", style: .default) { (action) in
@@ -158,3 +175,43 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
 }
 
+
+extension CAGradientLayer {
+    
+    convenience init(frame: CGRect, colors: [UIColor]) {
+        self.init()
+        self.frame = frame
+        self.colors = []
+        for color in colors {
+            self.colors?.append(color.cgColor)
+        }
+        startPoint = CGPoint(x: 0, y: 0)
+        endPoint = CGPoint(x: 0, y: 1)
+    }
+    
+    func creatGradientImage() -> UIImage? {
+        
+        var image: UIImage? = nil
+        UIGraphicsBeginImageContext(bounds.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            render(in: context)
+            image = UIGraphicsGetImageFromCurrentImageContext()
+        }
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+}
+
+
+extension UINavigationBar {
+    
+    func setGradientBackground(colors: [UIColor]) {
+        
+        var updatedFrame = bounds
+        updatedFrame.size.height += 20
+        let gradientLayer = CAGradientLayer(frame: updatedFrame, colors: colors)
+        
+        setBackgroundImage(gradientLayer.creatGradientImage(), for: UIBarMetrics.default)
+    }
+}
