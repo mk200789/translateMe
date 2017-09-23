@@ -8,12 +8,15 @@
 
 import UIKit
 import Clarifai_Apple_SDK
+import Dispatch
 
 class MainViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var tagButtonOutlet: UIButton!
+    
+    @IBOutlet weak var cameraButtonOutlet: UIButton!
     
     @IBOutlet weak var tagsLabel: UILabel!
     
@@ -24,6 +27,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var tags: [String] = []
     
     var model: Model!
+    
+    @IBOutlet weak var translateImageView: UIImageView!
+    @IBOutlet weak var cameraImageView: UIImageView!
+    @IBOutlet weak var selectionView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +50,20 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         let settingButtonImage = UIImage(named: "settings25")?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingButtonImage, style: .plain, target: self, action: #selector(goToSettings))
-
+        
+        
+        //camerabutton
+        let frame = cameraButtonOutlet.frame
+        // Right Layer
+        let rightLayer = CALayer()
+        rightLayer.frame = CGRect(x: frame.width - 1, y: 0, width: 1.5, height: frame.height)
+        rightLayer.backgroundColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
+        cameraButtonOutlet.layer.addSublayer(rightLayer)
+        
+        selectionView.layer.borderWidth = 1.8
+        selectionView.layer.cornerRadius = 10
+        selectionView.layer.borderColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
+        
     }
     
     func goToSettings(){
@@ -67,10 +87,33 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     @IBAction func moveToTagTable(_ sender: Any) {
         print("move to table")
+        toggleCameraImage(type: "translate")
         self.performSegue(withIdentifier: "tag_table_seg", sender: nil)
     }
     
+    func toggleCameraImage(type: String){
+        
+        if (type == "camera"){
+            self.cameraImageView.image = UIImage(named: "camera-bold-selected")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.cameraImageView.image = UIImage(named: "camera")
+            }
+        }
+        
+        if (type ==  "translate"){
+            self.translateImageView.image = UIImage(named: "translate-bold-selected")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.translateImageView.image = UIImage(named: "translate")
+            }
+        }
+
+        
+    }
+    
     @IBAction func selectPicture(_ sender: Any) {
+        toggleCameraImage(type: "camera")
         
         //create a new alert
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -233,3 +276,5 @@ extension UINavigationBar {
         setBackgroundImage(gradientLayer.creatGradientImage(), for: UIBarMetrics.default)
     }
 }
+
+
