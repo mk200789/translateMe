@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536.8" y="-351.27436281859076"/>
+            <point key="canvasLocation" x="1602" y="-351"/>
         </scene>
         <!--Words-->
         <scene sceneID="XHl-S5-VGp">
@@ -106,70 +106,83 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Words" id="8HR-qG-Gsh"/>
-                    <connections>
-                        <segue destination="hj3-Qt-009" kind="show" identifier="word_detail_seg" action="showDetailViewController:sender:" id="lt6-c8-o5m"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q7-yR-WFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="-351"/>
         </scene>
-        <!--Word Detail View Controller-->
-        <scene sceneID="tTv-8w-iwe">
+        <!--Popup View Controller-->
+        <scene sceneID="caD-cQ-wMK">
             <objects>
-                <viewController id="hj3-Qt-009" customClass="WordDetailViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popupID" id="wwS-Bd-tqA" customClass="PopupViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7yV-hY-8Fz"/>
-                        <viewControllerLayoutGuide type="bottom" id="CT9-5Z-xuI"/>
+                        <viewControllerLayoutGuide type="top" id="WZ4-s8-QqE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eih-MO-Dt9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Xs-tK-034">
+                    <view key="view" contentMode="scaleToFill" id="ECF-ke-TL5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-K9-wYU">
-                                <rect key="frame" x="37" y="136" width="241" height="48"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATB-tC-9Mv">
+                                <rect key="frame" x="67" y="190" width="240" height="287"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-Vk-3av">
-                                <rect key="frame" x="286" y="128" width="58" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="audio.png"/>
-                                <connections>
-                                    <action selector="listenToAudio:" destination="hj3-Qt-009" eventType="touchUpInside" id="FjF-7S-SxS"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbz-xQ-HOP">
-                                <rect key="frame" x="37" y="228" width="241" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWZ-gw-Ekz">
-                                <rect key="frame" x="286" y="212" width="58" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="audio.png"/>
-                                <connections>
-                                    <action selector="listenToTranslatedAudio:" destination="hj3-Qt-009" eventType="touchUpInside" id="rDh-rb-BDL"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMY-n0-jRG">
+                                        <rect key="frame" x="15" y="27" width="104" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUh-dR-HPO">
+                                        <rect key="frame" x="15" y="88" width="104" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm9-oa-I26">
+                                        <rect key="frame" x="62" y="223" width="116" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="closePopup:" destination="wwS-Bd-tqA" eventType="touchUpInside" id="YZ0-WU-NIf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQu-Ah-VXD">
+                                        <rect key="frame" x="161" y="30" width="79" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="audio.png"/>
+                                        <connections>
+                                            <action selector="listenToOriginalText:" destination="wwS-Bd-tqA" eventType="touchUpInside" id="TR1-rF-5dW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoC-Ul-toX">
+                                        <rect key="frame" x="188" y="87" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="audio.png"/>
+                                        <connections>
+                                            <action selector="listenToTranslatedText:" destination="wwS-Bd-tqA" eventType="touchUpInside" id="h6r-Qj-fSK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.76662990804926101" blue="0.9384766789028739" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CA5-gY-SjJ"/>
                     <connections>
-                        <outlet property="englishWordLabel" destination="ugd-K9-wYU" id="ys8-6h-oiy"/>
-                        <outlet property="translatedWordLabel" destination="xbz-xQ-HOP" id="YAd-GE-SN5"/>
+                        <outlet property="closeButtonOutlet" destination="mm9-oa-I26" id="4mD-Ry-E9t"/>
+                        <outlet property="originalTextLabel" destination="KMY-n0-jRG" id="ttZ-4P-a7v"/>
+                        <outlet property="translatedTextLabel" destination="VUh-dR-HPO" id="dNF-YA-8up"/>
+                        <outlet property="viewUI" destination="ATB-tC-9Mv" id="0u4-iG-TFQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QxQ-Yt-bwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xU-0m-niI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3320.8000000000002" y="-351.27436281859076"/>
+            <point key="canvasLocation" x="3266" y="-1242"/>
         </scene>
     </scenes>
     <resources>

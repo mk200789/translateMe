@@ -123,16 +123,24 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         print("getting tags")
         
         tags.removeAll()
+        
+        print("remove tags")
         self.tagButtonOutlet.isEnabled = false
         
         let image = Image(image: imageView.image)
         let dataAsset = DataAsset.init(image: image)
         
+        print("set dataAssets")
+        
         let input = Input(dataAsset: dataAsset)
         let inputs = [input]
         
+        print("set inputs")
+        
         self.model.predict(inputs) { (outputs, error) in
+            print("model")
             for output in outputs!{
+                print("first loop")
                 for concept in (output.dataAsset.concepts!){
                     if (!concept.name.isEmpty){
                         self.tags.append(concept.name)

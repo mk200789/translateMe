@@ -25,16 +25,15 @@ class TableViewController: UITableViewController {
         
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(TableViewController.goBack))
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = false
+        print("HAPPY")
     }
     
-    func goBack(){
-        self.dismiss(animated: true, completion: nil)
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,8 +64,25 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("SELECTED WORD: \(self.tags[indexPath.row])")
         self.selectedWord = self.tags[indexPath.row]
-        self.performSegue(withIdentifier: "word_detail_seg", sender: nil)
+//        self.performSegue(withIdentifier: "word_detail_seg", sender: nil)
+        
+        let popupvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupID") as! PopupViewController
+        popupvc.word = self.tags[indexPath.row]
+        popupvc.modalPresentationStyle = .overFullScreen
+        self.present(popupvc, animated: true, completion: nil)
+    
+
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        print("hola3")
+//        self.navigationItem.hidesBackButton = false
+    }
+    
+    
+
+    
  
 
     /*
@@ -113,7 +129,11 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
 //        let nav = segue.destination as! UINavigationController
 //        let dest = nav.viewControllers.first as? WordDetailViewController
-        let dest = segue.destination as! WordDetailViewController
+        //====
+//        let dest = segue.destination as! WordDetailViewController
+//        dest.word = self.selectedWord
+        //===
+        let dest = segue.destination as! PopupViewController
         dest.word = self.selectedWord
     }
  
