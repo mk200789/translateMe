@@ -64,6 +64,7 @@ class PopupViewController: UIViewController {
     @IBAction func listenToTranslatedText(_ sender: Any) {
         let utterance = AVSpeechUtterance(string: translatedWord)
         utterance.voice = AVSpeechSynthesisVoice(language: "zh-HK")
+        utterance.rate = 0.4
         speechSynthesizer.speak(utterance)
     }
     

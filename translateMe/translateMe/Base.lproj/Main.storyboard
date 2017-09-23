@@ -55,6 +55,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Tzr-1u-Vcl">
+                                <rect key="frame" x="177" y="456" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL7-eH-rcq">
                                 <rect key="frame" x="16" y="593" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,6 +77,7 @@
                     <navigationItem key="navigationItem" id="n6F-6K-ZWK"/>
                     <connections>
                         <outlet property="imageView" destination="IaY-JZ-stO" id="Lle-Tu-UWa"/>
+                        <outlet property="spinner" destination="Tzr-1u-Vcl" id="963-R9-Ap8"/>
                         <outlet property="tagButtonOutlet" destination="7Yn-nG-Ylp" id="Uiv-f4-Tco"/>
                         <outlet property="tagsLabel" destination="hSl-Dt-iyh" id="M1y-Rr-DbO"/>
                         <segue destination="PcM-SM-6tM" kind="show" identifier="tag_table_seg" id="I77-1v-gZd"/>

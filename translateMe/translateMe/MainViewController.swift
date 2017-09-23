@@ -17,6 +17,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBOutlet weak var tagsLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     var imagePicker = UIImagePickerController()
     
     var tags: [String] = []
@@ -49,14 +51,16 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.isHidden = true
+        spinner.hidesWhenStopped = true
+        spinner.activityIndicatorViewStyle = .gray
+        
+        
         self.navigationItem.title = "translateMe"
         var colors = [UIColor]()
         colors.append(UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1))
         colors.append(UIColor(red: 208/255, green: 201/255, blue: 224/255, alpha: 1))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
-//        rgb(182, 159, 230)
-//        rgb(208, 201, 224)
+
     }
     
 
@@ -118,9 +122,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
     }
     
+
+    
     func getTags(){
         //clear out the previous tags
         print("getting tags")
+        
+        spinner.startAnimating()
         
         tags.removeAll()
         
@@ -151,6 +159,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
             self.tagsLabel.text = self.tags.joined(separator: " , ")
             self.tagButtonOutlet.isEnabled = true
+            
+            self.spinner.stopAnimating()
         }
         
         
