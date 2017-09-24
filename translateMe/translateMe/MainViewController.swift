@@ -21,36 +21,46 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var tagsLabel: UILabel!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+
+    @IBOutlet weak var translateImageView: UIImageView!
     
+    @IBOutlet weak var cameraImageView: UIImageView!
+    
+    @IBOutlet weak var selectionView: UIView!
+
     var imagePicker = UIImagePickerController()
     
     var tags: [String] = []
     
     var model: Model!
     
-    @IBOutlet weak var translateImageView: UIImageView!
-    @IBOutlet weak var cameraImageView: UIImageView!
-    @IBOutlet weak var selectionView: UIView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //set model to general
+        //set the Clarifai model to general
         model = Clarifai.sharedInstance().generalModel
         
         imagePicker.delegate = self
         
+        //disable the tag button until tags are retrieved
         tagButtonOutlet.isEnabled = false
         
+        //setting the tagslabel
         tagsLabel.adjustsFontSizeToFitWidth = true
         tagsLabel.lineBreakMode = .byWordWrapping
         tagsLabel.numberOfLines = 0
         tagsLabel.textAlignment = .justified
         
-        let settingButtonImage = UIImage(named: "settings25")?.withRenderingMode(.alwaysOriginal)
+        //set setting button on the navigation
+        let settingButtonImage = UIImage(named: "setting-icon")?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingButtonImage, style: .plain, target: self, action: #selector(goToSettings))
         
+        //set title logo on navigation bar
+        let logo = UIImage(named: "logo")
+        let logoView = UIImageView(image: logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = logoView
         
         //camerabutton
         let frame = cameraButtonOutlet.frame
@@ -60,22 +70,23 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         rightLayer.backgroundColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
         cameraButtonOutlet.layer.addSublayer(rightLayer)
         
+        
+        //put a border around the view that contains the camera and tag button
         selectionView.layer.borderWidth = 1.8
         selectionView.layer.cornerRadius = 10
         selectionView.layer.borderColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
-        
+
     }
     
     func goToSettings(){
         print("goToSettings")
+        self.performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         spinner.hidesWhenStopped = true
         spinner.activityIndicatorViewStyle = .gray
         
-        
-        self.navigationItem.title = "translateMe"
         var colors = [UIColor]()
         colors.append(UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1))
         colors.append(UIColor(red: 208/255, green: 201/255, blue: 224/255, alpha: 1))
@@ -84,36 +95,21 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
 
-
     @IBAction func moveToTagTable(_ sender: Any) {
         print("move to table")
-        toggleCameraImage(type: "translate")
         self.performSegue(withIdentifier: "tag_table_seg", sender: nil)
     }
     
-    func toggleCameraImage(type: String){
+    func toggleCameraImage(){
+        self.cameraImageView.image = UIImage(named: "camera-bold-selected")
         
-        if (type == "camera"){
-            self.cameraImageView.image = UIImage(named: "camera-bold-selected")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                self.cameraImageView.image = UIImage(named: "camera")
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.cameraImageView.image = UIImage(named: "camera")
         }
-        
-        if (type ==  "translate"){
-            self.translateImageView.image = UIImage(named: "translate-bold-selected")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                self.translateImageView.image = UIImage(named: "translate")
-            }
-        }
-
-        
     }
     
     @IBAction func selectPicture(_ sender: Any) {
-        toggleCameraImage(type: "camera")
+        toggleCameraImage()
         
         //create a new alert
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -175,21 +171,16 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         tags.removeAll()
         
-        print("remove tags")
         self.tagButtonOutlet.isEnabled = false
+        self.translateImageView.image = UIImage(named: "translate")
         
         let image = Image(image: imageView.image)
         let dataAsset = DataAsset.init(image: image)
         
-        print("set dataAssets")
-        
         let input = Input(dataAsset: dataAsset)
         let inputs = [input]
         
-        print("set inputs")
-        
         self.model.predict(inputs) { (outputs, error) in
-            print("model")
             for output in outputs!{
                 print("first loop")
                 for concept in (output.dataAsset.concepts!){
@@ -202,6 +193,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
             self.tagsLabel.text = self.tags.joined(separator: " , ")
             self.tagButtonOutlet.isEnabled = true
+            self.translateImageView.image = UIImage(named: "translate-bold-selected")
+            
             
             self.spinner.stopAnimating()
         }
@@ -228,8 +221,12 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let nav = segue.destination as! UINavigationController
 //        let dest = nav.viewControllers.first as! TableViewController
-        let dest = segue.destination as! TableViewController
-        dest.tags = self.tags
+        if (segue.identifier == "settingsSegue"){
+
+        }else{
+            let dest = segue.destination as! TableViewController
+            dest.tags = self.tags
+        }
         
     }
 

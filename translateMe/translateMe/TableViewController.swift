@@ -23,16 +23,7 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(TableViewController.goBack))
-        
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.hidesBackButton = false
-        print("HAPPY")
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,9 +53,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("SELECTED WORD: \(self.tags[indexPath.row])")
         self.selectedWord = self.tags[indexPath.row]
-//        self.performSegue(withIdentifier: "word_detail_seg", sender: nil)
         
         let popupvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupID") as! PopupViewController
         popupvc.word = self.tags[indexPath.row]
@@ -73,17 +62,6 @@ class TableViewController: UITableViewController {
     
 
     }
-    
-    
-    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        print("hola3")
-//        self.navigationItem.hidesBackButton = false
-    }
-    
-    
-
-    
- 
 
     /*
     // Override to support conditional editing of the table view.
@@ -127,12 +105,6 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-//        let nav = segue.destination as! UINavigationController
-//        let dest = nav.viewControllers.first as? WordDetailViewController
-        //====
-//        let dest = segue.destination as! WordDetailViewController
-//        dest.word = self.selectedWord
-        //===
         let dest = segue.destination as! PopupViewController
         dest.word = self.selectedWord
     }

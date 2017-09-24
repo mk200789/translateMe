@@ -30,16 +30,13 @@ class PopupViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        print("WORD: \(word)")
+
         originalTextLabel.text = word
         
         self.translateWord { (translation) in
             self.translatedWord = translation
             self.translatedTextLabel.text = translation
         }
-        
-
         
     }
     
@@ -81,10 +78,8 @@ class PopupViewController: UIViewController {
         
         let parameters: Parameters = ["q": word, "target": TRANSLATED_LANGUAGE]//, "key": GOOGLE_API_KEY]
         let httpHeaders: HTTPHeaders = ["Content-Type": "application/json"]
-        print("alamofire \n")
         
         let newUrl = "\(BASE_URL)?key=\(GOOGLE_API_KEY)"
-        print("NEWURL: \(newUrl)")
         Alamofire.request(newUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: httpHeaders).responseJSON { (response) in
             
             if let json = response.result.value {
