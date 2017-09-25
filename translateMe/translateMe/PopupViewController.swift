@@ -26,11 +26,40 @@ class PopupViewController: UIViewController {
     
     @IBOutlet weak var closeButtonOutlet: UIButton!
     
+    var fontSize = [14, 18, 25]
+    
+    var TRANSLATED_LANGUAGE = "zh-TW"
+    
+    var language_voice = "zh-HK"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 
+        let fontsize = fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
+        
+        //set the font size for originalTextLabel and translatedTextLabel
+        originalTextLabel.font = UIFont(name: originalTextLabel.font.fontName, size: CGFloat(fontsize))
+        translatedTextLabel.font = UIFont(name: translatedTextLabel.font.fontName, size: CGFloat(fontsize))
+        
+        //setup originalTextLabel and translatedTextLabel attributes
+        translatedTextLabel.numberOfLines = 0
+        translatedTextLabel.lineBreakMode = .byWordWrapping
+        translatedTextLabel.textAlignment = .left
+        originalTextLabel.numberOfLines = 0
+        originalTextLabel.lineBreakMode = .byWordWrapping
+        originalTextLabel.textAlignment = .left
+        
+        
+        //retrieve and set default translated language and speech
+        let default_language_data = (UserDefaults.standard.object(forKey: "default_language_data") ?? [:]) as! [String: String]
+        if (!default_language_data.isEmpty){
+            TRANSLATED_LANGUAGE = default_language_data["googleTarget"]!
+            language_voice = default_language_data["speechCode"]!
+        }
+        
+        
         originalTextLabel.text = word
         
         self.translateWord { (translation) in
@@ -60,7 +89,7 @@ class PopupViewController: UIViewController {
     
     @IBAction func listenToTranslatedText(_ sender: Any) {
         let utterance = AVSpeechUtterance(string: translatedWord)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-HK")
+        utterance.voice = AVSpeechSynthesisVoice(language: language_voice)
         utterance.rate = 0.4
         speechSynthesizer.speak(utterance)
     }
@@ -74,7 +103,7 @@ class PopupViewController: UIViewController {
     func translateWord(completion: @escaping( _ translatedText: String)->Void ){
         let GOOGLE_API_KEY = "AIzaSyDH7pgBsIh8JlQEN9y_o2judRJANEGMfno"
         let BASE_URL = "https://translation.googleapis.com/language/translate/v2"
-        let TRANSLATED_LANGUAGE = "zh-TW"
+        
         
         let parameters: Parameters = ["q": word, "target": TRANSLATED_LANGUAGE]//, "key": GOOGLE_API_KEY]
         let httpHeaders: HTTPHeaders = ["Content-Type": "application/json"]

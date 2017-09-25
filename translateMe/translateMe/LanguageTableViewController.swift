@@ -1,21 +1,17 @@
 //
-//  TableViewController.swift
+//  LanguageTableViewController.swift
 //  translateMe
 //
-//  Created by Wan Kim Mok on 9/18/17.
+//  Created by Wan Kim Mok on 9/23/17.
 //  Copyright © 2017 Wan Kim Mok. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class LanguageTableViewController: UITableViewController {
     
-    var tags: [String] = []
+    var languages = [ 0: ["name": "中文" , "speechCode": "zh-HK", "googleTarget": "zh-TW"], 1: ["name": "日本語" , "speechCode" :"ja-JP", "googleTarget": "ja"], 2: ["name": "Nederlands", "speechCode": "nl-NL", "googleTarget": "nl"], 3: ["name" : "한국어" ,"speechCode" : "ko-KR", "googleTarget": "ko"], 4: ["name" : "Español" , "speechCode" : "es-ES", "googleTarget": "es"]]
     
-    var selectedWord : String!
-    
-    var fontSize = [14, 18, 25]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,11 +20,28 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        navigationController?.navigationBar.tintColor = UIColor.black
-
+        
+        let defaults = UserDefaults.standard
+        let default_language_idx = (defaults.object(forKey: "default_language_idx") ?? 0) as! Int
+        let indexPath = IndexPath(row: default_language_idx, section: 0)
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        
+        
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        let defaults = UserDefaults.standard
+//        let languageData = defaults.object(forKey: "default_language_data") as! [String : String] ?? [:]
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //a hack way to pass data to previous view controller
+//        let vcsCount = self.navigationController?.viewControllers.count
+//        (self.navigationController?.viewControllers[vcsCount!-1] as! SettingsViewController).language = "Hello"
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,32 +56,27 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.tags.count
+        return languages.count
     }
 
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "word", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "languageName", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = self.tags[indexPath.row]
-        
-        let fontsize = fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
-        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: CGFloat(fontsize))
+        cell.textLabel?.text = languages[indexPath.row]!["name"]
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedWord = self.tags[indexPath.row]
+//        languages[indexPath.row]
+        let vcsCount = self.navigationController?.viewControllers.count
+        (self.navigationController?.viewControllers[vcsCount!-2] as! SettingsViewController).languageData = languages[indexPath.row]!
+        (self.navigationController?.viewControllers[vcsCount!-2] as! SettingsViewController).languageIdx = indexPath.row
         
-        let popupvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupID") as! PopupViewController
-        popupvc.word = self.tags[indexPath.row]
-        popupvc.modalPresentationStyle = .overFullScreen
-        self.present(popupvc, animated: true, completion: nil)
-    
-
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -105,16 +113,14 @@ class TableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let dest = segue.destination as! PopupViewController
-        dest.word = self.selectedWord
     }
- 
+    */
 
 }

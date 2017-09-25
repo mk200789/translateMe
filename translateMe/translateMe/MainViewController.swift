@@ -34,6 +34,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var model: Model!
     
+    var fontSize = [14, 18, 25]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,6 +77,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         selectionView.layer.borderWidth = 1.8
         selectionView.layer.cornerRadius = 10
         selectionView.layer.borderColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
+        
+        //set the size of navbar title
+        let fontsize = fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(fontsize))]
 
     }
     
