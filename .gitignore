@@ -5,3 +5,5 @@ translateMe/translateMe.xcodeproj/project.xcworkspace/
 translateMe/translateMe.xcodeproj/xcuserdata/
 
 **/.DS_Store
+
+Pods/
