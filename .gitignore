@@ -1,5 +1,3 @@
-translateMe/translateMe/property.plist
-
 translateMe/translateMe.xcodeproj/project.xcworkspace/
 
 **/.DS_Store
@@ -7,3 +5,5 @@ translateMe/translateMe.xcodeproj/project.xcworkspace/
 Pods/
 
 xcuserdata/
+
+misc.swift
