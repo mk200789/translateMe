@@ -9,8 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
-    var fontSize = [14, 18, 25]
     
     @IBOutlet weak var fontSizeSegmentControl: UISegmentedControl!
     
@@ -22,8 +20,6 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var defaultFontSizeLabel: UILabel!
     
-    var language = ""
-    
     var languageData:  [String: String] = [:]
     
     var languageIdx: Int!
@@ -34,6 +30,9 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         saveSettingButtonOutlet.layer.cornerRadius = 10
         navigationController?.navigationBar.tintColor = UIColor.black
+        changeDefaultLanguageOutlet.layer.cornerRadius = 10
+        changeDefaultLanguageOutlet.layer.borderWidth = 1.5
+        changeDefaultLanguageOutlet.layer.borderColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
         
         retrieveDefaultSettings()
     }
@@ -76,7 +75,7 @@ class SettingsViewController: UIViewController {
 
         //retrieve default font size setting
         
-        let default_font_size = fontSize[(defaults.object(forKey: "default_font_size") ?? 0) as! Int]
+        let default_font_size = Misc.fontSize[(defaults.object(forKey: "default_font_size") ?? 0) as! Int]
         
         changeDefaultLanguageOutlet.titleLabel?.font = UIFont(name: changeDefaultLanguageOutlet.titleLabel!.font.fontName, size: CGFloat(default_font_size))
         
@@ -89,10 +88,20 @@ class SettingsViewController: UIViewController {
         if (!languageData.isEmpty){
             changeDefaultLanguageOutlet.setTitle(languageData["name"], for: .normal)
             languageIdx = (defaults.object(forKey: "default_language_idx") ?? 0 ) as! Int
+        }else{
+            
         }
         
         //retrieve default font size segment
         fontSizeSegmentControl.selectedSegmentIndex = (defaults.object(forKey: "default_font_size") ?? 0) as! Int
+        
+        
+        //set the size of navbar title
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(default_font_size))]
+        
+        
+        //set the font size of save setting button
+        saveSettingButtonOutlet.titleLabel?.font = UIFont(name: changeDefaultLanguageOutlet.titleLabel!.font.fontName, size: CGFloat(default_font_size))
 
     }
 

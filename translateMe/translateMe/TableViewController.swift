@@ -13,8 +13,6 @@ class TableViewController: UITableViewController {
     var tags: [String] = []
     
     var selectedWord : String!
-    
-    var fontSize = [14, 18, 25]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +51,7 @@ class TableViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.text = self.tags[indexPath.row]
         
-        let fontsize = fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
+        let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
         cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: CGFloat(fontsize))
 
         return cell

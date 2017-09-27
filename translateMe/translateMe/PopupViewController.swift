@@ -26,8 +26,6 @@ class PopupViewController: UIViewController {
     
     @IBOutlet weak var closeButtonOutlet: UIButton!
     
-    var fontSize = [14, 18, 25]
-    
     var TRANSLATED_LANGUAGE = "zh-TW"
     
     var language_voice = "zh-HK"
@@ -37,7 +35,7 @@ class PopupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        let fontsize = fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
+        let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
         
         //set the font size for originalTextLabel and translatedTextLabel
         originalTextLabel.font = UIFont(name: originalTextLabel.font.fontName, size: CGFloat(fontsize))
@@ -101,18 +99,14 @@ class PopupViewController: UIViewController {
 
     
     func translateWord(completion: @escaping( _ translatedText: String)->Void ){
-        let GOOGLE_API_KEY = "AIzaSyDH7pgBsIh8JlQEN9y_o2judRJANEGMfno"
         let BASE_URL = "https://translation.googleapis.com/language/translate/v2"
-        
-        
-        let parameters: Parameters = ["q": word, "target": TRANSLATED_LANGUAGE]//, "key": GOOGLE_API_KEY]
+        let parameters: Parameters = ["q": word, "target": TRANSLATED_LANGUAGE]
         let httpHeaders: HTTPHeaders = ["Content-Type": "application/json"]
         
-        let newUrl = "\(BASE_URL)?key=\(GOOGLE_API_KEY)"
+        let newUrl = "\(BASE_URL)?key=\(Misc.GOOGLE_API_KEY)"
         Alamofire.request(newUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: httpHeaders).responseJSON { (response) in
             
             if let json = response.result.value {
-                //                print("JSON: \(json)") // serialized json response
                 let translations  = (((json as! NSDictionary)["data"] as! NSDictionary)["translations"] as! NSArray)[0]
                 let translatedText = (translations as! NSDictionary)["translatedText"]!
                 let translation = translatedText as! String

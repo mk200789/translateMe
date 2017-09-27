@@ -10,16 +10,8 @@ import UIKit
 
 class LanguageTableViewController: UITableViewController {
     
-    var languages = [ 0: ["name": "中文" , "speechCode": "zh-HK", "googleTarget": "zh-TW"], 1: ["name": "日本語" , "speechCode" :"ja-JP", "googleTarget": "ja"], 2: ["name": "Nederlands", "speechCode": "nl-NL", "googleTarget": "nl"], 3: ["name" : "한국어" ,"speechCode" : "ko-KR", "googleTarget": "ko"], 4: ["name" : "Español" , "speechCode" : "es-ES", "googleTarget": "es"]]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         let defaults = UserDefaults.standard
         let default_language_idx = (defaults.object(forKey: "default_language_idx") ?? 0) as! Int
@@ -28,18 +20,6 @@ class LanguageTableViewController: UITableViewController {
         
         
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        let defaults = UserDefaults.standard
-//        let languageData = defaults.object(forKey: "default_language_data") as! [String : String] ?? [:]
-
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        //a hack way to pass data to previous view controller
-//        let vcsCount = self.navigationController?.viewControllers.count
-//        (self.navigationController?.viewControllers[vcsCount!-1] as! SettingsViewController).language = "Hello"
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +36,7 @@ class LanguageTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return languages.count
+        return Misc.languages.count
     }
 
     
@@ -64,15 +44,15 @@ class LanguageTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "languageName", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = languages[indexPath.row]!["name"]
+        cell.textLabel?.text = Misc.languages[indexPath.row]!["name"]
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        languages[indexPath.row]
+        //a hack way to pass data to previous view controller
         let vcsCount = self.navigationController?.viewControllers.count
-        (self.navigationController?.viewControllers[vcsCount!-2] as! SettingsViewController).languageData = languages[indexPath.row]!
+        (self.navigationController?.viewControllers[vcsCount!-2] as! SettingsViewController).languageData = Misc.languages[indexPath.row]!
         (self.navigationController?.viewControllers[vcsCount!-2] as! SettingsViewController).languageIdx = indexPath.row
         
     }

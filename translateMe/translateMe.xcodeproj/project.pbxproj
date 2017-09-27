@@ -10,6 +10,7 @@
 		62A4E070F773A6E080A30642 /* Pods_translateMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2BBBA1C2225F14D62F7FFD /* Pods_translateMeUITests.framework */; };
 		9E16E2F4A184271D059059C5 /* Pods_translateMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0303866AE9C40C029FE95D1F /* Pods_translateMeTests.framework */; };
 		B868EFCC00619C761866A311 /* Pods_translateMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF50B5E509F5C1A9CDE573C /* Pods_translateMe.framework */; };
+		C60A51451F7B378700F668F3 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60A51441F7B378700F668F3 /* misc.swift */; };
 		C617BFAD1F75AE2100152446 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617BFAC1F75AE2100152446 /* PopupViewController.swift */; };
 		C6563D7A1F70633200E564A5 /* launch.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C6563D791F70633200E564A5 /* launch.JPG */; };
 		C6563D7C1F70761800E564A5 /* blank_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C6563D7B1F70761800E564A5 /* blank_default.png */; };
@@ -56,6 +57,7 @@
 		A33DC9E966E644F3ACF44212 /* Pods-translateMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-translateMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-translateMe/Pods-translateMe.release.xcconfig"; sourceTree = "<group>"; };
 		A3CF8A0D77AD2B2951E48CD7 /* Pods-translateMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-translateMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-translateMeUITests/Pods-translateMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE2BBBA1C2225F14D62F7FFD /* Pods_translateMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_translateMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C60A51441F7B378700F668F3 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
 		C617BFAC1F75AE2100152446 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		C6563D791F70633200E564A5 /* launch.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.JPG; sourceTree = "<group>"; };
 		C6563D7B1F70761800E564A5 /* blank_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_default.png; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				C67E14191F705F5A007D41BD /* AppDelegate.swift */,
 				C67E141B1F705F5A007D41BD /* MainViewController.swift */,
 				C6563D7D1F70774700E564A5 /* TableViewController.swift */,
+				C60A51441F7B378700F668F3 /* misc.swift */,
 				C617BFAC1F75AE2100152446 /* PopupViewController.swift */,
 				C68496E71F7740E000CB5963 /* SettingsViewController.swift */,
 				C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */,
@@ -517,6 +520,7 @@
 				C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */,
 				C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */,
 				C68496E81F7740E000CB5963 /* SettingsViewController.swift in Sources */,
+				C60A51451F7B378700F668F3 /* misc.swift in Sources */,
 				C67E141A1F705F5A007D41BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
