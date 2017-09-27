@@ -91,11 +91,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         colors.append(UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1))
         colors.append(UIColor(red: 208/255, green: 201/255, blue: 224/255, alpha: 1))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
-        
-        print("width of image camera button: \(cameraButtonOutlet.frame.size.width)")
-        
-//        NSLayoutConstraint(item: cameraButtonOutlet, attribute: .trailing, relatedBy: .equal, toItem: selectionView, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
-
     }
     
 
@@ -210,7 +205,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = selectedImage
-            
+
             self.getTags()
         }
         dismiss(animated: true, completion: nil)

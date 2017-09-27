@@ -18,6 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Clarifai.sharedInstance().start(apiKey: Misc.CLARIFAI_API_KEY)
+        
+        //check if app is launched for first time.
+        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+        if (hasLaunchedBefore){
+            //has launched before
+        }else{
+            //first time.
+            //set initial default setting for first time user.
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.set(Misc.languages[0], forKey: "default_language_data")
+            UserDefaults.standard.set(0, forKey: "default_language_idx")
+            UserDefaults.standard.set(0, forKey: "default_font_size")
+        }
         return true
     }
 

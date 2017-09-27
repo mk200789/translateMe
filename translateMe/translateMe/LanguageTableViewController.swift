@@ -17,9 +17,7 @@ class LanguageTableViewController: UITableViewController {
         let default_language_idx = (defaults.object(forKey: "default_language_idx") ?? 0) as! Int
         let indexPath = IndexPath(row: default_language_idx, section: 0)
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        
-        
-        
+
     }
 
     override func didReceiveMemoryWarning() {
