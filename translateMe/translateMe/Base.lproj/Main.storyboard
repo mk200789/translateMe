@@ -364,6 +364,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButtonOutlet" destination="mm9-oa-I26" id="4mD-Ry-E9t"/>
+                        <outlet property="listenToTranslatedTextOutlet" destination="AoC-Ul-toX" id="sdp-TS-xUY"/>
                         <outlet property="originalTextLabel" destination="KMY-n0-jRG" id="ttZ-4P-a7v"/>
                         <outlet property="translatedTextLabel" destination="VUh-dR-HPO" id="dNF-YA-8up"/>
                         <outlet property="viewUI" destination="ATB-tC-9Mv" id="0u4-iG-TFQ"/>

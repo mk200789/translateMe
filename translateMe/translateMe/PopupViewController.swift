@@ -26,6 +26,8 @@ class PopupViewController: UIViewController {
     
     @IBOutlet weak var closeButtonOutlet: UIButton!
     
+    @IBOutlet weak var listenToTranslatedTextOutlet: UIButton!
+    
     var TRANSLATED_LANGUAGE = "zh-TW"
     
     var language_voice = "zh-HK"
@@ -35,6 +37,11 @@ class PopupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
+        
+        //hide audio button for translatedWord
+        listenToTranslatedTextOutlet.isHidden = true
+        listenToTranslatedTextOutlet.isEnabled = false
+        
         let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
         
         //set the font size for originalTextLabel and translatedTextLabel
@@ -63,8 +70,12 @@ class PopupViewController: UIViewController {
         self.translateWord { (translation) in
             self.translatedWord = translation
             self.translatedTextLabel.text = translation
+            self.listenToTranslatedTextOutlet.isHidden = false
+            self.listenToTranslatedTextOutlet.isEnabled = true
         }
         
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
