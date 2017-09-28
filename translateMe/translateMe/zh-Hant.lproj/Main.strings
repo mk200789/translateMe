@@ -1,0 +1,39 @@
+
+/* Class = "UINavigationItem"; title = "Words"; ObjectID = "8HR-qG-Gsh"; */
+"8HR-qG-Gsh.title" = "字";
+
+/* Class = "UIViewController"; title = "translateMe"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "translateMe";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "KvZ-Sg-7Gc"; */
+"KvZ-Sg-7Gc.normalTitle" = "儲存";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "Rwt-mk-y8b"; */
+"Rwt-mk-y8b.title" = "設置";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "SJ5-oX-jT1"; */
+"SJ5-oX-jT1.title" = "Item";
+
+/* Class = "UITableViewController"; title = " Language"; ObjectID = "TXI-Jy-Tn0"; */
+"TXI-Jy-Tn0.title" = " 語言";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "its-DS-5JL"; */
+"its-DS-5JL.text" = "文字小大";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[0] = "Regular"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[0]" = "小";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[1] = "Medium"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[1]" = "中";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[2] = "Large"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[2]" = "大";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "mm9-oa-I26"; */
+"mm9-oa-I26.normalTitle" = "關";
+
+/* Class = "UIButton"; normalTitle = "中文"; ObjectID = "nDo-B8-Vqx"; */
+"nDo-B8-Vqx.normalTitle" = "中文";
+
+/* Class = "UILabel"; text = "Default Language"; ObjectID = "nbW-jL-CLL"; */
+"nbW-jL-CLL.text" = "默認語言";

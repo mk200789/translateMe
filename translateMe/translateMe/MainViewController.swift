@@ -117,21 +117,21 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
         
         //include photo library action in alert
-        let photoLib = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+        let photoLib = UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default) { (action) in
             self.photoLibTapped()
         }
         
         alert.addAction(photoLib)
         
         //include camera action in alert
-        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { (action) in
             self.cameraTapped()
         }
         
         alert.addAction(camera)
         
         //include cancel action in alert
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
         }
 
         alert.addAction(cancel)

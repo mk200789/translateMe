@@ -50,7 +50,9 @@ class SettingsViewController: UIViewController {
         print("default_language_idx  \(default_language_idx)")
         print("default_font_size     \(default_font_size)")
         
+//        navigationItem.title = NSLocalizedString("Settings", comment: "")
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

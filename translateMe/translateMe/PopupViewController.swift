@@ -74,6 +74,7 @@ class PopupViewController: UIViewController {
             self.listenToTranslatedTextOutlet.isEnabled = true
         }
         
+        closeButtonOutlet.setTitle(NSLocalizedString("Close", comment: ""), for: .normal)
         
 
     }

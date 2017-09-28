@@ -22,6 +22,10 @@ class TableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        navigationItem.title = NSLocalizedString("Words", comment: "")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
