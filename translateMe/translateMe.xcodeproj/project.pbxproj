@@ -15,6 +15,7 @@
 		C6563D7A1F70633200E564A5 /* launch.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C6563D791F70633200E564A5 /* launch.JPG */; };
 		C6563D7C1F70761800E564A5 /* blank_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C6563D7B1F70761800E564A5 /* blank_default.png */; };
 		C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6563D7D1F70774700E564A5 /* TableViewController.swift */; };
+		C66709191F7F595D0074710B /* translateMeTestsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66709181F7F595D0074710B /* translateMeTestsUnitTest.swift */; };
 		C67E141A1F705F5A007D41BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E14191F705F5A007D41BD /* AppDelegate.swift */; };
 		C67E141C1F705F5A007D41BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E141B1F705F5A007D41BD /* MainViewController.swift */; };
 		C67E141F1F705F5A007D41BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67E141D1F705F5A007D41BD /* Main.storyboard */; };
@@ -33,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C667091B1F7F595D0074710B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C67E140E1F705F5A007D41BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C67E14151F705F5A007D41BD;
+			remoteInfo = translateMe;
+		};
 		C67E142B1F705F5A007D41BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C67E140E1F705F5A007D41BD /* Project object */;
@@ -63,6 +71,9 @@
 		C6563D791F70633200E564A5 /* launch.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.JPG; sourceTree = "<group>"; };
 		C6563D7B1F70761800E564A5 /* blank_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_default.png; sourceTree = "<group>"; };
 		C6563D7D1F70774700E564A5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C66709161F7F595D0074710B /* translateMeTestsUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = translateMeTestsUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C66709181F7F595D0074710B /* translateMeTestsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateMeTestsUnitTest.swift; sourceTree = "<group>"; };
+		C667091A1F7F595D0074710B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67E14161F705F5A007D41BD /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67E14191F705F5A007D41BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C67E141B1F705F5A007D41BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +102,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C66709131F7F595D0074710B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C67E14131F705F5A007D41BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,11 +150,21 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		C66709171F7F595D0074710B /* translateMeTestsUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				C66709181F7F595D0074710B /* translateMeTestsUnitTest.swift */,
+				C667091A1F7F595D0074710B /* Info.plist */,
+			);
+			path = translateMeTestsUnitTest;
+			sourceTree = "<group>";
+		};
 		C67E140D1F705F5A007D41BD = {
 			isa = PBXGroup;
 			children = (
 				C67E14181F705F5A007D41BD /* translateMe */,
 				C67E142D1F705F5A007D41BD /* translateMeTests */,
+				C66709171F7F595D0074710B /* translateMeTestsUnitTest */,
 				C67E14171F705F5A007D41BD /* Products */,
 				D650CD0B8A4C02BA37D5E452 /* Pods */,
 				E7805C97AA8991619868B1B5 /* Frameworks */,
@@ -149,6 +177,7 @@
 				C67E14161F705F5A007D41BD /* translateMe.app */,
 				C67E142A1F705F5A007D41BD /* translateMeTests.xctest */,
 				C67E14351F705F5A007D41BD /* translateMeUITests.xctest */,
+				C66709161F7F595D0074710B /* translateMeTestsUnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +248,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C66709151F7F595D0074710B /* translateMeTestsUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C667091F1F7F595D0074710B /* Build configuration list for PBXNativeTarget "translateMeTestsUnitTest" */;
+			buildPhases = (
+				C66709121F7F595D0074710B /* Sources */,
+				C66709131F7F595D0074710B /* Frameworks */,
+				C66709141F7F595D0074710B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C667091C1F7F595D0074710B /* PBXTargetDependency */,
+			);
+			name = translateMeTestsUnitTest;
+			productName = translateMeTestsUnitTest;
+			productReference = C66709161F7F595D0074710B /* translateMeTestsUnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C67E14151F705F5A007D41BD /* translateMe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C67E143E1F705F5A007D41BD /* Build configuration list for PBXNativeTarget "translateMe" */;
@@ -287,10 +334,16 @@
 		C67E140E1F705F5A007D41BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Wan Kim Mok";
 				TargetAttributes = {
+					C66709151F7F595D0074710B = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 96KV52LNQ2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C67E14151F705F5A007D41BD;
+					};
 					C67E14151F705F5A007D41BD = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 96KV52LNQ2;
@@ -327,11 +380,19 @@
 				C67E14151F705F5A007D41BD /* translateMe */,
 				C67E14291F705F5A007D41BD /* translateMeTests */,
 				C67E14341F705F5A007D41BD /* translateMeUITests */,
+				C66709151F7F595D0074710B /* translateMeTestsUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C66709141F7F595D0074710B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C67E14141F705F5A007D41BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +580,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C66709121F7F595D0074710B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C66709191F7F595D0074710B /* translateMeTestsUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C67E14121F705F5A007D41BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,6 +621,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C667091C1F7F595D0074710B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C67E14151F705F5A007D41BD /* translateMe */;
+			targetProxy = C667091B1F7F595D0074710B /* PBXContainerItemProxy */;
+		};
 		C67E142C1F705F5A007D41BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C67E14151F705F5A007D41BD /* translateMe */;
@@ -595,6 +669,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C667091D1F7F595D0074710B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96KV52LNQ2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = translateMeTestsUnitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeTestsUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/translateMe.app/translateMe";
+			};
+			name = Debug;
+		};
+		C667091E1F7F595D0074710B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96KV52LNQ2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = translateMeTestsUnitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeTestsUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/translateMe.app/translateMe";
+			};
+			name = Release;
+		};
 		C67E143C1F705F5A007D41BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -783,6 +911,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C667091F1F7F595D0074710B /* Build configuration list for PBXNativeTarget "translateMeTestsUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C667091D1F7F595D0074710B /* Debug */,
+				C667091E1F7F595D0074710B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C67E14111F705F5A007D41BD /* Build configuration list for PBXProject "translateMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
