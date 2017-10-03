@@ -18,12 +18,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = UIColor.black
-
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        navigationItem.title = NSLocalizedString("Words", comment: "")
     }
     
     override func didReceiveMemoryWarning() {

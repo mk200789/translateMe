@@ -12,25 +12,25 @@ import Alamofire
 
 class PopupViewController: UIViewController {
 
-    var word : String = ""
-    
-    var translatedWord: String = ""
-    
     @IBOutlet weak var originalTextLabel: UILabel!
     
     @IBOutlet weak var translatedTextLabel: UILabel!
-    
-    let speechSynthesizer = AVSpeechSynthesizer()
-    
+
     @IBOutlet weak var viewUI: UIView!
     
     @IBOutlet weak var closeButtonOutlet: UIButton!
     
     @IBOutlet weak var listenToTranslatedTextOutlet: UIButton!
     
+    let speechSynthesizer = AVSpeechSynthesizer()
+    
     var TRANSLATED_LANGUAGE = "zh-TW"
     
     var language_voice = "zh-HK"
+    
+    var word : String = ""
+    
+    var translatedWord: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

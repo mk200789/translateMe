@@ -19,10 +19,6 @@ class LanguageTableViewController: UITableViewController {
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
 
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //navigationItem.title = NSLocalizedString("Language", comment: "")
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

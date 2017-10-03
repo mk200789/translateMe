@@ -49,8 +49,7 @@ class SettingsViewController: UIViewController {
         print("default_language_data \(default_language_data)")
         print("default_language_idx  \(default_language_idx)")
         print("default_font_size     \(default_font_size)")
-        
-//        navigationItem.title = NSLocalizedString("Settings", comment: "")
+
     }
     
 
