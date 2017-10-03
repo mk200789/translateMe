@@ -28,6 +28,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBOutlet weak var selectionView: UIView!
 
+    @IBOutlet weak var placeholderLabel: UILabel!
+    
     var imagePicker = UIImagePickerController()
     
     var tags: [String] = []
@@ -205,7 +207,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = selectedImage
-
+            self.placeholderLabel.isHidden = true
             self.getTags()
         }
         dismiss(animated: true, completion: nil)

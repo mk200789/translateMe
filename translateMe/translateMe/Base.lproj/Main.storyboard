@@ -167,7 +167,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-JZ-stO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-JZ-stO">
                                 <rect key="frame" x="47" y="97" width="280" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IaY-JZ-stO" secondAttribute="height" multiplier="1:1" id="tyI-vS-aD2"/>
@@ -233,6 +233,15 @@
                                 </constraints>
                                 <color key="color" red="0.71243197250000001" green="0.62366970909999997" blue="0.90329552660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Select a Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Z2-xcA">
+                                <rect key="frame" x="62" y="112" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sgC-Z2-xcA" secondAttribute="height" multiplier="1:1" id="t47-eA-YlX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -242,9 +251,13 @@
                             <constraint firstItem="hSl-Dt-iyh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="Umd-h0-xT7"/>
                             <constraint firstItem="IaY-JZ-stO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="X7G-W5-YoF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hSl-Dt-iyh" secondAttribute="trailing" constant="36" id="Xak-HQ-Jft"/>
+                            <constraint firstItem="sgC-Z2-xcA" firstAttribute="leading" secondItem="IaY-JZ-stO" secondAttribute="leadingMargin" constant="7" id="ZVi-CU-NYs"/>
+                            <constraint firstItem="sgC-Z2-xcA" firstAttribute="top" secondItem="IaY-JZ-stO" secondAttribute="top" constant="15" id="bP3-jX-7Sk"/>
                             <constraint firstItem="Tzr-1u-Vcl" firstAttribute="centerY" secondItem="hSl-Dt-iyh" secondAttribute="centerY" id="gHv-t0-3x3"/>
                             <constraint firstItem="IaY-JZ-stO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="gLa-TO-uLI"/>
+                            <constraint firstItem="IaY-JZ-stO" firstAttribute="bottom" secondItem="sgC-Z2-xcA" secondAttribute="bottom" constant="15" id="iV7-Kp-pHc"/>
                             <constraint firstItem="hSl-Dt-iyh" firstAttribute="top" secondItem="IaY-JZ-stO" secondAttribute="bottom" constant="10" id="iXE-OH-Ikq"/>
+                            <constraint firstItem="IaY-JZ-stO" firstAttribute="trailingMargin" secondItem="sgC-Z2-xcA" secondAttribute="trailing" constant="7" id="irH-Gv-OFh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V6v-p9-Uhx" secondAttribute="trailing" constant="36" id="qLL-VE-3uV"/>
                             <constraint firstItem="Tzr-1u-Vcl" firstAttribute="centerX" secondItem="hSl-Dt-iyh" secondAttribute="centerX" id="uoq-tc-of1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V6v-p9-Uhx" secondAttribute="bottom" constant="45" id="xjZ-xp-8ZP"/>
@@ -256,6 +269,7 @@
                         <outlet property="cameraButtonOutlet" destination="cL7-eH-rcq" id="Xxc-q5-UwZ"/>
                         <outlet property="cameraImageView" destination="HQ4-qO-n3H" id="MWl-1Y-2mf"/>
                         <outlet property="imageView" destination="IaY-JZ-stO" id="Lle-Tu-UWa"/>
+                        <outlet property="placeholderLabel" destination="sgC-Z2-xcA" id="9YA-Wb-bEu"/>
                         <outlet property="selectionView" destination="V6v-p9-Uhx" id="BrV-1c-gYd"/>
                         <outlet property="spinner" destination="Tzr-1u-Vcl" id="963-R9-Ap8"/>
                         <outlet property="tagButtonOutlet" destination="7Yn-nG-Ylp" id="Uiv-f4-Tco"/>
@@ -410,8 +424,8 @@
     </scenes>
     <resources>
         <image name="audio.png" width="25" height="25"/>
-        <image name="blank_default.png" width="640" height="640"/>
         <image name="camera.png" width="640" height="640"/>
+        <image name="placeholder.png" width="640" height="640"/>
         <image name="translate.png" width="640" height="640"/>
     </resources>
 </document>

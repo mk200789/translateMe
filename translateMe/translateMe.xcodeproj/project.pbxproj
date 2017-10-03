@@ -12,6 +12,7 @@
 		B868EFCC00619C761866A311 /* Pods_translateMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF50B5E509F5C1A9CDE573C /* Pods_translateMe.framework */; };
 		C60A51451F7B378700F668F3 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60A51441F7B378700F668F3 /* misc.swift */; };
 		C617BFAD1F75AE2100152446 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617BFAC1F75AE2100152446 /* PopupViewController.swift */; };
+		C63728E31F83EDD500889357 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C63728E21F83EDD500889357 /* placeholder.png */; };
 		C6563D7A1F70633200E564A5 /* launch.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C6563D791F70633200E564A5 /* launch.JPG */; };
 		C6563D7C1F70761800E564A5 /* blank_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C6563D7B1F70761800E564A5 /* blank_default.png */; };
 		C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6563D7D1F70774700E564A5 /* TableViewController.swift */; };
@@ -68,6 +69,7 @@
 		BE2BBBA1C2225F14D62F7FFD /* Pods_translateMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_translateMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60A51441F7B378700F668F3 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
 		C617BFAC1F75AE2100152446 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		C63728E21F83EDD500889357 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		C6563D791F70633200E564A5 /* launch.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.JPG; sourceTree = "<group>"; };
 		C6563D7B1F70761800E564A5 /* blank_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_default.png; sourceTree = "<group>"; };
 		C6563D7D1F70774700E564A5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		C6563D781F70632400E564A5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C63728E21F83EDD500889357 /* placeholder.png */,
 				C68496D71F76FFA900CB5963 /* camera-bold-selected.png */,
 				C68496D51F76FF9E00CB5963 /* translate-bold-selected.png */,
 				C68496D11F76FD4400CB5963 /* camera.png */,
@@ -397,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63728E31F83EDD500889357 /* placeholder.png in Resources */,
 				C68496D31F76FD4400CB5963 /* camera.png in Resources */,
 				C68496D81F76FFA900CB5963 /* camera-bold-selected.png in Resources */,
 				C6B7E56F1F7C819100ABB75C /* Localizable.strings in Resources */,
