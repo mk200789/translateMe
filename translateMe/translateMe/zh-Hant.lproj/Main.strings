@@ -1,3 +1,7 @@
+/* Class = "UIViewController"; title = "About"; ObjectID = "t9h-bp-LA4"; */
+"t9h-bp-LA4.title" = "關於";
+
+/* Class = "UILabel"; text = "Please Select a Picture"; ObjectID = "sgC-Z2-xcA"; */
 "sgC-Z2-xcA.text" = "請選擇一張圖片";
 
 /* Class = "UINavigationItem"; title = "Words"; ObjectID = "8HR-qG-Gsh"; */

@@ -17,6 +17,8 @@
 		C6563D7C1F70761800E564A5 /* blank_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C6563D7B1F70761800E564A5 /* blank_default.png */; };
 		C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6563D7D1F70774700E564A5 /* TableViewController.swift */; };
 		C66709191F7F595D0074710B /* translateMeTestsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66709181F7F595D0074710B /* translateMeTestsUnitTest.swift */; };
+		C669EDC11F85E10500242E40 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C669EDC01F85E10500242E40 /* AboutViewController.swift */; };
+		C669EDC31F85EAEF00242E40 /* about-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C669EDC21F85EAEF00242E40 /* about-logo.png */; };
 		C67E141A1F705F5A007D41BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E14191F705F5A007D41BD /* AppDelegate.swift */; };
 		C67E141C1F705F5A007D41BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E141B1F705F5A007D41BD /* MainViewController.swift */; };
 		C67E141F1F705F5A007D41BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67E141D1F705F5A007D41BD /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		C66709161F7F595D0074710B /* translateMeTestsUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = translateMeTestsUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66709181F7F595D0074710B /* translateMeTestsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = translateMeTestsUnitTest.swift; sourceTree = "<group>"; };
 		C667091A1F7F595D0074710B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C669EDC01F85E10500242E40 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		C669EDC21F85EAEF00242E40 /* about-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-logo.png"; sourceTree = "<group>"; };
 		C67E14161F705F5A007D41BD /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67E14191F705F5A007D41BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C67E141B1F705F5A007D41BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		C6563D781F70632400E564A5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C669EDC21F85EAEF00242E40 /* about-logo.png */,
 				C63728E21F83EDD500889357 /* placeholder.png */,
 				C68496D71F76FFA900CB5963 /* camera-bold-selected.png */,
 				C68496D51F76FF9E00CB5963 /* translate-bold-selected.png */,
@@ -194,6 +199,7 @@
 				C6563D7D1F70774700E564A5 /* TableViewController.swift */,
 				C617BFAC1F75AE2100152446 /* PopupViewController.swift */,
 				C68496E71F7740E000CB5963 /* SettingsViewController.swift */,
+				C669EDC01F85E10500242E40 /* AboutViewController.swift */,
 				C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */,
 				C60A51441F7B378700F668F3 /* misc.swift */,
 				C67E141D1F705F5A007D41BD /* Main.storyboard */,
@@ -400,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C669EDC31F85EAEF00242E40 /* about-logo.png in Resources */,
 				C63728E31F83EDD500889357 /* placeholder.png in Resources */,
 				C68496D31F76FD4400CB5963 /* camera.png in Resources */,
 				C68496D81F76FFA900CB5963 /* camera-bold-selected.png in Resources */,
@@ -602,6 +609,7 @@
 				C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */,
 				C68496E81F7740E000CB5963 /* SettingsViewController.swift in Sources */,
 				C60A51451F7B378700F668F3 /* misc.swift in Sources */,
+				C669EDC11F85E10500242E40 /* AboutViewController.swift in Sources */,
 				C67E141A1F705F5A007D41BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,7 +764,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wan Kim Mok (AMF92B5VK4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wan Kim Mok (AMF92B5VK4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -775,7 +784,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -813,7 +822,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wan Kim Mok (96KV52LNQ2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wan Kim Mok (96KV52LNQ2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -826,7 +836,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -839,11 +849,15 @@
 			baseConfigurationReference = 9A4CFEFFB154B4C8CA686115 /* Pods-translateMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96KV52LNQ2;
 				INFOPLIST_FILE = translateMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wankimmok.translateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -853,11 +867,15 @@
 			baseConfigurationReference = A33DC9E966E644F3ACF44212 /* Pods-translateMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96KV52LNQ2;
 				INFOPLIST_FILE = translateMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wankimmok.translateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

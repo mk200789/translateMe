@@ -29,12 +29,24 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         saveSettingButtonOutlet.layer.cornerRadius = 10
+        
+        //set navigation title color to black
         navigationController?.navigationBar.tintColor = UIColor.black
+        
+        //set default language label
         changeDefaultLanguageOutlet.layer.cornerRadius = 10
         changeDefaultLanguageOutlet.layer.borderWidth = 1.5
         changeDefaultLanguageOutlet.layer.borderColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1).cgColor
         
         retrieveDefaultSettings()
+        
+        //set about button on the navigation
+        let aboutButtonImage = UIImage(named: "about-icon")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: aboutButtonImage, style: .plain, target: self, action: #selector(goToAbout))
+    }
+    
+    func goToAbout(){
+        self.performSegue(withIdentifier: "aboutSeg", sender: nil)
     }
  
     
