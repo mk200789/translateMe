@@ -80,6 +80,9 @@
 		C667091A1F7F595D0074710B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C669EDC01F85E10500242E40 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		C669EDC21F85EAEF00242E40 /* about-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-logo.png"; sourceTree = "<group>"; };
+		C669EDC41F85F04800242E40 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		C669EDC51F85F04800242E40 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C669EDC61F85F04900242E40 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C67E14161F705F5A007D41BD /* translateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67E14191F705F5A007D41BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C67E141B1F705F5A007D41BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -380,6 +383,7 @@
 				en,
 				Base,
 				"zh-Hant",
+				"zh-Hans",
 			);
 			mainGroup = C67E140D1F705F5A007D41BD;
 			productRefGroup = C67E14171F705F5A007D41BD /* Products */;
@@ -656,6 +660,7 @@
 			children = (
 				C67E141E1F705F5A007D41BD /* Base */,
 				C6B7E56B1F7C812D00ABB75C /* zh-Hant */,
+				C669EDC41F85F04800242E40 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 			children = (
 				C67E14231F705F5A007D41BD /* Base */,
 				C6B7E56C1F7C812D00ABB75C /* zh-Hant */,
+				C669EDC51F85F04800242E40 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 			children = (
 				C6B7E56E1F7C819100ABB75C /* Base */,
 				C6B7E5701F7C81B300ABB75C /* zh-Hant */,
+				C669EDC61F85F04900242E40 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

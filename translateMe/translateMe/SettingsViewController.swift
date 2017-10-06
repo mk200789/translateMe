@@ -115,6 +115,10 @@ class SettingsViewController: UIViewController {
         
         //set the font size of save setting button
         saveSettingButtonOutlet.titleLabel?.font = UIFont(name: changeDefaultLanguageOutlet.titleLabel!.font.fontName, size: CGFloat(default_font_size))
+        
+        //set the size for the font size segment control
+        let attr : [AnyHashable : Any] = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(default_font_size))]
+        fontSizeSegmentControl.setTitleTextAttributes(attr, for: .normal)
 
     }
 

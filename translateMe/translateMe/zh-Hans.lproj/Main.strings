@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "2017 Wan Kim Mok. All Rights Reserved."; ObjectID = "1eV-BF-L0S"; */
+"1eV-BF-L0S.text" = "2017 Wan Kim Mok. All Rights Reserved.";
+
+/* Class = "UINavigationItem"; title = "Words"; ObjectID = "8HR-qG-Gsh"; */
+"8HR-qG-Gsh.title" = "字";
+
+/* Class = "UILabel"; text = "Wan Kim Mok"; ObjectID = "A3D-D7-fK6"; */
+"A3D-D7-fK6.text" = "Wan Kim Mok";
+
+/* Class = "UIViewController"; title = "translateMe"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "translateMe";
+
+/* Class = "UILabel"; text = "Icons and graphics designed and created by"; ObjectID = "Dpm-3T-a91"; */
+"Dpm-3T-a91.text" = "Icons and graphics designed and created by";
+
+/* Class = "UILabel"; text = "v1.0"; ObjectID = "HIu-MC-AW2"; */
+"HIu-MC-AW2.text" = "v1.0";
+
+/* Class = "UILabel"; text = "Translation is provided by"; ObjectID = "InU-NO-2YS"; */
+"InU-NO-2YS.text" = "Translation is provided by";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "KvZ-Sg-7Gc"; */
+"KvZ-Sg-7Gc.normalTitle" = "储存";
+
+/* Class = "UILabel"; text = "translateMe"; ObjectID = "RI0-0w-xo1"; */
+"RI0-0w-xo1.text" = "translateMe";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "Rwt-mk-y8b"; */
+"Rwt-mk-y8b.title" = "设置";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "SJ5-oX-jT1"; */
+"SJ5-oX-jT1.title" = "Item";
+
+/* Class = "UITableViewController"; title = " Language"; ObjectID = "TXI-Jy-Tn0"; */
+"TXI-Jy-Tn0.title" = " 语言";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "its-DS-5JL"; */
+"its-DS-5JL.text" = "文字小大";
+
+/* Class = "UILabel"; text = "Image recognition provided by"; ObjectID = "j74-eg-O13"; */
+"j74-eg-O13.text" = "Image recognition provided by";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[0] = "Regular"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[0]" = "小";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[1] = "Medium"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[1]" = "中";
+
+/* Class = "UISegmentedControl"; j9C-WG-I2e.segmentTitles[2] = "Large"; ObjectID = "j9C-WG-I2e"; */
+"j9C-WG-I2e.segmentTitles[2]" = "大";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "mm9-oa-I26"; */
+"mm9-oa-I26.normalTitle" = "关";
+
+/* Class = "UIButton"; normalTitle = "中文"; ObjectID = "nDo-B8-Vqx"; */
+"nDo-B8-Vqx.normalTitle" = "中文";
+
+/* Class = "UILabel"; text = "Default Language"; ObjectID = "nbW-jL-CLL"; */
+"nbW-jL-CLL.text" = "默认语言";
+
+/* Class = "UILabel"; text = "Please Select a Photo"; ObjectID = "sgC-Z2-xcA"; */
+"sgC-Z2-xcA.text" = "请选择一张图片";
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "t9h-bp-LA4"; */
+"t9h-bp-LA4.title" = "关于";
+
+/* Class = "UILabel"; text = "Clarifai"; ObjectID = "uKR-md-Qo8"; */
+"uKR-md-Qo8.text" = "Clarifai";
+
+/* Class = "UILabel"; text = "t譯: translateMe is an app to assist in increasing English vocabulary words. This app identify the image's contents in English words which is then translated to the language you select and you will be able to hear the audio both the English word and translated word."; ObjectID = "vwB-t6-G3h"; */
+"vwB-t6-G3h.text" = "t譯: translateMe is an app to assist in increasing English vocabulary words. This app identify the image's contents in English words which is then translated to the language you select and you will be able to hear the audio both the English word and translated word.";
+
+/* Class = "UILabel"; text = " Google Translate API"; ObjectID = "x0V-nD-9ve"; */
+"x0V-nD-9ve.text" = " Google Translate API";

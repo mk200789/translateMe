@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  translateMe
+
+  Created by Wan Kim Mok on 9/27/17.
+  Copyright © 2017 Wan Kim Mok. All rights reserved.
+*/
+"Cancel" = "取消";
+"Photo Library" = "相片";
+"Camera" = "相机";
