@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Alamofire
+//import Clarifai_Apple_SDK
 
 class PopupViewController: UIViewController {
 
@@ -22,6 +23,10 @@ class PopupViewController: UIViewController {
     
     @IBOutlet weak var listenToTranslatedTextOutlet: UIButton!
     
+    @IBOutlet weak var translatedImageView: UIImageView!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     let speechSynthesizer = AVSpeechSynthesizer()
     
     var TRANSLATED_LANGUAGE = "zh-TW"
@@ -31,6 +36,8 @@ class PopupViewController: UIViewController {
     var word : String = ""
     
     var translatedWord: String = ""
+    
+    @IBOutlet weak var noImageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +49,29 @@ class PopupViewController: UIViewController {
         listenToTranslatedTextOutlet.isHidden = true
         listenToTranslatedTextOutlet.isEnabled = false
         
+        //hide the no image message
+        noImageLabel.isHidden = true
+        noImageLabel.numberOfLines = 0
+        noImageLabel.adjustsFontSizeToFitWidth = true
+        noImageLabel.lineBreakMode = .byWordWrapping
+        
         let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
-        
-        //set the font size for originalTextLabel and translatedTextLabel
-        originalTextLabel.font = UIFont(name: originalTextLabel.font.fontName, size: CGFloat(fontsize))
-        translatedTextLabel.font = UIFont(name: translatedTextLabel.font.fontName, size: CGFloat(fontsize))
-        
+
         //setup originalTextLabel and translatedTextLabel attributes
         translatedTextLabel.numberOfLines = 0
         translatedTextLabel.lineBreakMode = .byWordWrapping
         translatedTextLabel.textAlignment = .left
+        translatedTextLabel.adjustsFontSizeToFitWidth = true
+        
         originalTextLabel.numberOfLines = 0
         originalTextLabel.lineBreakMode = .byWordWrapping
         originalTextLabel.textAlignment = .left
+        originalTextLabel.adjustsFontSizeToFitWidth = true
         
+        //set the font size for originalTextLabel and translatedTextLabel
+        originalTextLabel.font = UIFont(name: originalTextLabel.font.fontName, size: CGFloat(fontsize))
+        translatedTextLabel.font = UIFont(name: translatedTextLabel.font.fontName, size: CGFloat(fontsize))
+
         
         //retrieve and set default translated language and speech
         let default_language_data = (UserDefaults.standard.object(forKey: "default_language_data") ?? [:]) as! [String: String]
@@ -64,14 +80,33 @@ class PopupViewController: UIViewController {
             language_voice = default_language_data["speechCode"]!
         }
         
+        //activate spinner
+        spinner.startAnimating()
+        
         
         originalTextLabel.text = word
         
         self.translateWord { (translation) in
+            print(translation)
             self.translatedWord = translation
             self.translatedTextLabel.text = translation
             self.listenToTranslatedTextOutlet.isHidden = false
             self.listenToTranslatedTextOutlet.isEnabled = true
+            
+            self.searchImageForWord(word: self.word, completion: { (imageURL) in
+                self.setImageView(imageURL: imageURL, completion: {
+                    
+                    //deactivate and hide spinner
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
+                    
+                    //check if there's no image set
+                    if (self.translatedImageView.image == nil){
+                        print("empty image view!")
+                        self.noImageLabel.isHidden = false
+                    }
+                })
+            })
         }
         
         closeButtonOutlet.setTitle(NSLocalizedString("Close", comment: ""), for: .normal)
@@ -129,11 +164,49 @@ class PopupViewController: UIViewController {
             }
             
         }
-        
-        
-        
     }
-
+    
+    func searchImageForWord(word: String, completion: @escaping(_ imageURL: String)->Void){
+        let number = 10
+        var query = word.trimmingCharacters(in: .whitespacesAndNewlines)
+        query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+//        Alamofire.request("https://api.qwant.com/api/search/images?count=\(number)&q=\(query)").responseJSON { (response) in
+        Alamofire.request("https://api.qwant.com/egp/search/images?count=\(number)&q=\(query)").responseJSON { (response) in
+            if (response.response?.statusCode == 200){
+                if let json = response.result.value {
+                    print("json....")
+                    let status = (json as! NSDictionary)["status"] as! String
+                    if (status == "success"){
+                        let data = (json as! NSDictionary)["data"]
+                        let results = ((data as! NSDictionary)["result"] as! NSDictionary)["items"]
+                        let result = (results as! NSArray)[0] as! NSDictionary
+                        let media = result["media"] as! String
+                        print(media)
+                        completion(media)
+                    }else{
+                        print("could not find any images")
+                        completion("")
+                    }
+                    
+                }
+            }else{
+                print("error")
+                completion("")
+                
+            }
+        }
+    }
+    
+    func setImageView(imageURL: String, completion: @escaping()->Void){
+        print("setting image from url")
+        Alamofire.request(imageURL).response { (response) in
+            let image = UIImage(data: response.data!)
+            self.translatedImageView.image = image
+            completion()
+        }
+    }
+    
 
     // MARK: - Navigation
 
