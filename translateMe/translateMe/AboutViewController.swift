@@ -31,12 +31,6 @@ class AboutViewController: UIViewController {
         reserveLabel.numberOfLines = 0
         reserveLabel.lineBreakMode = .byWordWrapping
         
-//        t譯: translateMe is an app created to assist in increasing English vocabulary words. The app uses words to identify objects the uploaded image that is taken either from the iPhone Camera or from storage. This app also includes the feature to be able to hear the word in both the English and the translated language.
-        
-        /*
-         
- */
-        
     }
 
     override func didReceiveMemoryWarning() {
