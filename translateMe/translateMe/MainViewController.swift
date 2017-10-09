@@ -166,8 +166,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     func getTags(){
         //clear out the previous tags
-        print("getting tags")
-        
         spinner.startAnimating()
         
         tags.removeAll()
@@ -181,25 +179,52 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         let input = Input(dataAsset: dataAsset)
         let inputs = [input]
         
-        self.model.predict(inputs) { (outputs, error) in
-            for output in outputs!{
-                for concept in (output.dataAsset.concepts!){
-                    if (!concept.name.isEmpty){
-                        self.tags.append(concept.name)
-                        print("tag: \(concept.name)  ------> \(concept.score) )")
+        if connectedToNetwork() {
+            self.model.predict(inputs) { (outputs, error) in
+                
+                if (error != nil){
+                    self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
+                }else{
+                    for output in outputs!{
+                        for concept in (output.dataAsset.concepts!){
+                            if (!concept.name.isEmpty){
+                                self.tags.append(concept.name)
+                            }
+                        }
                     }
+                    
+                    self.tagsLabel.text = self.tags.joined(separator: " , ")
+                    self.tagButtonOutlet.isEnabled = true
+                    self.translateImageView.image = UIImage(named: "translate-bold-selected")
                 }
+                
+                self.spinner.stopAnimating()
             }
-            
-            self.tagsLabel.text = self.tags.joined(separator: " , ")
-            self.tagButtonOutlet.isEnabled = true
-            self.translateImageView.image = UIImage(named: "translate-bold-selected")
-            
-            
+        }else{
+            self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
             self.spinner.stopAnimating()
         }
-        
-        
+//        self.model.predict(inputs) { (outputs, error) in
+//
+//            if (error != nil){
+//                self.tagsLabel.text = "Sorry, there was an error trying to recognize image."
+//            }else{
+//                for output in outputs!{
+//                    for concept in (output.dataAsset.concepts!){
+//                        if (!concept.name.isEmpty){
+//                            self.tags.append(concept.name)
+//                            print("tag: \(concept.name)  ------> \(concept.score) )")
+//                        }
+//                    }
+//                }
+//
+//                self.tagsLabel.text = self.tags.joined(separator: " , ")
+//                self.tagButtonOutlet.isEnabled = true
+//                self.translateImageView.image = UIImage(named: "translate-bold-selected")
+//            }
+//
+//            self.spinner.stopAnimating()
+//        }
         
     }
     
