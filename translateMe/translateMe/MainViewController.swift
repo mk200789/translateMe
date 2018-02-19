@@ -117,6 +117,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
         alert.view.tintColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1)
 
+        //include camera action in alert
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { (action) in
+            self.cameraTapped()
+        }
+        
+        alert.addAction(camera)
+        
         
         //include photo library action in alert
         let photoLib = UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default) { (action) in
@@ -124,13 +131,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
         
         alert.addAction(photoLib)
-        
-        //include camera action in alert
-        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { (action) in
-            self.cameraTapped()
-        }
-        
-        alert.addAction(camera)
         
         //include cancel action in alert
         let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
@@ -187,6 +187,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
                     if (!concept.name.isEmpty){
                         self.tags.append(concept.name)
                         print("tag: \(concept.name)  ------> \(concept.score) )")
+                    }else{
+                        self.tags.append("Sorry, there's an issue retrieving related words to this image.")
                     }
                 }
             }
