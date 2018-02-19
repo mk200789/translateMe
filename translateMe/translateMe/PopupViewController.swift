@@ -88,10 +88,15 @@ class PopupViewController: UIViewController {
         
         self.translateWord { (translation) in
             print(translation)
-            self.translatedWord = translation
-            self.translatedTextLabel.text = translation
-            self.listenToTranslatedTextOutlet.isHidden = false
-            self.listenToTranslatedTextOutlet.isEnabled = true
+            if (translation.isEmpty){
+                self.listenToTranslatedTextOutlet.isHidden = true
+                self.listenToTranslatedTextOutlet.isEnabled = false
+            }else{
+                self.translatedWord = translation
+                self.translatedTextLabel.text = translation
+                self.listenToTranslatedTextOutlet.isHidden = false
+                self.listenToTranslatedTextOutlet.isEnabled = true
+            }
             
             self.searchImageForWord(word: self.word, completion: { (imageURL) in
                 self.setImageView(imageURL: imageURL, completion: {
@@ -185,12 +190,14 @@ class PopupViewController: UIViewController {
                         print(media)
                         completion(media)
                     }else{
+                        self.noImageLabel.text = "Sorry, there's no image found for this word"
                         print("could not find any images")
                         completion("")
                     }
                     
                 }
             }else{
+                self.noImageLabel.text = "No internet connection detected!"
                 print("error")
                 completion("")
                 
