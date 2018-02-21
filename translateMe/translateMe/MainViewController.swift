@@ -27,8 +27,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var cameraImageView: UIImageView!
     
     @IBOutlet weak var selectionView: UIView!
-
-    @IBOutlet weak var placeholderLabel: UILabel!
     
     var imagePicker = UIImagePickerController()
     
@@ -76,11 +74,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         //set the size of navbar title
         let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(fontsize))]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: CGFloat(fontsize))]
 
     }
     
-    func goToSettings(){
+    @objc func goToSettings(){
         print("goToSettings")
         self.performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
@@ -209,7 +207,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = selectedImage
-            self.placeholderLabel.isHidden = true
             self.getTags()
         }
         dismiss(animated: true, completion: nil)
