@@ -87,7 +87,6 @@ class PopupViewController: UIViewController {
         originalTextLabel.text = word
         
         self.translateWord { (translation) in
-            print(translation)
             if (translation.isEmpty){
                 self.listenToTranslatedTextOutlet.isHidden = true
                 self.listenToTranslatedTextOutlet.isEnabled = false
@@ -107,7 +106,6 @@ class PopupViewController: UIViewController {
                     
                     //check if there's no image set
                     if (self.translatedImageView.image == nil){
-                        print("empty image view!")
                         self.noImageLabel.isHidden = false
                     }
                 })
@@ -180,25 +178,21 @@ class PopupViewController: UIViewController {
         Alamofire.request("https://api.qwant.com/egp/search/images?count=\(number)&q=\(query)").responseJSON { (response) in
             if (response.response?.statusCode == 200){
                 if let json = response.result.value {
-                    print("json....")
                     let status = (json as! NSDictionary)["status"] as! String
                     if (status == "success"){
                         let data = (json as! NSDictionary)["data"]
                         let results = ((data as! NSDictionary)["result"] as! NSDictionary)["items"]
                         let result = (results as! NSArray)[0] as! NSDictionary
                         let media = result["media"] as! String
-                        print(media)
                         completion(media)
                     }else{
                         self.noImageLabel.text = "Sorry, there's no image found for this word"
-                        print("could not find any images")
                         completion("")
                     }
                     
                 }
             }else{
                 self.noImageLabel.text = "No internet connection detected!"
-                print("error")
                 completion("")
                 
             }
@@ -206,7 +200,6 @@ class PopupViewController: UIViewController {
     }
     
     func setImageView(imageURL: String, completion: @escaping()->Void){
-        print("setting image from url")
         Alamofire.request(imageURL).response { (response) in
             let image = UIImage(data: response.data!)
             self.translatedImageView.image = image
@@ -221,7 +214,6 @@ class PopupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("PREPARE")
     }
 
 

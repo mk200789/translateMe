@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         saveSettingButtonOutlet.layer.cornerRadius = 10
         
@@ -51,16 +51,13 @@ class SettingsViewController: UIViewController {
  
     
     override func viewWillAppear(_ animated: Bool) {
-
+        super.viewWillAppear(animated)
+        
         changeDefaultLanguageOutlet.setTitle(languageData["name"], for: .normal)
         let defaults = UserDefaults.standard
         let default_language_data = (defaults.object(forKey: "default_language_data") ?? [:]) as! [String: String]
         let default_language_idx  = (defaults.object(forKey: "default_language_idx") ?? 0) as! Int
         let default_font_size     = (defaults.object(forKey: "default_font_size") ?? 0) as! Int
-        
-        print("default_language_data \(default_language_data)")
-        print("default_language_idx  \(default_language_idx)")
-        print("default_font_size     \(default_font_size)")
 
     }
     
@@ -120,6 +117,15 @@ class SettingsViewController: UIViewController {
         let attr : [AnyHashable : Any] = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: CGFloat(default_font_size))]
         fontSizeSegmentControl.setTitleTextAttributes(attr, for: .normal)
 
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        let rect = CGRect(origin: fontSizeSegmentControl.frame.origin, size: CGSize(width: fontSizeSegmentControl.frame.size.width, height: 45))
+//        fontSizeSegmentControl.frame = rect
+//        let rect = CGRect(origin: segment.frame.origin, size: CGSize(width: segment.frame.size.width, height: 100))
+//        segment.frame = rect
     }
 
     

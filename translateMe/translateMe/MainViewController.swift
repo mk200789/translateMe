@@ -79,7 +79,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     @objc func goToSettings(){
-        print("goToSettings")
         self.performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
     
@@ -95,7 +94,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
 
     @IBAction func moveToTagTable(_ sender: Any) {
-        print("move to table")
         self.performSegue(withIdentifier: "tag_table_seg", sender: nil)
     }
     
@@ -164,8 +162,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     func getTags(){
         //clear out the previous tags
-        print("getting tags")
-        
+
         spinner.startAnimating()
         
         tags.removeAll()
@@ -184,7 +181,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 for concept in (output.dataAsset.concepts!){
                     if (!concept.name.isEmpty){
                         self.tags.append(concept.name)
-                        print("tag: \(concept.name)  ------> \(concept.score) )")
                     }else{
                         self.tags.append("Sorry, there's an issue retrieving related words to this image.")
                     }
