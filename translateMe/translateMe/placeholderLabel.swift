@@ -54,10 +54,6 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         changeDefaultLanguageOutlet.setTitle(languageData["name"], for: .normal)
-        let defaults = UserDefaults.standard
-        let default_language_data = (defaults.object(forKey: "default_language_data") ?? [:]) as! [String: String]
-        let default_language_idx  = (defaults.object(forKey: "default_language_idx") ?? 0) as! Int
-        let default_font_size     = (defaults.object(forKey: "default_font_size") ?? 0) as! Int
 
     }
     
