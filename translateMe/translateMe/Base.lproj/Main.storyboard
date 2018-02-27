@@ -259,9 +259,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j9C-WG-I2e">
-                                <rect key="frame" x="47" y="328" width="281" height="29"/>
+                                <rect key="frame" x="47" y="328" width="281" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="1dx-S8-on8"/>
+                                    <constraint firstAttribute="height" constant="45" id="1dx-S8-on8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="281" id="DHs-1G-164"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="281" id="kfi-4w-f7b"/>
                                 </constraints>
@@ -314,20 +314,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.76470588240000004" green="0.70196078429999997" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="its-DS-5JL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nDo-B8-Vqx" secondAttribute="bottom" constant="8" id="Cy8-EA-9hT"/>
                             <constraint firstItem="j9C-WG-I2e" firstAttribute="top" secondItem="its-DS-5JL" secondAttribute="bottom" constant="8" id="GXa-rI-7ef"/>
-                            <constraint firstItem="its-DS-5JL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nDo-B8-Vqx" secondAttribute="bottom" constant="10" id="PLG-kD-VG8"/>
                             <constraint firstItem="nDo-B8-Vqx" firstAttribute="centerX" secondItem="B2V-WW-aTC" secondAttribute="centerX" id="UR3-Gc-fK0"/>
                             <constraint firstItem="KvZ-Sg-7Gc" firstAttribute="centerX" secondItem="B2V-WW-aTC" secondAttribute="centerX" id="UdX-VL-1hq"/>
-                            <constraint firstItem="Haw-4l-gd8" firstAttribute="top" relation="lessThanOrEqual" secondItem="KvZ-Sg-7Gc" secondAttribute="bottom" constant="51" id="WCn-S8-oH8"/>
                             <constraint firstItem="its-DS-5JL" firstAttribute="centerX" secondItem="B2V-WW-aTC" secondAttribute="centerX" id="WbA-ry-5b0"/>
                             <constraint firstItem="nDo-B8-Vqx" firstAttribute="top" secondItem="nbW-jL-CLL" secondAttribute="bottom" constant="9" id="Wbb-PA-ypR"/>
-                            <constraint firstItem="Haw-4l-gd8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KvZ-Sg-7Gc" secondAttribute="bottom" constant="10" id="cEt-ZQ-rRj"/>
+                            <constraint firstItem="KvZ-Sg-7Gc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="j9C-WG-I2e" secondAttribute="bottom" constant="12" id="ckD-0u-vnd"/>
                             <constraint firstItem="nbW-jL-CLL" firstAttribute="centerX" secondItem="B2V-WW-aTC" secondAttribute="centerX" id="dcm-ig-8KS"/>
-                            <constraint firstItem="its-DS-5JL" firstAttribute="top" relation="lessThanOrEqual" secondItem="nDo-B8-Vqx" secondAttribute="bottom" constant="63" id="pJX-JT-skp"/>
+                            <constraint firstItem="Haw-4l-gd8" firstAttribute="top" secondItem="KvZ-Sg-7Gc" secondAttribute="bottom" constant="51" id="gcs-EG-BtU"/>
+                            <constraint firstItem="KvZ-Sg-7Gc" firstAttribute="top" relation="lessThanOrEqual" secondItem="j9C-WG-I2e" secondAttribute="bottom" constant="193" id="jHj-Su-hBK"/>
                             <constraint firstItem="nbW-jL-CLL" firstAttribute="top" secondItem="rZ4-w1-lpM" secondAttribute="bottom" constant="34" id="q3k-4L-Gvy"/>
-                            <constraint firstItem="KvZ-Sg-7Gc" firstAttribute="top" relation="lessThanOrEqual" secondItem="j9C-WG-I2e" secondAttribute="bottom" constant="210" id="qJ8-vq-7jl"/>
+                            <constraint firstItem="its-DS-5JL" firstAttribute="top" relation="lessThanOrEqual" secondItem="nDo-B8-Vqx" secondAttribute="bottom" constant="63" id="xiq-TX-53i"/>
                             <constraint firstItem="j9C-WG-I2e" firstAttribute="centerX" secondItem="B2V-WW-aTC" secondAttribute="centerX" id="yLr-RM-Y38"/>
-                            <constraint firstItem="KvZ-Sg-7Gc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="j9C-WG-I2e" secondAttribute="bottom" constant="8" id="zRW-9z-lWT"/>
                         </constraints>
                     </view>
                     <connections>
