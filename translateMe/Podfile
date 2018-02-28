@@ -8,7 +8,7 @@ target 'translateMe' do
 
   # Pods for translateMe
   pod 'Clarifai-Apple-SDK', '3.0.0-beta5'
-  pod 'Alamofire', '~> 4.5'
+  pod 'Alamofire', '~> 4.6'
 
   target 'translateMeTests' do
     inherit! :search_paths

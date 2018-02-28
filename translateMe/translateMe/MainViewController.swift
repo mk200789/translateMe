@@ -27,8 +27,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var cameraImageView: UIImageView!
     
     @IBOutlet weak var selectionView: UIView!
-
-    @IBOutlet weak var placeholderLabel: UILabel!
     
     var imagePicker = UIImagePickerController()
     
@@ -76,12 +74,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         //set the size of navbar title
         let fontsize = Misc.fontSize[(UserDefaults.standard.object(forKey: "default_font_size") ?? 0) as! Int]
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(fontsize))]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: CGFloat(fontsize))]
 
     }
     
-    func goToSettings(){
-        print("goToSettings")
+    @objc func goToSettings(){
         self.performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
     
@@ -97,7 +94,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
 
     @IBAction func moveToTagTable(_ sender: Any) {
-        print("move to table")
         self.performSegue(withIdentifier: "tag_table_seg", sender: nil)
     }
     
@@ -117,6 +113,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
         alert.view.tintColor = UIColor(red: 182/255, green: 159/255, blue: 230/255, alpha: 1)
 
+        //include camera action in alert
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { (action) in
+            self.cameraTapped()
+        }
+        
+        alert.addAction(camera)
+        
         
         //include photo library action in alert
         let photoLib = UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default) { (action) in
@@ -124,13 +127,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
         
         alert.addAction(photoLib)
-        
-        //include camera action in alert
-        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { (action) in
-            self.cameraTapped()
-        }
-        
-        alert.addAction(camera)
         
         //include cancel action in alert
         let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
@@ -179,60 +175,29 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         let input = Input(dataAsset: dataAsset)
         let inputs = [input]
         
-        if connectedToNetwork() {
-            self.model.predict(inputs) { (outputs, error) in
-                
-                if (error != nil){
-                    self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
-                }else{
-                    for output in outputs!{
-                        for concept in (output.dataAsset.concepts!){
-                            if (!concept.name.isEmpty){
-                                self.tags.append(concept.name)
-                            }
-                        }
+        self.model.predict(inputs) { (outputs, error) in
+            for output in outputs!{
+                for concept in (output.dataAsset.concepts!){
+                    if (!concept.name.isEmpty){
+                        self.tags.append(concept.name)
+                    }else{
+                        self.tags.append("Sorry, there's an issue retrieving related words to this image.")
+                        //self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
                     }
-                    
-                    self.tagsLabel.text = self.tags.joined(separator: " , ")
-                    self.tagButtonOutlet.isEnabled = true
-                    self.translateImageView.image = UIImage(named: "translate-bold-selected")
                 }
-                
-                self.spinner.stopAnimating()
             }
-        }else{
-            self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
+            self.tagsLabel.text = self.tags.joined(separator: " , ")
+            self.tagButtonOutlet.isEnabled = true
+            self.translateImageView.image = UIImage(named: "translate-bold-selected")
+            
             self.spinner.stopAnimating()
         }
-//        self.model.predict(inputs) { (outputs, error) in
-//
-//            if (error != nil){
-//                self.tagsLabel.text = "Sorry, there was an error trying to recognize image."
-//            }else{
-//                for output in outputs!{
-//                    for concept in (output.dataAsset.concepts!){
-//                        if (!concept.name.isEmpty){
-//                            self.tags.append(concept.name)
-//                            print("tag: \(concept.name)  ------> \(concept.score) )")
-//                        }
-//                    }
-//                }
-//
-//                self.tagsLabel.text = self.tags.joined(separator: " , ")
-//                self.tagButtonOutlet.isEnabled = true
-//                self.translateImageView.image = UIImage(named: "translate-bold-selected")
-//            }
-//
-//            self.spinner.stopAnimating()
-//        }
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = selectedImage
-            self.placeholderLabel.isHidden = true
             self.getTags()
         }
         dismiss(animated: true, completion: nil)

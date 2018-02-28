@@ -13,6 +13,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var translationCreditLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var reserveLabel: UILabel!
+    @IBOutlet weak var creditScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,10 @@ class AboutViewController: UIViewController {
         reserveLabel.adjustsFontSizeToFitWidth = true
         reserveLabel.numberOfLines = 0
         reserveLabel.lineBreakMode = .byWordWrapping
-
         
+        creditScrollView.isDirectionalLockEnabled = true
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

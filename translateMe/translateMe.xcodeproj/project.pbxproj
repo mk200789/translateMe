@@ -31,7 +31,7 @@
 		C68496D61F76FF9E00CB5963 /* translate-bold-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C68496D51F76FF9E00CB5963 /* translate-bold-selected.png */; };
 		C68496D81F76FFA900CB5963 /* camera-bold-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C68496D71F76FFA900CB5963 /* camera-bold-selected.png */; };
 		C68496E61F773A4300CB5963 /* audio.png in Resources */ = {isa = PBXBuildFile; fileRef = C68496E51F773A4300CB5963 /* audio.png */; };
-		C68496E81F7740E000CB5963 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68496E71F7740E000CB5963 /* SettingsViewController.swift */; };
+		C68496E81F7740E000CB5963 /* placeholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68496E71F7740E000CB5963 /* placeholderLabel.swift */; };
 		C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */; };
 		C6B7E56F1F7C819100ABB75C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6B7E56D1F7C819100ABB75C /* Localizable.strings */; };
 		C6E2F7C81F8BF3D900339637 /* connectedToNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2F7C71F8BF3D900339637 /* connectedToNetwork.swift */; };
@@ -73,6 +73,7 @@
 		C60A51441F7B378700F668F3 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
 		C617BFAC1F75AE2100152446 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		C63728E21F83EDD500889357 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		C637BA98203BBEEF0087C911 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6563D791F70633200E564A5 /* launch.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.JPG; sourceTree = "<group>"; };
 		C6563D7B1F70761800E564A5 /* blank_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_default.png; sourceTree = "<group>"; };
 		C6563D7D1F70774700E564A5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +103,7 @@
 		C68496D51F76FF9E00CB5963 /* translate-bold-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "translate-bold-selected.png"; sourceTree = "<group>"; };
 		C68496D71F76FFA900CB5963 /* camera-bold-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-bold-selected.png"; sourceTree = "<group>"; };
 		C68496E51F773A4300CB5963 /* audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audio.png; sourceTree = "<group>"; };
-		C68496E71F7740E000CB5963 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C68496E71F7740E000CB5963 /* placeholderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeholderLabel.swift; sourceTree = "<group>"; };
 		C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
 		C6B7E56B1F7C812D00ABB75C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		C6B7E56C1F7C812D00ABB75C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -203,7 +204,7 @@
 				C67E141B1F705F5A007D41BD /* MainViewController.swift */,
 				C6563D7D1F70774700E564A5 /* TableViewController.swift */,
 				C617BFAC1F75AE2100152446 /* PopupViewController.swift */,
-				C68496E71F7740E000CB5963 /* SettingsViewController.swift */,
+				C68496E71F7740E000CB5963 /* placeholderLabel.swift */,
 				C669EDC01F85E10500242E40 /* AboutViewController.swift */,
 				C6E2F7C71F8BF3D900339637 /* connectedToNetwork.swift */,
 				C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */,
@@ -253,6 +254,7 @@
 		E7805C97AA8991619868B1B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C637BA98203BBEEF0087C911 /* Alamofire.framework */,
 				2FF50B5E509F5C1A9CDE573C /* Pods_translateMe.framework */,
 				0303866AE9C40C029FE95D1F /* Pods_translateMeTests.framework */,
 				BE2BBBA1C2225F14D62F7FFD /* Pods_translateMeUITests.framework */,
@@ -362,17 +364,20 @@
 					C67E14151F705F5A007D41BD = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 96KV52LNQ2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					C67E14291F705F5A007D41BD = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 96KV52LNQ2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C67E14151F705F5A007D41BD;
 					};
 					C67E14341F705F5A007D41BD = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 96KV52LNQ2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C67E14151F705F5A007D41BD;
 					};
@@ -615,7 +620,7 @@
 				C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */,
 				C6E2F7C81F8BF3D900339637 /* connectedToNetwork.swift in Sources */,
 				C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */,
-				C68496E81F7740E000CB5963 /* SettingsViewController.swift in Sources */,
+				C68496E81F7740E000CB5963 /* placeholderLabel.swift in Sources */,
 				C60A51451F7B378700F668F3 /* misc.swift in Sources */,
 				C669EDC11F85E10500242E40 /* AboutViewController.swift in Sources */,
 				C67E141A1F705F5A007D41BD /* AppDelegate.swift in Sources */,
@@ -869,7 +874,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wankimmok.translateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -887,7 +893,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wankimmok.translateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -902,7 +909,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/translateMe.app/translateMe";
 			};
 			name = Debug;
@@ -918,7 +926,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/translateMe.app/translateMe";
 			};
 			name = Release;
@@ -933,7 +942,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = translateMe;
 			};
 			name = Debug;
@@ -948,7 +958,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk200789.translateMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = translateMe;
 			};
 			name = Release;
