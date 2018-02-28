@@ -32,9 +32,7 @@ class AboutViewController: UIViewController {
         reserveLabel.numberOfLines = 0
         reserveLabel.lineBreakMode = .byWordWrapping
         
-        
         creditScrollView.isDirectionalLockEnabled = true
-        
     }
 
 

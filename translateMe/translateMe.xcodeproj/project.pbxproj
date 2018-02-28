@@ -34,6 +34,7 @@
 		C68496E81F7740E000CB5963 /* placeholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68496E71F7740E000CB5963 /* placeholderLabel.swift */; };
 		C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */; };
 		C6B7E56F1F7C819100ABB75C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6B7E56D1F7C819100ABB75C /* Localizable.strings */; };
+		C6E2F7C81F8BF3D900339637 /* connectedToNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2F7C71F8BF3D900339637 /* connectedToNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		C6B7E56C1F7C812D00ABB75C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C6B7E56E1F7C819100ABB75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C6B7E5701F7C81B300ABB75C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C6E2F7C71F8BF3D900339637 /* connectedToNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectedToNetwork.swift; sourceTree = "<group>"; };
 		F1BC4C1FA343CD99A1DF0AB5 /* Pods-translateMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-translateMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-translateMeTests/Pods-translateMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				C617BFAC1F75AE2100152446 /* PopupViewController.swift */,
 				C68496E71F7740E000CB5963 /* placeholderLabel.swift */,
 				C669EDC01F85E10500242E40 /* AboutViewController.swift */,
+				C6E2F7C71F8BF3D900339637 /* connectedToNetwork.swift */,
 				C68496E91F7765AF00CB5963 /* LanguageTableViewController.swift */,
 				C60A51441F7B378700F668F3 /* misc.swift */,
 				C67E141D1F705F5A007D41BD /* Main.storyboard */,
@@ -615,6 +618,7 @@
 				C617BFAD1F75AE2100152446 /* PopupViewController.swift in Sources */,
 				C67E141C1F705F5A007D41BD /* MainViewController.swift in Sources */,
 				C6563D7E1F70774700E564A5 /* TableViewController.swift in Sources */,
+				C6E2F7C81F8BF3D900339637 /* connectedToNetwork.swift in Sources */,
 				C68496EA1F7765AF00CB5963 /* LanguageTableViewController.swift in Sources */,
 				C68496E81F7740E000CB5963 /* placeholderLabel.swift in Sources */,
 				C60A51451F7B378700F668F3 /* misc.swift in Sources */,

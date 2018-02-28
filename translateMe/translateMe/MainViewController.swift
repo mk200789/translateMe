@@ -162,7 +162,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     func getTags(){
         //clear out the previous tags
-
         spinner.startAnimating()
         
         tags.removeAll()
@@ -183,20 +182,16 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         self.tags.append(concept.name)
                     }else{
                         self.tags.append("Sorry, there's an issue retrieving related words to this image.")
+                        //self.tagsLabel.text = NSLocalizedString("Sorry, there was an error trying to recognize the image.", comment: "")
                     }
                 }
             }
-            
             self.tagsLabel.text = self.tags.joined(separator: " , ")
             self.tagButtonOutlet.isEnabled = true
             self.translateImageView.image = UIImage(named: "translate-bold-selected")
             
-            
             self.spinner.stopAnimating()
         }
-        
-        
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
