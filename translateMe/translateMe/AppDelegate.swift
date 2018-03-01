@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     enum ShortcutType: String {
         case print = "Print"
+        case new = "DynamicAction"
     }
     
     func handleShortcutItem(withShortcutItem item: UIApplicationShortcutItem) -> Bool {
@@ -50,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 case .print :
                     print("quick actions handle")
                     return true
+                case .new:
+                    print("dynamic quick actions handle")
             }
         }
         return false

@@ -15,6 +15,28 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var reserveLabel: UILabel!
     @IBOutlet weak var creditScrollView: UIScrollView!
     
+    @IBAction func dynamicactionbutton(_ sender: Any) {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            
+            
+            let type = bundleID + ".DynamicAction"
+            let icon = UIApplicationShortcutIcon(templateImageName: "ic_add_circle_outline")
+            
+            let newQuickAction = UIApplicationShortcutItem(type: type, localizedTitle: "New Dynamic Action", localizedSubtitle: nil, icon: icon, userInfo: nil)
+            var existingShortcutItems = UIApplication.shared.shortcutItems ?? []
+            print(existingShortcutItems)
+            
+            if !existingShortcutItems.contains(newQuickAction) {
+                
+                existingShortcutItems.append(newQuickAction)
+                UIApplication.shared.shortcutItems = existingShortcutItems
+            }
+            
+        } else {
+            print("bundle Id is missing")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
