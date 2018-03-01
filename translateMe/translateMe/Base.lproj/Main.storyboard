@@ -31,7 +31,7 @@
         <!--About-->
         <scene sceneID="w9q-61-qY2">
             <objects>
-                <viewController title="About" id="t9h-bp-LA4" customClass="AboutViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutViewController" title="About" id="t9h-bp-LA4" customClass="AboutViewController" customModule="translateMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mOM-YA-ZuJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rbo-ob-d0h"/>

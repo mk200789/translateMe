@@ -52,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("quick actions handle")
                     return true
                 case .new:
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let targetVC = storyboard.instantiateViewController(withIdentifier: "aboutViewController") as! AboutViewController
+                    if let navC = window?.rootViewController as! UINavigationController? {
+                        navC.pushViewController(targetVC, animated: false)
+                    }
                     print("dynamic quick actions handle")
             }
         }
